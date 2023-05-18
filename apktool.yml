@@ -5,7 +5,7 @@ doNotCompress:
 - classes.dex
 - resources.arsc
 - png
-- res/drawable-xhdpi-v4/volte_icon
+- res/drawable-xhdpi/volte_icon
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
@@ -20,7 +20,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.6.1
+version: 2.7.0
 versionInfo:
   versionCode: '1'
   versionName: '1.0'

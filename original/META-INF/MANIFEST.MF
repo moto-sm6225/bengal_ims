@@ -5,7 +5,7 @@ Name: AndroidManifest.xml
 SHA-256-Digest: rjm7q9XbkU3thLTp0yd9RAGznnrzCp72tkHIRFmLZyg=
 
 Name: classes.dex
-SHA-256-Digest: nKOcqxLHgLAXNhgo62ieOFGcFdrifSzp/w4sleE4JK4=
+SHA-256-Digest: TKCVlwf0HRo9te878Ad+pbwDOyl+17+nRYZ9ReMUMCg=
 
 Name: res/drawable-xhdpi-v4/img_no_image.png
 SHA-256-Digest: O729uX6bgIy/ltKyAIZFfD5eTkogPQ0xfQ9PlZppJIU=

@@ -1608,14 +1608,14 @@
         }
     .end annotation
 
-    .line 598
+    .line 602
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->queryMultiSimVoiceCapability(I)V
 
-    .line 599
+    .line 603
     return-void
 .end method
 
@@ -1640,7 +1640,7 @@
 .end method
 
 .method public querySsacStatus(I)V
-    .locals 1
+    .locals 2
     .param p1, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1648,13 +1648,19 @@
         }
     .end annotation
 
-    .line 568
+    .line 569
     const-string v0, "querySsacStatus not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 569
-    return-void
+    .line 570
+    new-instance v0, Landroid/os/RemoteException;
+
+    const-string v1, "querySsacStatus is not supported"
+
+    invoke-direct {v0, v1}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public queryVirtualLineInfo(ILjava/lang/String;)V
@@ -1679,7 +1685,7 @@
 .end method
 
 .method public queryVoltePref(I)V
-    .locals 1
+    .locals 2
     .param p1, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1687,17 +1693,23 @@
         }
     .end annotation
 
-    .line 582
+    .line 585
     const-string v0, "queryVoltePref not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 583
-    return-void
+    .line 586
+    new-instance v0, Landroid/os/RemoteException;
+
+    const-string v1, "queryVoltePref is not supported"
+
+    invoke-direct {v0, v1}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public queryVopsStatus(I)V
-    .locals 1
+    .locals 2
     .param p1, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1711,7 +1723,13 @@
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
     .line 563
-    return-void
+    new-instance v0, Landroid/os/RemoteException;
+
+    const-string v1, "queryVopsStatus is not supported"
+
+    invoke-direct {v0, v1}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public registerMultiIdentityLines(ILjava/util/Collection;)V
@@ -2131,7 +2149,7 @@
         }
     .end annotation
 
-    .line 589
+    .line 593
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->isFeatureSupported(I)Z
@@ -2140,12 +2158,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 592
+    .line 596
     invoke-static {p2, p3, p4}, Lorg/codeaurora/ims/StableAidl;->fromImsMediaConfig(Landroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)Lvendor/qti/hardware/radio/ims/MediaConfig;
 
     move-result-object v0
 
-    .line 593
+    .line 597
     .local v0, "mediaConfig":Lvendor/qti/hardware/radio/ims/MediaConfig;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2153,10 +2171,10 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setMediaConfiguration(ILvendor/qti/hardware/radio/ims/MediaConfig;)V
 
-    .line 594
+    .line 598
     return-void
 
-    .line 590
+    .line 594
     .end local v0    # "mediaConfig":Lvendor/qti/hardware/radio/ims/MediaConfig;
     :cond_0
     new-instance v0, Landroid/os/RemoteException;
@@ -2347,7 +2365,7 @@
 .end method
 
 .method public updateVoltePref(II)V
-    .locals 1
+    .locals 2
     .param p1, "token"    # I
     .param p2, "preference"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -2356,11 +2374,17 @@
         }
     .end annotation
 
-    .line 576
+    .line 578
     const-string v0, "updateVoltePref not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 577
-    return-void
+    .line 579
+    new-instance v0, Landroid/os/RemoteException;
+
+    const-string v1, "updateVoltePref is not supported"
+
+    invoke-direct {v0, v1}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
