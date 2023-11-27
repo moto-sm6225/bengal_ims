@@ -43,12 +43,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/ims/ImsConferenceController$1;)V
+.method synthetic constructor <init>(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult-IA;)V
     .locals 0
-    .param p1, "x0"    # Lorg/codeaurora/ims/ImsConferenceController;
-    .param p2, "x1"    # Lorg/codeaurora/ims/ImsConferenceController$1;
 
-    .line 201
     invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;-><init>(Lorg/codeaurora/ims/ImsConferenceController;)V
 
     return-void

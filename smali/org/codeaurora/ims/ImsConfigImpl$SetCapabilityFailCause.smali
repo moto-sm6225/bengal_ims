@@ -121,7 +121,7 @@
     .locals 2
 
     .line 403
-    sget-object v0, Lorg/codeaurora/ims/ImsConfigImpl$12;->$SwitchMap$org$codeaurora$ims$ImsConfigImpl$SetCapabilityFailCause:[I
+    sget-object v0, Lorg/codeaurora/ims/ImsConfigImpl$11;->$SwitchMap$org$codeaurora$ims$ImsConfigImpl$SetCapabilityFailCause:[I
 
     invoke-virtual {p0}, Lorg/codeaurora/ims/ImsConfigImpl$SetCapabilityFailCause;->ordinal()I
 

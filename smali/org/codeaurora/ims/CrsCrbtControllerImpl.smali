@@ -31,6 +31,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmClients(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
+    .locals 0
+
+    iget-object p0, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->mClients:Ljava/util/HashMap;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lorg/codeaurora/ims/ImsServiceSub;Landroid/content/Context;)V
     .locals 1
     .param p1, "serviceSub"    # Lorg/codeaurora/ims/ImsServiceSub;
@@ -59,16 +67,6 @@
 
     .line 74
     return-void
-.end method
-
-.method static synthetic access$000(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/codeaurora/ims/CrsCrbtControllerImpl;
-
-    .line 22
-    iget-object v0, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->mClients:Ljava/util/HashMap;
-
-    return-object v0
 .end method
 
 .method private getIncomingOrOutgoingCallSession()Lorg/codeaurora/ims/ImsCallSessionImpl;

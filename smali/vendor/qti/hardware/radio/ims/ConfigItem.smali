@@ -19,6 +19,8 @@
 
 .field public static final AVAILABILITY_CACHE_EXPIRATION:I = 0x14
 
+.field public static final B2C_ENRICHED_CALLING_CONFIG:I = 0x4f
+
 .field public static final CANCELLATION_TIMER:I = 0x6
 
 .field public static final CAPABILITIES_CACHE_EXPIRATION:I = 0x13
@@ -28,6 +30,8 @@
 .field public static final CAPABILITY_DISCOVERY_ENABLED:I = 0x1f
 
 .field public static final CAPAB_POLL_LIST_SUB_EXP:I = 0x18
+
+.field public static final DATA_CHANNEL:I = 0x50
 
 .field public static final DOMAIN_NAME:I = 0xe
 
@@ -154,6 +158,10 @@
 .field public static final VOICE_OVER_WIFI_ROAMING:I = 0x1d
 
 .field public static final VOICE_OVER_WIFI_ROAMING_MODE:I = 0x4a
+
+.field public static final VOLTE_PROVISIONING_RESTRICT_HOME:I = 0x51
+
+.field public static final VOLTE_PROVISIONING_RESTRICT_ROAMING:I = 0x52
 
 .field public static final VOLTE_USER_OPT_IN_STATUS:I = 0x22
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,9 +11,11 @@
 
 .field public final synthetic f$1:I
 
+.field public final synthetic f$2:Landroid/telephony/ims/ImsReasonInfo;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lorg/codeaurora/ims/ImsUtListenerImpl;I)V
+.method public synthetic constructor <init>(Lorg/codeaurora/ims/ImsUtListenerImpl;ILandroid/telephony/ims/ImsReasonInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,19 +24,23 @@
 
     iput p2, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;->f$1:I
 
+    iput-object p3, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;->f$2:Landroid/telephony/ims/ImsReasonInfo;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;->f$0:Lorg/codeaurora/ims/ImsUtListenerImpl;
 
     iget v1, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsUtListenerImpl;->lambda$utConfigurationUpdated$0$ImsUtListenerImpl(I)V
+    iget-object v2, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda0;->f$2:Landroid/telephony/ims/ImsReasonInfo;
+
+    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsUtListenerImpl;->lambda$utConfigurationUpdateFailed$1$org-codeaurora-ims-ImsUtListenerImpl(ILandroid/telephony/ims/ImsReasonInfo;)V
 
     return-void
 .end method

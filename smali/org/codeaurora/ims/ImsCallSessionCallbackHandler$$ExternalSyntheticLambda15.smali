@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsCallSessionCallbackHandler$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-object v1, p0, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler$$ExternalSyntheticLambda15;->f$1:Landroid/telephony/ims/ImsCallProfile;
 
-    invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;->lambda$callSessionResumed$12$ImsCallSessionCallbackHandler(Landroid/telephony/ims/ImsCallProfile;)V
+    invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;->lambda$callSessionInitiated$1$org-codeaurora-ims-ImsCallSessionCallbackHandler(Landroid/telephony/ims/ImsCallProfile;)V
 
     return-void
 .end method

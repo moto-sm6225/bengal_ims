@@ -9,6 +9,8 @@
 # static fields
 .field public static final ANY:I = 0x1
 
+.field public static final C_IWLAN:I = 0x17
+
 .field public static final EDGE:I = 0x4
 
 .field public static final EHRPD:I = 0xf

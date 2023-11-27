@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsCallSessionImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Lorg/codeaurora/ims/internal/ICrsCrbtListener;
 
-    invoke-virtual {v0, p1}, Lorg/codeaurora/ims/ImsCallSessionImpl;->lambda$handleSipDtmfReceived$2$ImsCallSessionImpl(Lorg/codeaurora/ims/internal/ICrsCrbtListener;)V
+    invoke-virtual {v0, p1}, Lorg/codeaurora/ims/ImsCallSessionImpl;->lambda$setCrsCrbtListener$0$org-codeaurora-ims-ImsCallSessionImpl(Lorg/codeaurora/ims/internal/ICrsCrbtListener;)V
 
     return-void
 .end method

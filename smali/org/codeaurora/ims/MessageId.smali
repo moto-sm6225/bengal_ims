@@ -34,6 +34,8 @@
 
 .field public static final REQUEST_EXIT_EMERGENCY_CALLBACK_MODE:I = 0xb
 
+.field public static final REQUEST_EXIT_SCBM:I = 0x45
+
 .field public static final REQUEST_EXPLICIT_CALL_TRANSFER:I = 0xc
 
 .field public static final REQUEST_GET_CLIR:I = 0x14
@@ -152,6 +154,8 @@
 
 .field public static final UNSOL_CONFERENCE_CALL_STATE_COMPLETED:I = 0xef
 
+.field public static final UNSOL_C_IWLAN_NOTIFICATION:I = 0xf6
+
 .field public static final UNSOL_ENTER_EMERGENCY_CALLBACK_MODE:I = 0xcd
 
 .field public static final UNSOL_EXIT_EMERGENCY_CALLBACK_MODE:I = 0xce
@@ -159,6 +163,8 @@
 .field public static final UNSOL_IMS_SMS_STATUS_REPORT:I = 0xe1
 
 .field public static final UNSOL_IMS_SUB_CONFIG_CHANGED:I = 0xdd
+
+.field public static final UNSOL_INCOMING_CALL_AUTO_REJECTED:I = 0xf5
 
 .field public static final UNSOL_INCOMING_DTMF_START:I = 0xf1
 
@@ -181,6 +187,8 @@
 .field public static final UNSOL_ON_SS:I = 0xe0
 
 .field public static final UNSOL_PARTICIPANT_STATUS_INFO:I = 0xdc
+
+.field public static final UNSOL_PRE_ALERTING_CALL_INFO_AVAILABLE:I = 0xf4
 
 .field public static final UNSOL_RADIO_STATE_CHANGED:I = 0xd5
 

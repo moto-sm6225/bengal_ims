@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsServiceClassTracker$VtDataUsageProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-wide v1, p0, Lorg/codeaurora/ims/ImsServiceClassTracker$VtDataUsageProvider$$ExternalSyntheticLambda0;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsServiceClassTracker$VtDataUsageProvider;->lambda$onSetAlert$0$ImsServiceClassTracker$VtDataUsageProvider(J)V
+    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsServiceClassTracker$VtDataUsageProvider;->lambda$onSetAlert$0$org-codeaurora-ims-ImsServiceClassTracker$VtDataUsageProvider(J)V
 
     return-void
 .end method

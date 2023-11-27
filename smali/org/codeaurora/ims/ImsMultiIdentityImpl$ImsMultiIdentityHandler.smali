@@ -48,9 +48,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -78,9 +82,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget v2, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -94,7 +102,7 @@
     :pswitch_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiIdentityImpl$ImsMultiIdentityHandler;->this$0:Lorg/codeaurora/ims/ImsMultiIdentityImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->access$500(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->-$$Nest$monMultiIdentityVirtualLineInfoResponse(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 98
     goto :goto_0
@@ -103,7 +111,7 @@
     :pswitch_1
     iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiIdentityImpl$ImsMultiIdentityHandler;->this$0:Lorg/codeaurora/ims/ImsMultiIdentityImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->access$400(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->-$$Nest$monMultiIdentityInfoPendingResponse(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 95
     goto :goto_0
@@ -112,7 +120,7 @@
     :pswitch_2
     iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiIdentityImpl$ImsMultiIdentityHandler;->this$0:Lorg/codeaurora/ims/ImsMultiIdentityImpl;
 
-    invoke-static {v1}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->access$300(Lorg/codeaurora/ims/ImsMultiIdentityImpl;)V
+    invoke-static {v1}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->-$$Nest$monMultiIdentityInfoPendingIndication(Lorg/codeaurora/ims/ImsMultiIdentityImpl;)V
 
     .line 92
     goto :goto_0
@@ -121,7 +129,7 @@
     :pswitch_3
     iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiIdentityImpl$ImsMultiIdentityHandler;->this$0:Lorg/codeaurora/ims/ImsMultiIdentityImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->access$200(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->-$$Nest$monMultiIdentityRegistrationStatusChange(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 89
     goto :goto_0
@@ -130,7 +138,7 @@
     :pswitch_4
     iget-object v1, p0, Lorg/codeaurora/ims/ImsMultiIdentityImpl$ImsMultiIdentityHandler;->this$0:Lorg/codeaurora/ims/ImsMultiIdentityImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->access$100(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsMultiIdentityImpl;->-$$Nest$monRegisterMultiIdentityLinesResponse(Lorg/codeaurora/ims/ImsMultiIdentityImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 86
     nop

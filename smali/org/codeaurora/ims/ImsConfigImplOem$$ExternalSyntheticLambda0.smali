@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsConfigImplOem$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object v0, p0, Lorg/codeaurora/ims/ImsConfigImplOem$$ExternalSyntheticLambda0;->f$0:Lorg/codeaurora/ims/ImsConfigImplOem;
 
-    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsConfigImplOem;->lambda$updateImsSupportedServicesAndNotify$0$ImsConfigImplOem()V
+    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsConfigImplOem;->lambda$updateImsSupportedServicesAndNotify$0$org-codeaurora-ims-ImsConfigImplOem()V
 
     return-void
 .end method

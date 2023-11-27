@@ -32,6 +32,8 @@
 
 .field static final TRANSACTION_onCallStateChanged:I = 0x1
 
+.field static final TRANSACTION_onCiWlanNotification:I = 0x2c
+
 .field static final TRANSACTION_onConferenceCallStateCompleted:I = 0x26
 
 .field static final TRANSACTION_onEmergencyCallBackModeChanged:I = 0x8
@@ -43,6 +45,8 @@
 .field static final TRANSACTION_onImsSubConfigChanged:I = 0x10
 
 .field static final TRANSACTION_onIncomingCallAutoRejected:I = 0x19
+
+.field static final TRANSACTION_onIncomingCallAutoRejected2:I = 0x2b
 
 .field static final TRANSACTION_onIncomingCallComposerCallAutoRejected:I = 0x21
 
@@ -65,6 +69,8 @@
 .field static final TRANSACTION_onMultiSimVoiceCapabilityChanged:I = 0x29
 
 .field static final TRANSACTION_onParticipantStatusInfo:I = 0x11
+
+.field static final TRANSACTION_onPreAlertingCallInfoAvailable:I = 0x2a
 
 .field static final TRANSACTION_onRadioStateChanged:I = 0x7
 
@@ -115,18 +121,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 159
+    .line 168
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
-    .line 160
+    .line 169
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->markVintfStability()V
 
-    .line 161
+    .line 170
     sget-object v0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->DESCRIPTOR:Ljava/lang/String;
 
     invoke-virtual {p0, p0, v0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
-    .line 162
+    .line 171
     return-void
 .end method
 
@@ -134,15 +140,15 @@
     .locals 2
     .param p0, "obj"    # Landroid/os/IBinder;
 
-    .line 169
+    .line 178
     if-nez p0, :cond_0
 
-    .line 170
+    .line 179
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 172
+    .line 181
     :cond_0
     sget-object v0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->DESCRIPTOR:Ljava/lang/String;
 
@@ -150,7 +156,7 @@
 
     move-result-object v0
 
-    .line 173
+    .line 182
     .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
@@ -158,14 +164,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 174
+    .line 183
     move-object v1, v0
 
     check-cast v1, Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
 
     return-object v1
 
-    .line 176
+    .line 185
     :cond_1
     new-instance v1, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub$Proxy;
 
@@ -174,58 +180,12 @@
     return-object v1
 .end method
 
-.method public static getDefaultImpl()Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
-    .locals 1
-
-    .line 1758
-    sget-object v0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub$Proxy;->sDefaultImpl:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
-
-    return-object v0
-.end method
-
-.method public static setDefaultImpl(Lvendor/qti/hardware/radio/ims/IImsRadioIndication;)Z
-    .locals 2
-    .param p0, "impl"    # Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
-
-    .line 1748
-    sget-object v0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub$Proxy;->sDefaultImpl:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
-
-    if-nez v0, :cond_1
-
-    .line 1751
-    if-eqz p0, :cond_0
-
-    .line 1752
-    sput-object p0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub$Proxy;->sDefaultImpl:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
-
-    .line 1753
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 1755
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-
-    .line 1749
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "setDefaultImpl() called twice"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
-    .line 180
+    .line 189
     return-object p0
 .end method
 
@@ -241,443 +201,395 @@
         }
     .end annotation
 
-    .line 184
+    .line 193
     sget-object v0, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->DESCRIPTOR:Ljava/lang/String;
 
-    .line 185
+    .line 194
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
+    if-lt p1, v1, :cond_0
+
+    const v2, 0xffffff
+
+    if-gt p1, v2, :cond_0
+
+    .line 195
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 197
+    :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 207
-    const/4 v2, 0x0
-
+    .line 217
     packed-switch p1, :pswitch_data_0
 
-    .line 646
+    .line 572
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
     return v1
 
-    .line 189
+    .line 201
     :sswitch_0
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 190
+    .line 202
     return v1
 
-    .line 194
+    .line 206
     :sswitch_1
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 195
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 196
+    .line 207
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->getInterfaceVersion()I
 
     move-result v2
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 197
+    .line 208
     return v1
 
-    .line 201
+    .line 212
     :sswitch_2
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 202
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 203
+    .line 213
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->getInterfaceHash()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 204
+    .line 214
     return v1
 
-    .line 638
+    .line 565
     :pswitch_0
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 640
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 641
+    .line 566
     .local v2, "_arg0":I
-    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onMultiSimVoiceCapabilityChanged(I)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 642
-    return v1
+    .line 567
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onCiWlanNotification(I)V
 
-    .line 625
+    .line 568
+    goto/16 :goto_0
+
+    .line 557
     .end local v2    # "_arg0":I
     :pswitch_1
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    sget-object v2, Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 627
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;
+
+    .line 558
+    .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 559
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingCallAutoRejected2(Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;)V
+
+    .line 560
+    goto/16 :goto_0
+
+    .line 549
+    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;
+    :pswitch_2
+    sget-object v2, Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;
+
+    .line 550
+    .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 551
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onPreAlertingCallInfoAvailable(Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;)V
+
+    .line 552
+    goto/16 :goto_0
+
+    .line 541
+    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;
+    :pswitch_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    .line 542
+    .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 628
+    .line 543
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onMultiSimVoiceCapabilityChanged(I)V
+
+    .line 544
+    goto/16 :goto_0
+
+    .line 533
+    .end local v2    # "_arg0":I
+    :pswitch_4
     sget-object v2, Lvendor/qti/hardware/radio/ims/DtmfInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/DtmfInfo;
 
+    .line 534
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    goto :goto_0
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 631
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :cond_0
-    const/4 v2, 0x0
-
-    .line 633
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :goto_0
+    .line 535
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingDtmfStop(Lvendor/qti/hardware/radio/ims/DtmfInfo;)V
 
-    .line 634
-    return v1
+    .line 536
+    goto/16 :goto_0
 
-    .line 612
+    .line 525
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :pswitch_2
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 614
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 615
+    :pswitch_5
     sget-object v2, Lvendor/qti/hardware/radio/ims/DtmfInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/DtmfInfo;
 
+    .line 526
     .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    goto :goto_1
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 618
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :cond_1
-    const/4 v2, 0x0
-
-    .line 620
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :goto_1
+    .line 527
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingDtmfStart(Lvendor/qti/hardware/radio/ims/DtmfInfo;)V
 
-    .line 621
-    return v1
+    .line 528
+    goto/16 :goto_0
 
-    .line 606
+    .line 519
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/DtmfInfo;
-    :pswitch_3
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 607
+    :pswitch_6
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onConferenceCallStateCompleted()V
 
-    .line 608
-    return v1
+    .line 520
+    goto/16 :goto_0
 
-    .line 598
-    :pswitch_4
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 600
+    .line 512
+    :pswitch_7
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 601
+    .line 513
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 514
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onSmsCallBackModeChanged(I)V
 
-    .line 602
-    return v1
+    .line 515
+    goto/16 :goto_0
 
-    .line 590
+    .line 504
     .end local v2    # "_arg0":I
-    :pswitch_5
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 592
+    :pswitch_8
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 593
+    .line 505
     .restart local v2    # "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 506
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onServiceDomainChanged(I)V
 
-    .line 594
-    return v1
+    .line 507
+    goto/16 :goto_0
 
-    .line 582
+    .line 496
     .end local v2    # "_arg0":I
-    :pswitch_6
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 584
+    :pswitch_9
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 585
+    .line 497
     .local v2, "_arg0":Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 498
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onSipDtmfReceived(Ljava/lang/String;)V
 
-    .line 586
-    return v1
+    .line 499
+    goto/16 :goto_0
 
-    .line 574
+    .line 488
     .end local v2    # "_arg0":Ljava/lang/String;
-    :pswitch_7
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 576
+    :pswitch_a
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 577
+    .line 489
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 490
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRetrievingGeoLocationDataStatus(I)V
 
-    .line 578
-    return v1
+    .line 491
+    goto/16 :goto_0
 
-    .line 561
+    .line 480
     .end local v2    # "_arg0":I
-    :pswitch_8
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 563
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 564
+    :pswitch_b
     sget-object v2, Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;
 
+    .line 481
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;
-    goto :goto_2
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 567
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;
-    :cond_2
-    const/4 v2, 0x0
-
-    .line 569
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;
-    :goto_2
+    .line 482
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingCallComposerCallAutoRejected(Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;)V
 
-    .line 570
-    return v1
+    .line 483
+    goto/16 :goto_0
 
-    .line 548
+    .line 472
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerAutoRejectionInfo;
-    :pswitch_9
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 550
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    .line 551
+    :pswitch_c
     sget-object v2, Lvendor/qti/hardware/radio/ims/CallComposerInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/CallComposerInfo;
 
+    .line 473
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerInfo;
-    goto :goto_3
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 554
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerInfo;
-    :cond_3
-    const/4 v2, 0x0
-
-    .line 556
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerInfo;
-    :goto_3
+    .line 474
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onCallComposerInfoAvailable(Lvendor/qti/hardware/radio/ims/CallComposerInfo;)V
 
-    .line 557
-    return v1
+    .line 475
+    goto/16 :goto_0
 
-    .line 531
+    .line 460
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallComposerInfo;
-    :pswitch_a
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 533
+    :pswitch_d
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 535
+    .line 462
     .local v2, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 537
+    .line 464
     .local v3, "_arg1":Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    .line 538
     sget-object v4, Lvendor/qti/hardware/radio/ims/SipErrorInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lvendor/qti/hardware/radio/ims/SipErrorInfo;
 
+    .line 465
     .local v4, "_arg2":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    goto :goto_4
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 541
-    .end local v4    # "_arg2":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :cond_4
-    const/4 v4, 0x0
-
-    .line 543
-    .restart local v4    # "_arg2":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :goto_4
+    .line 466
     invoke-virtual {p0, v2, v3, v4}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onUssdReceived(ILjava/lang/String;Lvendor/qti/hardware/radio/ims/SipErrorInfo;)V
 
-    .line 544
-    return v1
+    .line 467
+    goto/16 :goto_0
 
-    .line 516
+    .line 450
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":Ljava/lang/String;
     .end local v4    # "_arg2":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :pswitch_b
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 518
+    :pswitch_e
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 520
+    .line 452
     .restart local v2    # "_arg0":I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    .line 521
     sget-object v3, Lvendor/qti/hardware/radio/ims/SipErrorInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lvendor/qti/hardware/radio/ims/SipErrorInfo;
 
+    .line 453
     .local v3, "_arg1":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    goto :goto_5
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 524
-    .end local v3    # "_arg1":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :cond_5
-    const/4 v3, 0x0
-
-    .line 526
-    .restart local v3    # "_arg1":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :goto_5
+    .line 454
     invoke-virtual {p0, v2, v3}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onUssdMessageFailed(ILvendor/qti/hardware/radio/ims/SipErrorInfo;)V
 
-    .line 527
-    return v1
+    .line 455
+    goto/16 :goto_0
 
-    .line 508
+    .line 442
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":Lvendor/qti/hardware/radio/ims/SipErrorInfo;
-    :pswitch_c
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_f
+    invoke-virtual {p2}, Landroid/os/Parcel;->readBoolean()Z
 
-    .line 510
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-result v2
 
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    move v2, v1
-
-    .line 511
+    .line 443
     .local v2, "_arg0":Z
-    :cond_6
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 444
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onModemSupportsWfcRoamingModeConfiguration(Z)V
 
-    .line 512
-    return v1
+    .line 445
+    goto/16 :goto_0
 
-    .line 502
+    .line 436
     .end local v2    # "_arg0":Z
-    :pswitch_d
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 503
+    :pswitch_10
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onMultiIdentityInfoPending()V
 
-    .line 504
-    return v1
+    .line 437
+    goto/16 :goto_0
 
-    .line 494
-    :pswitch_e
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 496
+    .line 429
+    :pswitch_11
     sget-object v2, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
@@ -686,631 +598,418 @@
 
     check-cast v2, [Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
 
-    .line 497
+    .line 430
     .local v2, "_arg0":[Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 431
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onMultiIdentityRegistrationStatusChange([Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;)V
 
-    .line 498
-    return v1
+    .line 432
+    goto/16 :goto_0
 
-    .line 486
+    .line 421
     .end local v2    # "_arg0":[Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-    :pswitch_f
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 488
+    :pswitch_12
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 489
+    .line 422
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 423
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onVoiceInfoChanged(I)V
 
-    .line 490
-    return v1
+    .line 424
+    goto/16 :goto_0
 
-    .line 473
+    .line 413
     .end local v2    # "_arg0":I
-    :pswitch_10
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 475
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    .line 476
+    :pswitch_13
     sget-object v2, Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;
 
+    .line 414
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;
-    goto :goto_6
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 479
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;
-    :cond_7
-    const/4 v2, 0x0
-
-    .line 481
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;
-    :goto_6
+    .line 415
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingCallAutoRejected(Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;)V
 
-    .line 482
-    return v1
+    .line 416
+    goto/16 :goto_0
 
-    .line 465
+    .line 405
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;
-    :pswitch_11
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 467
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    move v2, v1
-
-    .line 468
-    .local v2, "_arg0":Z
-    :cond_8
-    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onVopsChanged(Z)V
-
-    .line 469
-    return v1
-
-    .line 452
-    .end local v2    # "_arg0":Z
-    :pswitch_12
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 454
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    :pswitch_14
+    invoke-virtual {p2}, Landroid/os/Parcel;->readBoolean()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    .line 406
+    .local v2, "_arg0":Z
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 455
+    .line 407
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onVopsChanged(Z)V
+
+    .line 408
+    goto/16 :goto_0
+
+    .line 397
+    .end local v2    # "_arg0":Z
+    :pswitch_15
     sget-object v2, Lvendor/qti/hardware/radio/ims/IncomingSms;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/IncomingSms;
 
+    .line 398
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/IncomingSms;
-    goto :goto_7
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 458
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/IncomingSms;
-    :cond_9
-    const/4 v2, 0x0
-
-    .line 460
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/IncomingSms;
-    :goto_7
+    .line 399
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onIncomingSms(Lvendor/qti/hardware/radio/ims/IncomingSms;)V
 
-    .line 461
-    return v1
+    .line 400
+    goto/16 :goto_0
 
-    .line 439
+    .line 389
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/IncomingSms;
-    :pswitch_13
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 441
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    .line 442
+    :pswitch_16
     sget-object v2, Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;
 
+    .line 390
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;
-    goto :goto_8
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 445
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;
-    :cond_a
-    const/4 v2, 0x0
-
-    .line 447
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;
-    :goto_8
+    .line 391
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onSmsSendStatusReport(Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;)V
 
-    .line 448
-    return v1
+    .line 392
+    goto/16 :goto_0
 
-    .line 426
+    .line 381
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SmsSendStatusReport;
-    :pswitch_14
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 428
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    .line 429
+    :pswitch_17
     sget-object v2, Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;
 
+    .line 382
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;
-    goto :goto_9
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 432
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;
-    :cond_b
-    const/4 v2, 0x0
-
-    .line 434
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;
-    :goto_9
+    .line 383
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onSupplementaryServiceIndication(Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;)V
 
-    .line 435
-    return v1
+    .line 384
+    goto/16 :goto_0
 
-    .line 418
+    .line 373
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/StkCcUnsolSsResult;
-    :pswitch_15
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 420
+    :pswitch_18
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 421
+    .line 374
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 375
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onVoWiFiCallQuality(I)V
 
-    .line 422
-    return v1
+    .line 376
+    goto/16 :goto_0
 
-    .line 410
+    .line 365
     .end local v2    # "_arg0":I
-    :pswitch_16
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 412
+    :pswitch_19
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 413
+    .line 366
     .local v2, "_arg0":Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 367
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRttMessageReceived(Ljava/lang/String;)V
 
-    .line 414
-    return v1
+    .line 368
+    goto/16 :goto_0
 
-    .line 397
+    .line 357
     .end local v2    # "_arg0":Ljava/lang/String;
-    :pswitch_17
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 399
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_c
-
-    .line 400
+    :pswitch_1a
     sget-object v2, Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;
 
+    .line 358
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;
-    goto :goto_a
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 403
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;
-    :cond_c
-    const/4 v2, 0x0
-
-    .line 405
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;
-    :goto_a
+    .line 359
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRegistrationBlockStatus(Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;)V
 
-    .line 406
-    return v1
+    .line 360
+    goto/16 :goto_0
 
-    .line 384
+    .line 349
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationBlockStatusInfo;
-    :pswitch_18
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 386
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_d
-
-    .line 387
+    :pswitch_1b
     sget-object v2, Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;
 
+    .line 350
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;
-    goto :goto_b
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 390
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;
-    :cond_d
-    const/4 v2, 0x0
-
-    .line 392
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;
-    :goto_b
+    .line 351
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onParticipantStatusInfo(Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;)V
 
-    .line 393
-    return v1
+    .line 352
+    goto/16 :goto_0
 
-    .line 371
+    .line 341
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;
-    :pswitch_19
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 373
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_e
-
-    .line 374
+    :pswitch_1c
     sget-object v2, Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;
 
+    .line 342
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;
-    goto :goto_c
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 377
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;
-    :cond_e
-    const/4 v2, 0x0
-
-    .line 379
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;
-    :goto_c
+    .line 343
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onImsSubConfigChanged(Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;)V
 
-    .line 380
-    return v1
+    .line 344
+    goto/16 :goto_0
 
-    .line 361
+    .line 331
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ImsSubConfigInfo;
-    :pswitch_1a
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 363
+    :pswitch_1d
     invoke-virtual {p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
 
-    .line 365
+    .line 333
     .local v2, "_arg0":D
     invoke-virtual {p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v4
 
-    .line 366
+    .line 334
     .local v4, "_arg1":D
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 335
     invoke-virtual {p0, v2, v3, v4, v5}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onGeolocationInfoRequested(DD)V
 
-    .line 367
-    return v1
+    .line 336
+    goto/16 :goto_0
 
-    .line 348
+    .line 323
     .end local v2    # "_arg0":D
     .end local v4    # "_arg1":D
-    :pswitch_1b
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 350
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_f
-
-    .line 351
+    :pswitch_1e
     sget-object v2, Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;
 
+    .line 324
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;
-    goto :goto_d
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 354
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;
-    :cond_f
-    const/4 v2, 0x0
-
-    .line 356
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;
-    :goto_d
+    .line 325
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onMessageWaiting(Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;)V
 
-    .line 357
-    return v1
+    .line 326
+    goto/16 :goto_0
 
-    .line 335
+    .line 315
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/MessageWaitingIndication;
-    :pswitch_1c
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 337
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    .line 338
+    :pswitch_1f
     sget-object v2, Lvendor/qti/hardware/radio/ims/SuppServiceNotification;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/SuppServiceNotification;
 
+    .line 316
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/SuppServiceNotification;
-    goto :goto_e
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 341
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SuppServiceNotification;
-    :cond_10
-    const/4 v2, 0x0
-
-    .line 343
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SuppServiceNotification;
-    :goto_e
+    .line 317
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onSuppServiceNotification(Lvendor/qti/hardware/radio/ims/SuppServiceNotification;)V
 
-    .line 344
-    return v1
+    .line 318
+    goto/16 :goto_0
 
-    .line 322
+    .line 307
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/SuppServiceNotification;
-    :pswitch_1d
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 324
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_11
-
-    .line 325
+    :pswitch_20
     sget-object v2, Lvendor/qti/hardware/radio/ims/CallModifyInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/CallModifyInfo;
 
+    .line 308
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/CallModifyInfo;
-    goto :goto_f
-
-    .line 328
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallModifyInfo;
-    :cond_11
-    const/4 v2, 0x0
-
-    .line 330
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallModifyInfo;
-    :goto_f
-    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onModifyCall(Lvendor/qti/hardware/radio/ims/CallModifyInfo;)V
-
-    .line 331
-    return v1
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
     .line 309
+    invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onModifyCall(Lvendor/qti/hardware/radio/ims/CallModifyInfo;)V
+
+    .line 310
+    goto/16 :goto_0
+
+    .line 299
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/CallModifyInfo;
-    :pswitch_1e
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 311
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_12
-
-    .line 312
+    :pswitch_21
     sget-object v2, Lvendor/qti/hardware/radio/ims/ViceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/ViceInfo;
 
+    .line 300
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/ViceInfo;
-    goto :goto_10
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 315
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ViceInfo;
-    :cond_12
-    const/4 v2, 0x0
-
-    .line 317
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ViceInfo;
-    :goto_10
+    .line 301
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRefreshViceInfo(Lvendor/qti/hardware/radio/ims/ViceInfo;)V
 
-    .line 318
-    return v1
+    .line 302
+    goto/16 :goto_0
 
-    .line 296
+    .line 291
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ViceInfo;
-    :pswitch_1f
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 298
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_13
-
-    .line 299
+    :pswitch_22
     sget-object v2, Lvendor/qti/hardware/radio/ims/ConferenceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/ConferenceInfo;
 
+    .line 292
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/ConferenceInfo;
-    goto :goto_11
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 302
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ConferenceInfo;
-    :cond_13
-    const/4 v2, 0x0
-
-    .line 304
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ConferenceInfo;
-    :goto_11
+    .line 293
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRefreshConferenceInfo(Lvendor/qti/hardware/radio/ims/ConferenceInfo;)V
 
-    .line 305
-    return v1
+    .line 294
+    goto/16 :goto_0
 
     .line 283
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/ConferenceInfo;
-    :pswitch_20
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 285
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_14
-
-    .line 286
+    :pswitch_23
     sget-object v2, Lvendor/qti/hardware/radio/ims/TtyInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/TtyInfo;
 
+    .line 284
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/TtyInfo;
-    goto :goto_12
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 289
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/TtyInfo;
-    :cond_14
-    const/4 v2, 0x0
-
-    .line 291
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/TtyInfo;
-    :goto_12
+    .line 285
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onTtyNotification(Lvendor/qti/hardware/radio/ims/TtyInfo;)V
 
-    .line 292
-    return v1
+    .line 286
+    goto :goto_0
 
     .line 275
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/TtyInfo;
-    :pswitch_21
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 277
+    :pswitch_24
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 278
+    .line 276
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 277
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onEmergencyCallBackModeChanged(I)V
 
-    .line 279
-    return v1
+    .line 278
+    goto :goto_0
 
     .line 267
     .end local v2    # "_arg0":I
-    :pswitch_22
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 269
+    :pswitch_25
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 270
+    .line 268
     .restart local v2    # "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 269
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRadioStateChanged(I)V
 
-    .line 271
-    return v1
+    .line 270
+    goto :goto_0
 
     .line 259
     .end local v2    # "_arg0":I
-    :pswitch_23
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 261
+    :pswitch_26
     sget-object v2, Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
@@ -1319,120 +1018,85 @@
 
     check-cast v2, [Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;
 
-    .line 262
+    .line 260
     .local v2, "_arg0":[Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 261
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onServiceStatusChanged([Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;)V
 
-    .line 263
-    return v1
+    .line 262
+    goto :goto_0
 
-    .line 246
+    .line 251
     .end local v2    # "_arg0":[Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;
-    :pswitch_24
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 248
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_15
-
-    .line 249
+    :pswitch_27
     sget-object v2, Lvendor/qti/hardware/radio/ims/HandoverInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/HandoverInfo;
 
-    .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/HandoverInfo;
-    goto :goto_13
-
     .line 252
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/HandoverInfo;
-    :cond_15
-    const/4 v2, 0x0
+    .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/HandoverInfo;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 254
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/HandoverInfo;
-    :goto_13
+    .line 253
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onHandover(Lvendor/qti/hardware/radio/ims/HandoverInfo;)V
 
-    .line 255
-    return v1
+    .line 254
+    goto :goto_0
 
-    .line 233
+    .line 243
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/HandoverInfo;
-    :pswitch_25
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 235
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_16
-
-    .line 236
+    :pswitch_28
     sget-object v2, Lvendor/qti/hardware/radio/ims/RegistrationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lvendor/qti/hardware/radio/ims/RegistrationInfo;
 
+    .line 244
     .local v2, "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationInfo;
-    goto :goto_14
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
 
-    .line 239
-    .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationInfo;
-    :cond_16
-    const/4 v2, 0x0
-
-    .line 241
-    .restart local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationInfo;
-    :goto_14
+    .line 245
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRegistrationChanged(Lvendor/qti/hardware/radio/ims/RegistrationInfo;)V
 
-    .line 242
-    return v1
+    .line 246
+    goto :goto_0
 
-    .line 225
+    .line 235
     .end local v2    # "_arg0":Lvendor/qti/hardware/radio/ims/RegistrationInfo;
-    :pswitch_26
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 227
+    :pswitch_29
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 228
+    .line 236
     .local v2, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 237
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRingbackTone(I)V
 
+    .line 238
+    goto :goto_0
+
     .line 229
-    return v1
-
-    .line 219
     .end local v2    # "_arg0":I
-    :pswitch_27
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 220
+    :pswitch_2a
     invoke-virtual {p0}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onRing()V
 
-    .line 221
-    return v1
+    .line 230
+    goto :goto_0
 
-    .line 211
-    :pswitch_28
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 213
+    .line 222
+    :pswitch_2b
     sget-object v2, Lvendor/qti/hardware/radio/ims/CallInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
@@ -1441,12 +1105,22 @@
 
     check-cast v2, [Lvendor/qti/hardware/radio/ims/CallInfo;
 
-    .line 214
+    .line 223
     .local v2, "_arg0":[Lvendor/qti/hardware/radio/ims/CallInfo;
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    .line 224
     invoke-virtual {p0, v2}, Lvendor/qti/hardware/radio/ims/IImsRadioIndication$Stub;->onCallStateChanged([Lvendor/qti/hardware/radio/ims/CallInfo;)V
 
-    .line 215
+    .line 225
+    nop
+
+    .line 575
+    .end local v2    # "_arg0":[Lvendor/qti/hardware/radio/ims/CallInfo;
+    :goto_0
     return v1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1457,6 +1131,9 @@
 
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_2b
+        :pswitch_2a
+        :pswitch_29
         :pswitch_28
         :pswitch_27
         :pswitch_26

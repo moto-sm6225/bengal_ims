@@ -18,6 +18,9 @@
     .end annotation
 .end method
 
+.method public abstract onCiWlanNotification(Z)V
+.end method
+
 .method public abstract onConferenceCallStateCompleted()V
 .end method
 
@@ -78,6 +81,9 @@
 .end method
 
 .method public abstract onParticipantStatusInfo(Lorg/codeaurora/ims/ParticipantStatusDetails;)V
+.end method
+
+.method public abstract onPreAlertingCallInfoAvailable(Lorg/codeaurora/ims/PreAlertingCallInfo;)V
 .end method
 
 .method public abstract onRadioStateChanged(Lorg/codeaurora/ims/ImsPhoneCommandsInterface$RadioState;)V

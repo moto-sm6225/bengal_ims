@@ -88,7 +88,7 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 188
+    .line 191
     const/4 v0, 0x0
 
     return-object v0
@@ -203,6 +203,19 @@
     return-void
 .end method
 
+.method public exitSmsCallBackMode(I)V
+    .locals 0
+    .param p1, "token"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 180
+    return-void
+.end method
+
 .method public explicitCallTransfer(ILvendor/qti/hardware/radio/ims/ExplicitCallTransferInfo;)V
     .locals 0
     .param p1, "token"    # I
@@ -313,7 +326,7 @@
 .method public getInterfaceHash()Ljava/lang/String;
     .locals 1
 
-    .line 184
+    .line 187
     const-string v0, ""
 
     return-object v0
@@ -322,7 +335,7 @@
 .method public getInterfaceVersion()I
     .locals 1
 
-    .line 180
+    .line 183
     const/4 v0, 0x0
 
     return v0

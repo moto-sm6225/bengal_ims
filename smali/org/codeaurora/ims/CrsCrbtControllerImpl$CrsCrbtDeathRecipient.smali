@@ -60,7 +60,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -92,7 +96,7 @@
     .line 41
     iget-object v0, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl$CrsCrbtDeathRecipient;->this$0:Lorg/codeaurora/ims/CrsCrbtControllerImpl;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->access$000(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
+    invoke-static {v0}, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->-$$Nest$fgetmClients(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
 
     move-result-object v0
 
@@ -102,7 +106,7 @@
     :try_start_0
     iget-object v1, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl$CrsCrbtDeathRecipient;->this$0:Lorg/codeaurora/ims/CrsCrbtControllerImpl;
 
-    invoke-static {v1}, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->access$000(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
+    invoke-static {v1}, Lorg/codeaurora/ims/CrsCrbtControllerImpl;->-$$Nest$fgetmClients(Lorg/codeaurora/ims/CrsCrbtControllerImpl;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -189,30 +193,42 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 59
     const-string v1, ",ICrsCrbtListener:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl$CrsCrbtDeathRecipient;->mListener:Lorg/codeaurora/ims/internal/ICrsCrbtListener;
 
     .line 60
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 61
     const-string v1, ",ImsCallSessionImpl:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/CrsCrbtControllerImpl$CrsCrbtDeathRecipient;->mSession:Lorg/codeaurora/ims/ImsCallSessionImpl;
 
     .line 62
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 63
     const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 64
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;

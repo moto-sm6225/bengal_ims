@@ -52,21 +52,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->id:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, " GlobalSessionId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->access$400(Lcom/qualcomm/ims/vt/Camera2;)I
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fgetmSessionId(Lcom/qualcomm/ims/vt/Camera2;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -79,12 +87,12 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/qualcomm/ims/vt/Camera2;->access$502(Lcom/qualcomm/ims/vt/Camera2;Z)Z
+    invoke-static {v0, v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fputmIsCreateSessionPending(Lcom/qualcomm/ims/vt/Camera2;Z)V
 
     .line 921
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->access$600(Lcom/qualcomm/ims/vt/Camera2;)Z
+    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$misRequestPending(Lcom/qualcomm/ims/vt/Camera2;)Z
 
     move-result v0
 
@@ -95,7 +103,7 @@
 
     iget-object v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->access$400(Lcom/qualcomm/ims/vt/Camera2;)I
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fgetmSessionId(Lcom/qualcomm/ims/vt/Camera2;)I
 
     move-result v1
 
@@ -103,7 +111,7 @@
 
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/Camera2;->access$800(Lcom/qualcomm/ims/vt/Camera2;Landroid/hardware/camera2/CameraCaptureSession;)V
+    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$monConfigureFailed(Lcom/qualcomm/ims/vt/Camera2;Landroid/hardware/camera2/CameraCaptureSession;)V
 
     goto :goto_0
 
@@ -111,7 +119,7 @@
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->access$300(Lcom/qualcomm/ims/vt/Camera2;)V
+    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$mexectutePendingRequests(Lcom/qualcomm/ims/vt/Camera2;)V
 
     .line 926
     :cond_1
@@ -132,21 +140,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->id:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, " GlobalSessionId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->access$400(Lcom/qualcomm/ims/vt/Camera2;)I
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fgetmSessionId(Lcom/qualcomm/ims/vt/Camera2;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -159,12 +175,12 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/qualcomm/ims/vt/Camera2;->access$502(Lcom/qualcomm/ims/vt/Camera2;Z)Z
+    invoke-static {v0, v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fputmIsCreateSessionPending(Lcom/qualcomm/ims/vt/Camera2;Z)V
 
     .line 910
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->access$600(Lcom/qualcomm/ims/vt/Camera2;)Z
+    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$misRequestPending(Lcom/qualcomm/ims/vt/Camera2;)Z
 
     move-result v0
 
@@ -175,7 +191,7 @@
 
     iget-object v1, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->access$400(Lcom/qualcomm/ims/vt/Camera2;)I
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$fgetmSessionId(Lcom/qualcomm/ims/vt/Camera2;)I
 
     move-result v1
 
@@ -183,7 +199,7 @@
 
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/Camera2;->access$700(Lcom/qualcomm/ims/vt/Camera2;Landroid/hardware/camera2/CameraCaptureSession;)V
+    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$monConfigured(Lcom/qualcomm/ims/vt/Camera2;Landroid/hardware/camera2/CameraCaptureSession;)V
 
     goto :goto_0
 
@@ -191,7 +207,7 @@
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/ims/vt/Camera2$CaptureSessionListener;->this$0:Lcom/qualcomm/ims/vt/Camera2;
 
-    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->access$300(Lcom/qualcomm/ims/vt/Camera2;)V
+    invoke-static {v0}, Lcom/qualcomm/ims/vt/Camera2;->-$$Nest$mexectutePendingRequests(Lcom/qualcomm/ims/vt/Camera2;)V
 
     .line 915
     :cond_1

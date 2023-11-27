@@ -33,6 +33,62 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetisCarrierOneSupported(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->isCarrierOneSupported:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsLowBattery(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mIsLowBattery:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmServiceSubs(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mServiceSubs:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsLowBattery(Lcom/qualcomm/ims/vt/LowBatteryHandler;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mIsLowBattery:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mdisconnectVideoCalls(Lcom/qualcomm/ims/vt/LowBatteryHandler;Lorg/codeaurora/ims/ImsServiceSub;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->disconnectVideoCalls(Lorg/codeaurora/ims/ImsServiceSub;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -100,77 +156,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-
-    .line 35
-    iget-boolean v0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mIsLowBattery:Z
-
-    return v0
-.end method
-
-.method static synthetic access$002(Lcom/qualcomm/ims/vt/LowBatteryHandler;Z)Z
-    .locals 0
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-    .param p1, "x1"    # Z
-
-    .line 35
-    iput-boolean p1, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mIsLowBattery:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Ljava/util/List;
-    .locals 1
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-
-    .line 35
-    iget-object v0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mServiceSubs:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-
-    .line 35
-    iget-object v0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300()Ljava/lang/String;
-    .locals 1
-
-    .line 35
-    sget-object v0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/qualcomm/ims/vt/LowBatteryHandler;Lorg/codeaurora/ims/ImsServiceSub;)V
-    .locals 0
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-    .param p1, "x1"    # Lorg/codeaurora/ims/ImsServiceSub;
-
-    .line 35
-    invoke-direct {p0, p1}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->disconnectVideoCalls(Lorg/codeaurora/ims/ImsServiceSub;)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/qualcomm/ims/vt/LowBatteryHandler;
-
-    .line 35
-    iget-boolean v0, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler;->isCarrierOneSupported:Z
-
-    return v0
-.end method
-
 .method private disconnectVideoCalls(Lorg/codeaurora/ims/ImsServiceSub;)V
     .locals 2
     .param p1, "serviceSub"    # Lorg/codeaurora/ims/ImsServiceSub;
@@ -235,7 +220,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -471,7 +460,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

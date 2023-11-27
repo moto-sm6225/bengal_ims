@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract exitSmsCallBackModeResponse(II)V
+.end method
+
 .method public abstract onAddParticipantResponse(II)V
 .end method
 

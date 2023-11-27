@@ -60,7 +60,7 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 163
+    .line 166
     const/4 v0, 0x0
 
     return-object v0
@@ -149,6 +149,20 @@
     .end annotation
 
     .line 71
+    return-void
+.end method
+
+.method public exitSmsCallBackModeResponse(II)V
+    .locals 0
+    .param p1, "token"    # I
+    .param p2, "errorCode"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 155
     return-void
 .end method
 
@@ -277,7 +291,7 @@
 .method public getInterfaceHash()Ljava/lang/String;
     .locals 1
 
-    .line 159
+    .line 162
     const-string v0, ""
 
     return-object v0
@@ -286,7 +300,7 @@
 .method public getInterfaceVersion()I
     .locals 1
 
-    .line 155
+    .line 158
     const/4 v0, 0x0
 
     return v0

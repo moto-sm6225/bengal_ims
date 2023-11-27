@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsCallSessionCallbackHandler$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler$$ExternalSyntheticLambda2;->f$0:Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;
 
-    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;->lambda$dispose$31$ImsCallSessionCallbackHandler()V
+    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;->lambda$callSessionTransferred$30$org-codeaurora-ims-ImsCallSessionCallbackHandler()V
 
     return-void
 .end method

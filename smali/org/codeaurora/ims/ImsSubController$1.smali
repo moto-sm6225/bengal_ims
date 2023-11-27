@@ -41,7 +41,7 @@
     .line 747
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSubController$1;->this$0:Lorg/codeaurora/ims/ImsSubController;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsSubController;->access$000(Lorg/codeaurora/ims/ImsSubController;)Z
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsSubController;->-$$Nest$misDisposed(Lorg/codeaurora/ims/ImsSubController;)Z
 
     move-result v0
 
@@ -71,7 +71,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -107,7 +111,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -118,7 +126,7 @@
     .line 758
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSubController$1;->this$0:Lorg/codeaurora/ims/ImsSubController;
 
-    invoke-static {v2, v1}, Lorg/codeaurora/ims/ImsSubController;->access$700(Lorg/codeaurora/ims/ImsSubController;I)V
+    invoke-static {v2, v1}, Lorg/codeaurora/ims/ImsSubController;->-$$Nest$mupdateActiveImsStackForSubId(Lorg/codeaurora/ims/ImsSubController;I)V
 
     .line 760
     .end local v1    # "ddsSubId":I

@@ -1,35 +1,32 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lorg/codeaurora/ims/ImsUssdSessionImpl;
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lorg/codeaurora/ims/ImsUssdSessionImpl;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda2;->f$0:Lorg/codeaurora/ims/ImsUssdSessionImpl;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
 
-    iget-object v0, p0, Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda2;->f$0:Lorg/codeaurora/ims/ImsUssdSessionImpl;
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast p1, Lorg/codeaurora/ims/ICallListListener;
+    check-cast p2, Ljava/util/Map$Entry;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$notifyUssdAdded$0(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/ims/ICallListListener;)V
+    invoke-static {p1, p2}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$getMergeCallList$2(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
 
-    return-void
+    move-result p1
+
+    return p1
 .end method

@@ -71,7 +71,7 @@
     .line 150
     iget-object v1, p0, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->this$0:Lcom/qualcomm/ims/vt/MediaController;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->access$100(Lcom/qualcomm/ims/vt/MediaController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$fgetmContext(Lcom/qualcomm/ims/vt/MediaController;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -95,7 +95,7 @@
     :cond_0
     iget-object v1, p0, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->this$0:Lcom/qualcomm/ims/vt/MediaController;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->access$100(Lcom/qualcomm/ims/vt/MediaController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$fgetmContext(Lcom/qualcomm/ims/vt/MediaController;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -137,11 +137,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " width = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 159
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -150,9 +156,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " height = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 160
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -161,12 +171,14 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 158
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->access$200(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$smlog(Ljava/lang/String;)V
 
     .line 162
     :cond_1
@@ -194,29 +206,41 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget v2, p0, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->width:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " height = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget v2, p0, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->height:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " uri = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->access$200(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$smlog(Ljava/lang/String;)V
 
     .line 173
     invoke-virtual {p0}, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->isCancelled()Z
@@ -228,7 +252,7 @@
     .line 174
     const-string v1, "setPreviewImageAsync: PauseImageTask is cancelled"
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->access$200(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$smlog(Ljava/lang/String;)V
 
     .line 175
     const/4 v1, 0x0
@@ -270,13 +294,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/qualcomm/ims/vt/MediaController;->access$200(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$smlog(Ljava/lang/String;)V
 
     .line 185
     if-nez p1, :cond_0
@@ -288,7 +316,7 @@
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/ims/vt/MediaController$PauseImageTask;->this$0:Lcom/qualcomm/ims/vt/MediaController;
 
-    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/MediaController;->access$300(Lcom/qualcomm/ims/vt/MediaController;Landroid/graphics/Bitmap;)V
+    invoke-static {v0, p1}, Lcom/qualcomm/ims/vt/MediaController;->-$$Nest$msetPauseImage(Lcom/qualcomm/ims/vt/MediaController;Landroid/graphics/Bitmap;)V
 
     .line 190
     return-void

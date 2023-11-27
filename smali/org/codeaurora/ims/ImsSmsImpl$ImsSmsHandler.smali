@@ -48,9 +48,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -94,7 +98,7 @@
     :pswitch_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSmsImpl$ImsSmsHandler;->this$0:Lorg/codeaurora/ims/ImsSmsImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->access$200(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->-$$Nest$msendStatusReportToFramework(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 252
     goto :goto_0
@@ -103,7 +107,7 @@
     :pswitch_1
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSmsImpl$ImsSmsHandler;->this$0:Lorg/codeaurora/ims/ImsSmsImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->access$100(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->-$$Nest$msendSmsToFramework(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 249
     goto :goto_0
@@ -112,7 +116,7 @@
     :pswitch_2
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSmsImpl$ImsSmsHandler;->this$0:Lorg/codeaurora/ims/ImsSmsImpl;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->access$000(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsSmsImpl;->-$$Nest$msendResponseToFramework(Lorg/codeaurora/ims/ImsSmsImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 246
     nop

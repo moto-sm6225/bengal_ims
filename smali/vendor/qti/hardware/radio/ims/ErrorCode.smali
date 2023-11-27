@@ -9,6 +9,8 @@
 # static fields
 .field public static final CANCELLED:I = 0x6
 
+.field public static final CF_SERVICE_NOT_REGISTERED:I = 0x1e
+
 .field public static final DIAL_MODIFIED_TO_DIAL:I = 0x17
 
 .field public static final DIAL_MODIFIED_TO_DIAL_VIDEO:I = 0x18

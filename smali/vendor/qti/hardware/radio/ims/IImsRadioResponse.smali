@@ -18,16 +18,16 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "bcb53de4a9dfae8a0daf84e64a311c91ba4866ff"
+.field public static final HASH:Ljava/lang/String; = "1c9870a51c575f38c440c1938fe44e84c19ccf4d"
 
-.field public static final VERSION:I = 0x3
+.field public static final VERSION:I = 0x9
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 2081
+    .line 1607
     const-string v0, "vendor$qti$hardware$radio$ims$IImsRadioResponse"
 
     const/16 v1, 0x24
@@ -102,6 +102,14 @@
 .end method
 
 .method public abstract exitEmergencyCallbackModeResponse(II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract exitSmsCallBackModeResponse(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

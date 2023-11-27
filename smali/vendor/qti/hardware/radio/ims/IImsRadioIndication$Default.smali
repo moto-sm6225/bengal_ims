@@ -32,7 +32,7 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 151
+    .line 160
     const/4 v0, 0x0
 
     return-object v0
@@ -41,7 +41,7 @@
 .method public getInterfaceHash()Ljava/lang/String;
     .locals 1
 
-    .line 147
+    .line 156
     const-string v0, ""
 
     return-object v0
@@ -50,7 +50,7 @@
 .method public getInterfaceVersion()I
     .locals 1
 
-    .line 143
+    .line 152
     const/4 v0, 0x0
 
     return v0
@@ -79,6 +79,19 @@
     .end annotation
 
     .line 20
+    return-void
+.end method
+
+.method public onCiWlanNotification(I)V
+    .locals 0
+    .param p1, "type"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 149
     return-void
 .end method
 
@@ -157,6 +170,19 @@
     .end annotation
 
     .line 92
+    return-void
+.end method
+
+.method public onIncomingCallAutoRejected2(Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;)V
+    .locals 0
+    .param p1, "autoCallRejectionInfo"    # Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 146
     return-void
 .end method
 
@@ -299,6 +325,19 @@
     .end annotation
 
     .line 68
+    return-void
+.end method
+
+.method public onPreAlertingCallInfoAvailable(Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;)V
+    .locals 0
+    .param p1, "info"    # Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 143
     return-void
 .end method
 

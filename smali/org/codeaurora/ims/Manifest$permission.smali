@@ -23,6 +23,8 @@
 
 .field public static final RECEIVE_MSIM_VOICE_CAPABILITY:Ljava/lang/String; = "com.qti.permission.RECEIVE_MSIM_VOICE_CAPABILITY"
 
+.field public static final RECEIVE_PRE_ALERTING_CALL_INFO:Ljava/lang/String; = "com.qti.permission.RECEIVE_PRE_ALERTING_CALL_INFO"
+
 .field public static final RECEIVE_SMS_CALLBACK_MODE:Ljava/lang/String; = "com.qti.permission.RECEIVE_SMS_CALLBACK_MODE"
 
 

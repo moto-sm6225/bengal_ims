@@ -145,455 +145,479 @@
 
     sparse-switch p0, :sswitch_data_0
 
-    .line 504
+    .line 512
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
-    .line 492
+    .line 502
     :sswitch_0
+    const/16 v0, 0x50
+
+    return v0
+
+    .line 500
+    :sswitch_1
+    const/16 v0, 0x4f
+
+    return v0
+
+    .line 498
+    :sswitch_2
+    const/16 v0, 0x4e
+
+    return v0
+
+    .line 496
+    :sswitch_3
+    const/16 v0, 0x4d
+
+    return v0
+
+    .line 492
+    :sswitch_4
     const/16 v0, 0x4b
 
     return v0
 
     .line 488
-    :sswitch_1
+    :sswitch_5
     const/16 v0, 0x49
 
     return v0
 
     .line 484
-    :sswitch_2
+    :sswitch_6
     const/16 v0, 0x48
 
     return v0
 
     .line 482
-    :sswitch_3
+    :sswitch_7
     const/16 v0, 0x47
 
     return v0
 
     .line 490
-    :sswitch_4
+    :sswitch_8
     const/16 v0, 0x4a
 
     return v0
 
-    .line 501
-    :sswitch_5
+    .line 509
+    :sswitch_9
     return v0
 
-    .line 497
-    :sswitch_6
-    const/16 v0, 0x4d
+    .line 505
+    :sswitch_a
+    const/16 v0, 0x51
 
     return v0
 
     .line 494
-    :sswitch_7
+    :sswitch_b
     const/16 v0, 0x4c
 
     return v0
 
     .line 480
-    :sswitch_8
+    :sswitch_c
     const/16 v0, 0x46
 
     return v0
 
     .line 478
-    :sswitch_9
+    :sswitch_d
     const/16 v0, 0x45
 
     return v0
 
     .line 476
-    :sswitch_a
+    :sswitch_e
     const/16 v0, 0x43
 
     return v0
 
     .line 474
-    :sswitch_b
+    :sswitch_f
     const/16 v0, 0x42
 
     return v0
 
     .line 472
-    :sswitch_c
+    :sswitch_10
     const/16 v0, 0x41
 
     return v0
 
     .line 470
-    :sswitch_d
+    :sswitch_11
     const/16 v0, 0x40
 
     return v0
 
     .line 468
-    :sswitch_e
+    :sswitch_12
     const/16 v0, 0x3f
 
     return v0
 
     .line 466
-    :sswitch_f
+    :sswitch_13
     const/16 v0, 0x3e
 
     return v0
 
     .line 464
-    :sswitch_10
+    :sswitch_14
     const/16 v0, 0x3d
 
     return v0
 
     .line 462
-    :sswitch_11
+    :sswitch_15
     const/16 v0, 0x3c
 
     return v0
 
     .line 460
-    :sswitch_12
+    :sswitch_16
     const/16 v0, 0x3b
 
     return v0
 
     .line 458
-    :sswitch_13
+    :sswitch_17
     const/16 v0, 0x3a
 
     return v0
 
     .line 456
-    :sswitch_14
+    :sswitch_18
     const/16 v0, 0x39
 
     return v0
 
     .line 454
-    :sswitch_15
+    :sswitch_19
     const/16 v0, 0x38
 
     return v0
 
     .line 452
-    :sswitch_16
+    :sswitch_1a
     const/16 v0, 0x37
 
     return v0
 
     .line 450
-    :sswitch_17
+    :sswitch_1b
     const/16 v0, 0x36
 
     return v0
 
     .line 448
-    :sswitch_18
+    :sswitch_1c
     const/16 v0, 0x35
 
     return v0
 
     .line 446
-    :sswitch_19
+    :sswitch_1d
     const/16 v0, 0x34
 
     return v0
 
     .line 444
-    :sswitch_1a
+    :sswitch_1e
     const/16 v0, 0x33
 
     return v0
 
     .line 442
-    :sswitch_1b
+    :sswitch_1f
     const/16 v0, 0x32
 
     return v0
 
     .line 440
-    :sswitch_1c
+    :sswitch_20
     const/16 v0, 0x31
 
     return v0
 
     .line 438
-    :sswitch_1d
+    :sswitch_21
     const/16 v0, 0x30
 
     return v0
 
     .line 436
-    :sswitch_1e
+    :sswitch_22
     const/16 v0, 0x2f
 
     return v0
 
     .line 434
-    :sswitch_1f
+    :sswitch_23
     const/16 v0, 0x2e
 
     return v0
 
     .line 432
-    :sswitch_20
+    :sswitch_24
     const/16 v0, 0x2d
 
     return v0
 
     .line 430
-    :sswitch_21
+    :sswitch_25
     const/16 v0, 0x2c
 
     return v0
 
     .line 428
-    :sswitch_22
+    :sswitch_26
     const/16 v0, 0x2b
 
     return v0
 
     .line 426
-    :sswitch_23
+    :sswitch_27
     const/16 v0, 0x2a
 
     return v0
 
     .line 424
-    :sswitch_24
+    :sswitch_28
     const/16 v0, 0x29
 
     return v0
 
     .line 422
-    :sswitch_25
+    :sswitch_29
     const/16 v0, 0x28
 
     return v0
 
     .line 420
-    :sswitch_26
+    :sswitch_2a
     const/16 v0, 0x27
 
     return v0
 
     .line 418
-    :sswitch_27
+    :sswitch_2b
     const/16 v0, 0x26
 
     return v0
 
     .line 416
-    :sswitch_28
+    :sswitch_2c
     const/16 v0, 0x25
 
     return v0
 
     .line 414
-    :sswitch_29
+    :sswitch_2d
     const/16 v0, 0x24
 
     return v0
 
     .line 412
-    :sswitch_2a
+    :sswitch_2e
     const/16 v0, 0x23
 
     return v0
 
     .line 406
-    :sswitch_2b
+    :sswitch_2f
     const/16 v0, 0x22
 
     return v0
 
     .line 410
-    :sswitch_2c
+    :sswitch_30
     const/16 v0, 0x21
 
     return v0
 
     .line 408
-    :sswitch_2d
+    :sswitch_31
     const/16 v0, 0x1a
 
     return v0
 
     .line 404
-    :sswitch_2e
+    :sswitch_32
     const/16 v0, 0x44
 
     return v0
 
     .line 402
-    :sswitch_2f
+    :sswitch_33
     const/16 v0, 0x1d
 
     return v0
 
     .line 400
-    :sswitch_30
+    :sswitch_34
     const/16 v0, 0x1c
 
     return v0
 
     .line 398
-    :sswitch_31
+    :sswitch_35
     const/16 v0, 0x19
 
     return v0
 
     .line 396
-    :sswitch_32
+    :sswitch_36
     const/16 v0, 0x18
 
     return v0
 
     .line 394
-    :sswitch_33
+    :sswitch_37
     const/16 v0, 0x17
 
     return v0
 
     .line 392
-    :sswitch_34
+    :sswitch_38
     const/16 v0, 0x16
 
     return v0
 
     .line 390
-    :sswitch_35
+    :sswitch_39
     const/16 v0, 0x15
 
     return v0
 
     .line 388
-    :sswitch_36
+    :sswitch_3a
     const/16 v0, 0x14
 
     return v0
 
     .line 386
-    :sswitch_37
+    :sswitch_3b
     const/16 v0, 0x13
 
     return v0
 
     .line 384
-    :sswitch_38
+    :sswitch_3c
     const/16 v0, 0x12
 
     return v0
 
     .line 486
-    :sswitch_39
+    :sswitch_3d
     const/16 v0, 0x1e
 
     return v0
 
     .line 382
-    :sswitch_3a
+    :sswitch_3e
     const/16 v0, 0x11
 
     return v0
 
     .line 380
-    :sswitch_3b
+    :sswitch_3f
     const/16 v0, 0x10
 
     return v0
 
     .line 378
-    :sswitch_3c
+    :sswitch_40
     const/16 v0, 0xf
 
     return v0
 
     .line 376
-    :sswitch_3d
+    :sswitch_41
     const/16 v0, 0xe
 
     return v0
 
     .line 374
-    :sswitch_3e
+    :sswitch_42
     return v0
 
     .line 372
-    :sswitch_3f
+    :sswitch_43
     const/16 v0, 0xc
 
     return v0
 
     .line 370
-    :sswitch_40
+    :sswitch_44
     const/16 v0, 0xb
 
     return v0
 
     .line 368
-    :sswitch_41
+    :sswitch_45
     const/16 v0, 0xa
 
     return v0
 
     .line 366
-    :sswitch_42
+    :sswitch_46
     const/16 v0, 0x9
 
     return v0
 
     .line 364
-    :sswitch_43
+    :sswitch_47
     const/16 v0, 0x8
 
     return v0
 
     .line 362
-    :sswitch_44
+    :sswitch_48
     const/4 v0, 0x7
 
     return v0
 
     .line 360
-    :sswitch_45
+    :sswitch_49
     const/4 v0, 0x6
 
     return v0
 
     .line 358
-    :sswitch_46
+    :sswitch_4a
     const/4 v0, 0x5
 
     return v0
 
     .line 356
-    :sswitch_47
+    :sswitch_4b
     const/4 v0, 0x4
 
     return v0
 
     .line 354
-    :sswitch_48
+    :sswitch_4c
     const/4 v0, 0x3
 
     return v0
 
     .line 352
-    :sswitch_49
+    :sswitch_4d
     const/4 v0, 0x2
 
     return v0
 
     .line 350
-    :sswitch_4a
+    :sswitch_4e
     const/4 v0, 0x1
 
     return v0
@@ -602,81 +626,85 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_4a
-        0x1 -> :sswitch_49
-        0x2 -> :sswitch_48
-        0x3 -> :sswitch_47
-        0x4 -> :sswitch_46
-        0x5 -> :sswitch_45
-        0x6 -> :sswitch_44
-        0x7 -> :sswitch_43
-        0x8 -> :sswitch_42
-        0x9 -> :sswitch_41
-        0xa -> :sswitch_40
-        0xb -> :sswitch_3f
-        0xc -> :sswitch_3e
-        0xd -> :sswitch_3d
-        0xe -> :sswitch_3c
-        0xf -> :sswitch_3b
-        0x10 -> :sswitch_3a
-        0x11 -> :sswitch_39
-        0x12 -> :sswitch_38
-        0x13 -> :sswitch_37
-        0x14 -> :sswitch_36
-        0x15 -> :sswitch_35
-        0x16 -> :sswitch_34
-        0x17 -> :sswitch_33
-        0x18 -> :sswitch_32
-        0x19 -> :sswitch_31
-        0x1a -> :sswitch_30
-        0x1b -> :sswitch_2f
-        0x1c -> :sswitch_2e
-        0x1d -> :sswitch_2d
-        0x1e -> :sswitch_2c
-        0x1f -> :sswitch_2b
-        0x20 -> :sswitch_2a
-        0x21 -> :sswitch_29
-        0x22 -> :sswitch_28
-        0x23 -> :sswitch_27
-        0x24 -> :sswitch_26
-        0x25 -> :sswitch_25
-        0x26 -> :sswitch_24
-        0x27 -> :sswitch_23
-        0x28 -> :sswitch_22
-        0x29 -> :sswitch_21
-        0x2a -> :sswitch_20
-        0x2b -> :sswitch_1f
-        0x2c -> :sswitch_1e
-        0x2d -> :sswitch_1d
-        0x2e -> :sswitch_1c
-        0x2f -> :sswitch_1b
-        0x30 -> :sswitch_1a
-        0x31 -> :sswitch_19
-        0x32 -> :sswitch_18
-        0x33 -> :sswitch_17
-        0x34 -> :sswitch_16
-        0x35 -> :sswitch_15
-        0x36 -> :sswitch_14
-        0x37 -> :sswitch_13
-        0x38 -> :sswitch_12
-        0x39 -> :sswitch_11
-        0x3a -> :sswitch_10
-        0x3b -> :sswitch_f
-        0x3c -> :sswitch_e
-        0x3d -> :sswitch_d
-        0x3e -> :sswitch_c
-        0x3f -> :sswitch_b
-        0x40 -> :sswitch_a
-        0x41 -> :sswitch_9
-        0x42 -> :sswitch_8
-        0x43 -> :sswitch_7
-        0x48 -> :sswitch_6
-        0x4a -> :sswitch_5
-        0x3e8 -> :sswitch_4
-        0x3e9 -> :sswitch_3
-        0x3ea -> :sswitch_2
-        0x3eb -> :sswitch_1
-        0x3ec -> :sswitch_0
+        0x0 -> :sswitch_4e
+        0x1 -> :sswitch_4d
+        0x2 -> :sswitch_4c
+        0x3 -> :sswitch_4b
+        0x4 -> :sswitch_4a
+        0x5 -> :sswitch_49
+        0x6 -> :sswitch_48
+        0x7 -> :sswitch_47
+        0x8 -> :sswitch_46
+        0x9 -> :sswitch_45
+        0xa -> :sswitch_44
+        0xb -> :sswitch_43
+        0xc -> :sswitch_42
+        0xd -> :sswitch_41
+        0xe -> :sswitch_40
+        0xf -> :sswitch_3f
+        0x10 -> :sswitch_3e
+        0x11 -> :sswitch_3d
+        0x12 -> :sswitch_3c
+        0x13 -> :sswitch_3b
+        0x14 -> :sswitch_3a
+        0x15 -> :sswitch_39
+        0x16 -> :sswitch_38
+        0x17 -> :sswitch_37
+        0x18 -> :sswitch_36
+        0x19 -> :sswitch_35
+        0x1a -> :sswitch_34
+        0x1b -> :sswitch_33
+        0x1c -> :sswitch_32
+        0x1d -> :sswitch_31
+        0x1e -> :sswitch_30
+        0x1f -> :sswitch_2f
+        0x20 -> :sswitch_2e
+        0x21 -> :sswitch_2d
+        0x22 -> :sswitch_2c
+        0x23 -> :sswitch_2b
+        0x24 -> :sswitch_2a
+        0x25 -> :sswitch_29
+        0x26 -> :sswitch_28
+        0x27 -> :sswitch_27
+        0x28 -> :sswitch_26
+        0x29 -> :sswitch_25
+        0x2a -> :sswitch_24
+        0x2b -> :sswitch_23
+        0x2c -> :sswitch_22
+        0x2d -> :sswitch_21
+        0x2e -> :sswitch_20
+        0x2f -> :sswitch_1f
+        0x30 -> :sswitch_1e
+        0x31 -> :sswitch_1d
+        0x32 -> :sswitch_1c
+        0x33 -> :sswitch_1b
+        0x34 -> :sswitch_1a
+        0x35 -> :sswitch_19
+        0x36 -> :sswitch_18
+        0x37 -> :sswitch_17
+        0x38 -> :sswitch_16
+        0x39 -> :sswitch_15
+        0x3a -> :sswitch_14
+        0x3b -> :sswitch_13
+        0x3c -> :sswitch_12
+        0x3d -> :sswitch_11
+        0x3e -> :sswitch_10
+        0x3f -> :sswitch_f
+        0x40 -> :sswitch_e
+        0x41 -> :sswitch_d
+        0x42 -> :sswitch_c
+        0x43 -> :sswitch_b
+        0x48 -> :sswitch_a
+        0x4a -> :sswitch_9
+        0x3e8 -> :sswitch_8
+        0x3e9 -> :sswitch_7
+        0x3ea -> :sswitch_6
+        0x3eb -> :sswitch_5
+        0x3ec -> :sswitch_4
+        0x3ed -> :sswitch_3
+        0x3ee -> :sswitch_2
+        0x3ef -> :sswitch_1
+        0x3f0 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -751,7 +779,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -899,30 +931,30 @@
     .locals 5
     .param p0, "ar"    # Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 589
+    .line 615
     const/4 v0, 0x0
 
-    .line 590
+    .line 616
     .local v0, "sipErrorInfo":Landroid/telephony/ims/ImsReasonInfo;
     const/4 v1, 0x0
 
-    .line 592
+    .line 618
     .local v1, "code":I
     if-eqz p0, :cond_0
 
-    .line 593
+    .line 619
     iget-object v2, p0, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     move-object v0, v2
 
     check-cast v0, Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 594
+    .line 620
     iget-object v2, p0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v2, :cond_0
 
-    .line 595
+    .line 621
     iget-object v2, p0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     check-cast v2, Lorg/codeaurora/ims/ImsRilException;
@@ -931,11 +963,11 @@
 
     move-result v1
 
-    .line 598
+    .line 624
     :cond_0
     if-nez v0, :cond_1
 
-    .line 599
+    .line 625
     new-instance v2, Landroid/telephony/ims/ImsReasonInfo;
 
     const/4 v3, 0x0
@@ -946,7 +978,7 @@
 
     return-object v2
 
-    .line 601
+    .line 627
     :cond_1
     sget-object v2, Lorg/codeaurora/ims/ImsCallUtils;->TAG:Ljava/lang/String;
 
@@ -958,45 +990,53 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v0}, Landroid/telephony/ims/ImsReasonInfo;->getExtraCode()I
 
     move-result v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, " error string :"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 602
+    move-result-object v3
+
+    .line 628
     invoke-virtual {v0}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 601
+    .line 627
     invoke-static {v2, v3}, Lcom/qualcomm/ims/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 603
+    .line 629
     new-instance v2, Landroid/telephony/ims/ImsReasonInfo;
 
     invoke-virtual {v0}, Landroid/telephony/ims/ImsReasonInfo;->getExtraCode()I
 
     move-result v3
 
-    .line 604
+    .line 630
     invoke-virtual {v0}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-direct {v2, v1, v3, v4}, Landroid/telephony/ims/ImsReasonInfo;-><init>(IILjava/lang/String;)V
 
-    .line 603
+    .line 629
     return-object v2
 .end method
 
@@ -1143,7 +1183,7 @@
     .locals 2
     .param p0, "dc"    # Lorg/codeaurora/ims/DriverCallIms;
 
-    .line 509
+    .line 517
     if-eqz p0, :cond_0
 
     iget-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
@@ -1335,14 +1375,14 @@
 .method public static isCarrierOneSupported()Z
     .locals 2
 
-    .line 550
+    .line 576
     const-string v0, "persist.vendor.radio.atel.carrier"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 551
+    .line 577
     .local v0, "property":Ljava/lang/String;
     const-string v1, "405854"
 
@@ -1619,7 +1659,7 @@
     .locals 1
     .param p0, "callModify"    # Lorg/codeaurora/ims/CallModify;
 
-    .line 612
+    .line 638
     if-eqz p0, :cond_0
 
     iget-object v0, p0, Lorg/codeaurora/ims/CallModify;->call_details:Lorg/codeaurora/ims/CallDetails;
@@ -1630,7 +1670,7 @@
 
     iget v0, v0, Lorg/codeaurora/ims/CallDetails;->call_type:I
 
-    .line 613
+    .line 639
     invoke-static {v0}, Lorg/codeaurora/ims/ImsCallUtils;->isVideoCall(I)Z
 
     move-result v0
@@ -1644,7 +1684,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 612
+    .line 638
     :goto_0
     return v0
 .end method
@@ -1653,7 +1693,7 @@
     .locals 1
     .param p0, "session"    # Lorg/codeaurora/ims/ImsCallSessionImpl;
 
-    .line 608
+    .line 634
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Lorg/codeaurora/ims/ImsCallSessionImpl;->getInternalCallType()I
@@ -1681,7 +1721,7 @@
     .locals 4
     .param p0, "number"    # Ljava/lang/String;
 
-    .line 563
+    .line 589
     const/4 v0, 0x0
 
     if-eqz p0, :cond_4
@@ -1692,7 +1732,7 @@
 
     if-nez v1, :cond_4
 
-    .line 564
+    .line 590
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -1703,7 +1743,7 @@
 
     goto :goto_1
 
-    .line 572
+    .line 598
     :cond_0
     const-string v1, "+"
 
@@ -1715,7 +1755,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 573
+    .line 599
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -1724,7 +1764,7 @@
 
     move-result-object p0
 
-    .line 576
+    .line 602
     :cond_1
     const-string v2, "#"
 
@@ -1740,7 +1780,7 @@
 
     if-nez v1, :cond_3
 
-    .line 577
+    .line 603
     const-string v1, ","
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -1757,7 +1797,7 @@
 
     if-nez v1, :cond_3
 
-    .line 578
+    .line 604
     const-string v1, "*"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -1768,16 +1808,16 @@
 
     goto :goto_0
 
-    .line 581
+    .line 607
     :cond_2
     return v3
 
-    .line 579
+    .line 605
     :cond_3
     :goto_0
     return v0
 
-    .line 565
+    .line 591
     :cond_4
     :goto_1
     sget-object v1, Lorg/codeaurora/ims/ImsCallUtils;->TAG:Ljava/lang/String;
@@ -1786,7 +1826,7 @@
 
     invoke-static {v1, v2}, Lcom/qualcomm/ims/utils/Log;->w(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 566
+    .line 592
     return v0
 .end method
 
@@ -2029,14 +2069,14 @@
     .param p0, "verstatInfo"    # Lorg/codeaurora/ims/VerstatInfo;
     .param p1, "profile"    # Lorg/codeaurora/ims/QImsCallProfile;
 
-    .line 621
+    .line 647
     if-eqz p0, :cond_5
 
     if-nez p1, :cond_0
 
     goto :goto_1
 
-    .line 625
+    .line 651
     :cond_0
     invoke-virtual {p0}, Lorg/codeaurora/ims/VerstatInfo;->canMarkUnwantedCall()Z
 
@@ -2046,57 +2086,57 @@
 
     if-eqz v0, :cond_1
 
-    .line 626
+    .line 652
     const-string v0, "CanMarkUnwantedCall"
 
     invoke-virtual {p1, v0, v1}, Lorg/codeaurora/ims/QImsCallProfile;->setCallExtraBoolean(Ljava/lang/String;Z)V
 
-    .line 630
+    .line 656
     :cond_1
     invoke-virtual {p0}, Lorg/codeaurora/ims/VerstatInfo;->getVerstatVerificationStatus()I
 
     move-result v0
 
-    .line 631
+    .line 657
     .local v0, "verstatVerificationStatus":I
     if-nez v0, :cond_2
 
-    .line 632
+    .line 658
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Lorg/codeaurora/ims/QImsCallProfile;->setCallerNumberVerificationStatus(I)V
 
     goto :goto_0
 
-    .line 634
+    .line 660
     :cond_2
     if-ne v0, v1, :cond_3
 
-    .line 635
+    .line 661
     invoke-virtual {p1, v1}, Lorg/codeaurora/ims/QImsCallProfile;->setCallerNumberVerificationStatus(I)V
 
     goto :goto_0
 
-    .line 638
+    .line 664
     :cond_3
     const/4 v1, 0x2
 
     invoke-virtual {p1, v1}, Lorg/codeaurora/ims/QImsCallProfile;->setCallerNumberVerificationStatus(I)V
 
-    .line 642
+    .line 668
     :goto_0
     if-eqz v0, :cond_4
 
-    .line 643
+    .line 669
     const-string v1, "VerstatVerificationStatus"
 
     invoke-virtual {p1, v1, v0}, Lorg/codeaurora/ims/QImsCallProfile;->setCallExtraInt(Ljava/lang/String;I)V
 
-    .line 647
+    .line 673
     :cond_4
     return-object p1
 
-    .line 622
+    .line 648
     .end local v0    # "verstatVerificationStatus":I
     :cond_5
     :goto_1
@@ -2107,82 +2147,148 @@
     .locals 1
     .param p0, "ex"    # Lorg/codeaurora/ims/ImsRilException;
 
-    .line 532
-    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsRilException;->getErrorCode()I
-
-    move-result v0
-
-    sparse-switch v0, :sswitch_data_0
-
-    .line 542
-    const/4 v0, 0x0
-
-    return v0
-
     .line 540
-    :sswitch_0
-    const/16 v0, 0x83
-
-    return v0
-
-    .line 538
-    :sswitch_1
-    const/16 v0, 0x4b3
-
-    return v0
-
-    .line 536
-    :sswitch_2
-    const/16 v0, 0x4b2
-
-    return v0
-
-    .line 534
-    :sswitch_3
-    const/16 v0, 0x4b1
-
-    return v0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x1f -> :sswitch_3
-        0x20 -> :sswitch_2
-        0x21 -> :sswitch_1
-        0x2f -> :sswitch_0
-    .end sparse-switch
-.end method
-
-.method public static toUiErrorCode(Lorg/codeaurora/ims/ImsRilException;)I
-    .locals 1
-    .param p0, "ex"    # Lorg/codeaurora/ims/ImsRilException;
-
-    .line 516
     invoke-virtual {p0}, Lorg/codeaurora/ims/ImsRilException;->getErrorCode()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    .line 568
+    :pswitch_0
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 548
+    :pswitch_1
+    const/16 v0, 0x83
+
+    return v0
+
+    .line 562
+    :pswitch_2
+    const/16 v0, 0xf9
+
+    return v0
+
+    .line 560
+    :pswitch_3
+    const/16 v0, 0xf8
+
+    return v0
+
+    .line 564
+    :pswitch_4
+    const/16 v0, 0xfa
+
+    return v0
+
+    .line 566
+    :pswitch_5
+    const/16 v0, 0xfb
+
+    return v0
+
+    .line 558
+    :pswitch_6
+    const/16 v0, 0xf7
+
+    return v0
+
+    .line 556
+    :pswitch_7
+    const/16 v0, 0xf6
+
+    return v0
+
+    .line 554
+    :pswitch_8
+    const/16 v0, 0xf5
+
+    return v0
+
+    .line 552
+    :pswitch_9
+    const/16 v0, 0xf4
+
+    return v0
+
+    .line 550
+    :pswitch_a
+    const/16 v0, 0xf1
+
+    return v0
+
+    .line 546
+    :pswitch_b
+    const/16 v0, 0x4b3
+
+    return v0
+
+    .line 544
+    :pswitch_c
+    const/16 v0, 0x4b2
+
+    return v0
+
+    .line 542
+    :pswitch_d
+    const/16 v0, 0x4b1
+
+    return v0
+
+    :pswitch_data_0
+    .packed-switch 0x1f
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public static toUiErrorCode(Lorg/codeaurora/ims/ImsRilException;)I
+    .locals 1
+    .param p0, "ex"    # Lorg/codeaurora/ims/ImsRilException;
+
     .line 524
+    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsRilException;->getErrorCode()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 532
     const/4 v0, -0x1
 
     return v0
 
-    .line 522
+    .line 530
     :pswitch_0
     const/4 v0, 0x3
 
     return v0
 
-    .line 520
+    .line 528
     :pswitch_1
     const/4 v0, 0x2
 
     return v0
 
-    .line 518
+    .line 526
     :pswitch_2
     const/4 v0, 0x1
 

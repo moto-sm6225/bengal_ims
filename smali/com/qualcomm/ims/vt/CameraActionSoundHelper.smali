@@ -142,11 +142,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v0}, Ljava/util/concurrent/CancellationException;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -179,7 +183,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$open$0$CameraActionSoundHelper()V
+.method synthetic lambda$open$0$com-qualcomm-ims-vt-CameraActionSoundHelper()V
     .locals 2
 
     .line 59

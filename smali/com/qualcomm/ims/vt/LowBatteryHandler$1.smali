@@ -64,12 +64,12 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$002(Lcom/qualcomm/ims/vt/LowBatteryHandler;Z)Z
+    invoke-static {v1, v2}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$fputmIsLowBattery(Lcom/qualcomm/ims/vt/LowBatteryHandler;Z)V
 
     .line 98
     iget-object v1, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler$1;->this$0:Lcom/qualcomm/ims/vt/LowBatteryHandler;
 
-    invoke-static {v1}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$100(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Ljava/util/List;
+    invoke-static {v1}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$fgetmServiceSubs(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Ljava/util/List;
 
     move-result-object v1
 
@@ -101,7 +101,7 @@
 
     iget-object v4, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler$1;->this$0:Lcom/qualcomm/ims/vt/LowBatteryHandler;
 
-    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$200(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$fgetmContext(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -113,7 +113,7 @@
     .local v3, "allowVideoCallsInLowBattery":Z
     iget-object v4, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler$1;->this$0:Lcom/qualcomm/ims/vt/LowBatteryHandler;
 
-    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$000(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
+    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$fgetmIsLowBattery(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
 
     move-result v4
 
@@ -122,7 +122,7 @@
     if-nez v3, :cond_0
 
     .line 103
-    invoke-static {}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v4
 
@@ -133,7 +133,7 @@
     .line 104
     iget-object v4, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler$1;->this$0:Lcom/qualcomm/ims/vt/LowBatteryHandler;
 
-    invoke-static {v4, v2}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$400(Lcom/qualcomm/ims/vt/LowBatteryHandler;Lorg/codeaurora/ims/ImsServiceSub;)V
+    invoke-static {v4, v2}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$mdisconnectVideoCalls(Lcom/qualcomm/ims/vt/LowBatteryHandler;Lorg/codeaurora/ims/ImsServiceSub;)V
 
     .line 106
     :cond_0
@@ -141,7 +141,7 @@
 
     iget-object v4, p0, Lcom/qualcomm/ims/vt/LowBatteryHandler$1;->this$0:Lcom/qualcomm/ims/vt/LowBatteryHandler;
 
-    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->access$500(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
+    invoke-static {v4}, Lcom/qualcomm/ims/vt/LowBatteryHandler;->-$$Nest$fgetisCarrierOneSupported(Lcom/qualcomm/ims/vt/LowBatteryHandler;)Z
 
     move-result v4
 

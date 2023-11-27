@@ -57,6 +57,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mhandleConferenceCompleted(Lorg/codeaurora/ims/ImsConferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->handleConferenceCompleted()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mhandleConferenceResponse(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsConferenceController;->handleConferenceResponse(Lorg/codeaurora/telephony/utils/AsyncResult;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mlogi(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsConferenceController;->logi(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lorg/codeaurora/ims/ImsSenderRxr;Landroid/content/Context;Lorg/codeaurora/ims/ImsServiceClassTracker;)V
     .locals 4
     .param p1, "ci"    # Lorg/codeaurora/ims/ImsSenderRxr;
@@ -136,74 +160,6 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsConferenceController;
-    .param p1, "x1"    # Ljava/lang/String;
-
-    .line 44
-    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsConferenceController;->logi(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/telephony/utils/AsyncResult;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsConferenceController;
-    .param p1, "x1"    # Lorg/codeaurora/telephony/utils/AsyncResult;
-
-    .line 44
-    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsConferenceController;->handleConferenceResponse(Lorg/codeaurora/telephony/utils/AsyncResult;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lorg/codeaurora/ims/ImsConferenceController;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsConferenceController;
-
-    .line 44
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->handleConferenceCompleted()V
-
-    return-void
-.end method
-
-.method private cleanupConferenceAttempt()V
-    .locals 2
-
-    .line 209
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mMergeHostListener:Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;
-
-    .line 210
-    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResult:Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;
-
-    .line 211
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lorg/codeaurora/ims/ImsConferenceController;->mIsConferenceCallStateCompleted:Z
-
-    .line 212
-    iput-boolean v1, p0, Lorg/codeaurora/ims/ImsConferenceController;->mIsConferenceResponseReceived:Z
-
-    .line 213
-    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResponseError:Landroid/telephony/ims/ImsReasonInfo;
-
-    .line 214
-    sget-object v0, Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;->IDLE:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
-
-    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceState:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
-
-    .line 215
-    sget-object v0, Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;->IDLE:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
-
-    invoke-direct {p0, v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->notifyConferenceStateChanged(Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;Z)V
-
-    .line 216
-    return-void
-.end method
-
 .method private getCallSessionWithMptyBitSet(I)Lorg/codeaurora/ims/ImsCallSessionImpl;
     .locals 2
     .param p1, "state"    # I
@@ -226,11 +182,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResult:Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;
 
     iget-object v1, v1, Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;->activeCall:Lorg/codeaurora/ims/ImsCallSessionImpl;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -606,7 +566,7 @@
     invoke-direct {p0, v2, v1}, Lorg/codeaurora/ims/ImsConferenceController;->notifyConferenceStateChanged(Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;Z)V
 
     .line 296
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
+    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
 
     .line 297
     return-void
@@ -614,6 +574,42 @@
 
 
 # virtual methods
+.method cleanupConferenceAttempt()V
+    .locals 2
+
+    .line 209
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mMergeHostListener:Lorg/codeaurora/ims/ImsCallSessionCallbackHandler;
+
+    .line 210
+    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResult:Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;
+
+    .line 211
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lorg/codeaurora/ims/ImsConferenceController;->mIsConferenceCallStateCompleted:Z
+
+    .line 212
+    iput-boolean v1, p0, Lorg/codeaurora/ims/ImsConferenceController;->mIsConferenceResponseReceived:Z
+
+    .line 213
+    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResponseError:Landroid/telephony/ims/ImsReasonInfo;
+
+    .line 214
+    sget-object v0, Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;->IDLE:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
+
+    iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceState:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
+
+    .line 215
+    sget-object v0, Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;->IDLE:Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;
+
+    invoke-direct {p0, v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->notifyConferenceStateChanged(Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;Z)V
+
+    .line 216
+    return-void
+.end method
+
 .method public dispose()V
     .locals 2
 
@@ -748,7 +744,7 @@
     invoke-direct {p0, v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->notifyConferenceStateChanged(Lorg/codeaurora/ims/ImsConferenceController$ConferenceState;Z)V
 
     .line 227
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
+    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
 
     .line 228
     return-void
@@ -796,9 +792,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -885,13 +885,21 @@
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     const-string v6, ", callSession = "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -916,19 +924,31 @@
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     const-string v6, " state: "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     const-string v6, " CallSession: "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -975,17 +995,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p1}, Lorg/codeaurora/ims/ImsCallSessionImpl;->isMultipartyCall()Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " isMultiParty: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1158,7 +1186,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1187,7 +1219,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;-><init>(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/ims/ImsConferenceController$1;)V
+    invoke-direct {v0, p0, v1}, Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;-><init>(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult-IA;)V
 
     iput-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController;->mConferenceResult:Lorg/codeaurora/ims/ImsConferenceController$ConferenceResult;
 
@@ -1216,7 +1248,7 @@
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->loge(Ljava/lang/String;)V
 
     .line 321
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
+    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
 
     .line 322
     return-void
@@ -1243,7 +1275,7 @@
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->loge(Ljava/lang/String;)V
 
     .line 330
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
+    invoke-virtual {p0}, Lorg/codeaurora/ims/ImsConferenceController;->cleanupConferenceAttempt()V
 
     .line 331
     return-void

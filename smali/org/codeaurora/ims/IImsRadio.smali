@@ -76,7 +76,18 @@
     .end annotation
 .end method
 
+.method public abstract dispose()V
+.end method
+
 .method public abstract exitEmergencyCallbackMode(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract exitSmsCallBackMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -457,7 +468,7 @@
     .locals 1
     .param p1, "v"    # Z
 
-    .line 376
+    .line 383
     if-eqz p1, :cond_0
 
     const-string v0, "available"

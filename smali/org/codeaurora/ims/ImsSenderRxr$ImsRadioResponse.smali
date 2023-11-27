@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsSenderRxr;
 
-    .line 3179
+    .line 3294
     iput-object p1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,18 +40,18 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3256
+    .line 3371
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3257
+    .line 3372
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3258
+    .line 3373
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -60,7 +60,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -68,10 +72,10 @@
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3259
+    .line 3374
     return-void
 
-    .line 3261
+    .line 3376
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -85,17 +89,27 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "Response: errorCode = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " errorInfo = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -103,28 +117,64 @@
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3263
+    .line 3378
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3264
+    .line 3379
     return-void
 .end method
 
 
 # virtual methods
+.method public exitSmsCallBackModeResponse(II)V
+    .locals 3
+    .param p1, "token"    # I
+    .param p2, "errorCode"    # I
+
+    .line 3689
+    iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
+
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+
+    move-result-object v0
+
+    .line 3690
+    .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
+    if-nez v0, :cond_0
+
+    .line 3691
+    const-string v1, "exitSmsCallBackModeResponse rr is NULL"
+
+    invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 3692
+    return-void
+
+    .line 3694
+    :cond_0
+    iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+
+    .line 3695
+    return-void
+.end method
+
 .method public onAddParticipantResponse(II)V
     .locals 1
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3472
+    .line 3587
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3473
+    .line 3588
     return-void
 .end method
 
@@ -133,12 +183,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3291
+    .line 3406
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3292
+    .line 3407
     return-void
 .end method
 
@@ -147,12 +197,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3428
+    .line 3543
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3429
+    .line 3544
     return-void
 .end method
 
@@ -162,10 +212,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3514
+    .line 3629
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3515
+    .line 3630
     return-void
 .end method
 
@@ -175,10 +225,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3331
+    .line 3446
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3332
+    .line 3447
     return-void
 .end method
 
@@ -187,12 +237,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3477
+    .line 3592
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3478
+    .line 3593
     return-void
 .end method
 
@@ -201,12 +251,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3186
+    .line 3301
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3187
+    .line 3302
     return-void
 .end method
 
@@ -215,12 +265,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3398
+    .line 3513
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3399
+    .line 3514
     return-void
 .end method
 
@@ -230,10 +280,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3439
+    .line 3554
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3440
+    .line 3555
     return-void
 .end method
 
@@ -243,32 +293,32 @@
     .param p2, "errorCode"    # I
     .param p3, "response"    # [I
 
-    .line 3371
+    .line 3486
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3372
+    .line 3487
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3373
+    .line 3488
     const-string v1, "onGetCallWaitingResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3374
+    .line 3489
     return-void
 
-    .line 3377
+    .line 3492
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3378
+    .line 3493
     return-void
 .end method
 
@@ -278,32 +328,32 @@
     .param p2, "errorCode"    # I
     .param p3, "clipProvisionStatus"    # Lorg/codeaurora/ims/SuppService;
 
-    .line 3337
+    .line 3452
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3338
+    .line 3453
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3339
+    .line 3454
     const-string v1, "onGetClipResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3340
+    .line 3455
     return-void
 
-    .line 3343
+    .line 3458
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3344
+    .line 3459
     return-void
 .end method
 
@@ -313,32 +363,32 @@
     .param p2, "errorCode"    # I
     .param p3, "clirInfo"    # [I
 
-    .line 3348
+    .line 3463
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3349
+    .line 3464
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3350
+    .line 3465
     const-string v1, "onGetClirResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3351
+    .line 3466
     return-void
 
-    .line 3354
+    .line 3469
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3355
+    .line 3470
     return-void
 .end method
 
@@ -348,32 +398,32 @@
     .param p2, "errorCode"    # I
     .param p3, "colrInfo"    # Lorg/codeaurora/ims/SuppService;
 
-    .line 3387
+    .line 3502
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3388
+    .line 3503
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3389
+    .line 3504
     const-string v1, "onGetColrResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3390
+    .line 3505
     return-void
 
-    .line 3393
+    .line 3508
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3394
+    .line 3509
     return-void
 .end method
 
@@ -383,32 +433,32 @@
     .param p2, "errorCode"    # I
     .param p3, "ret"    # Ljava/lang/Object;
 
-    .line 3201
+    .line 3316
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3202
+    .line 3317
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3203
+    .line 3318
     const-string v1, "onGetConfigResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3204
+    .line 3319
     return-void
 
-    .line 3207
+    .line 3322
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3208
+    .line 3323
     return-void
 .end method
 
@@ -418,32 +468,32 @@
     .param p2, "errorCode"    # I
     .param p3, "subConfigInfo"    # Lorg/codeaurora/ims/ImsSubConfigDetails;
 
-    .line 3488
+    .line 3603
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3489
+    .line 3604
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3490
+    .line 3605
     const-string v1, "onGetImsSubConfigResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3491
+    .line 3606
     return-void
 
-    .line 3494
+    .line 3609
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3495
+    .line 3610
     return-void
 .end method
 
@@ -453,32 +503,32 @@
     .param p2, "errorCode"    # I
     .param p3, "registration"    # Lorg/codeaurora/ims/ImsRegistrationInfo;
 
-    .line 3302
+    .line 3417
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3303
+    .line 3418
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3304
+    .line 3419
     const-string v1, "onGetRegistrationResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3305
+    .line 3420
     return-void
 
-    .line 3308
+    .line 3423
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3309
+    .line 3424
     return-void
 .end method
 
@@ -488,26 +538,26 @@
     .param p2, "errorCode"    # I
     .param p3, "packetErrorCount"    # J
 
-    .line 3462
+    .line 3577
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3463
+    .line 3578
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3464
+    .line 3579
     const-string v1, "onGetRtpErrorStatisticsResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3465
+    .line 3580
     return-void
 
-    .line 3467
+    .line 3582
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -515,9 +565,9 @@
 
     move-result-object v2
 
-    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3468
+    .line 3583
     return-void
 .end method
 
@@ -527,26 +577,26 @@
     .param p2, "errorCode"    # I
     .param p3, "packetCount"    # J
 
-    .line 3451
+    .line 3566
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3452
+    .line 3567
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3453
+    .line 3568
     const-string v1, "onGetRtpStatisticsResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3454
+    .line 3569
     return-void
 
-    .line 3456
+    .line 3571
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -554,9 +604,9 @@
 
     move-result-object v2
 
-    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3457
+    .line 3572
     return-void
 .end method
 
@@ -565,12 +615,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3278
+    .line 3393
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3280
+    .line 3395
     new-instance v0, Lcom/motorola/android/telephony/MotoExtTelephonyManager;
 
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
@@ -579,11 +629,11 @@
 
     invoke-direct {v0, v1}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;)V
 
-    .line 3281
+    .line 3396
     .local v0, "motoExtTM":Lcom/motorola/android/telephony/MotoExtTelephonyManager;
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$000(Lorg/codeaurora/ims/ImsSenderRxr;)Ljava/lang/Integer;
+    invoke-static {v1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$fgetmPhoneId(Lorg/codeaurora/ims/ImsSenderRxr;)Ljava/lang/Integer;
 
     move-result-object v1
 
@@ -597,21 +647,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 3282
+    .line 3397
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget-object v1, v1, Lorg/codeaurora/ims/ImsSenderRxr;->mEmergencyCallbackModeRegistrant:Lorg/codeaurora/telephony/utils/Registrant;
 
     if-eqz v1, :cond_0
 
-    .line 3283
+    .line 3398
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget-object v1, v1, Lorg/codeaurora/ims/ImsSenderRxr;->mEmergencyCallbackModeRegistrant:Lorg/codeaurora/telephony/utils/Registrant;
 
     invoke-virtual {v1}, Lorg/codeaurora/telephony/utils/Registrant;->notifyRegistrant()V
 
-    .line 3287
+    .line 3402
     :cond_0
     return-void
 .end method
@@ -622,10 +672,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3273
+    .line 3388
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3274
+    .line 3389
     return-void
 .end method
 
@@ -634,12 +684,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3433
+    .line 3548
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3434
+    .line 3549
     return-void
 .end method
 
@@ -648,12 +698,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3423
+    .line 3538
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3424
+    .line 3539
     return-void
 .end method
 
@@ -663,32 +713,32 @@
     .param p2, "errorCode"    # I
     .param p3, "timerInfo"    # [Lorg/codeaurora/ims/ImsCallForwardTimerInfo;
 
-    .line 3360
+    .line 3475
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3361
+    .line 3476
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3362
+    .line 3477
     const-string v1, "onQueryCallForwardStatusResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3363
+    .line 3478
     return-void
 
-    .line 3366
+    .line 3481
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3367
+    .line 3482
     return-void
 .end method
 
@@ -698,26 +748,26 @@
     .param p2, "errorCode"    # I
     .param p3, "voiceCapability"    # I
 
-    .line 3608
+    .line 3679
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3609
+    .line 3680
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3610
+    .line 3681
     const-string v1, "onQueryMultiSimVoiceCapabilityResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3611
+    .line 3682
     return-void
 
-    .line 3613
+    .line 3684
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -725,9 +775,9 @@
 
     move-result-object v2
 
-    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3614
+    .line 3685
     return-void
 .end method
 
@@ -744,33 +794,33 @@
         }
     .end annotation
 
-    .line 3224
+    .line 3339
     .local p3, "serviceStatusInfoList":Ljava/util/List;, "Ljava/util/List<Lorg/codeaurora/ims/ServiceStatus;>;"
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3225
+    .line 3340
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3226
+    .line 3341
     const-string v1, "onQueryServiceStatusResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3227
+    .line 3342
     return-void
 
-    .line 3230
+    .line 3345
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3231
+    .line 3346
     return-void
 .end method
 
@@ -780,33 +830,33 @@
     .param p2, "errorCode"    # I
     .param p3, "ssacInfo"    # Lvendor/qti/hardware/radio/ims/V1_0/SsacInfo;
 
-    .line 3583
+    .line 3729
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3584
+    .line 3730
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3585
+    .line 3731
     return-void
 
-    .line 3588
+    .line 3734
     :cond_0
     invoke-static {p3}, Lorg/codeaurora/ims/ImsRadioUtils;->ssacInfoFromHal(Lvendor/qti/hardware/radio/ims/V1_0/SsacInfo;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 3590
+    .line 3736
     .local v1, "ret":Ljava/lang/Object;
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3592
+    .line 3738
     return-void
 .end method
 
@@ -816,34 +866,34 @@
     .param p2, "msisdn"    # Ljava/lang/String;
     .param p3, "virtualLineInfo"    # Lorg/codeaurora/ims/VirtualLineInfo;
 
-    .line 3530
+    .line 3645
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3531
+    .line 3646
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3532
+    .line 3647
     const-string v1, "onQueryVirtualLineInfoResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3533
+    .line 3648
     return-void
 
-    .line 3535
+    .line 3650
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v0, v2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, v2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3536
+    .line 3651
     return-void
 .end method
 
@@ -853,33 +903,33 @@
     .param p2, "errorCode"    # I
     .param p3, "voltePref"    # I
 
-    .line 3560
+    .line 3706
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3561
+    .line 3707
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3562
+    .line 3708
     return-void
 
-    .line 3564
+    .line 3710
     :cond_0
     invoke-static {p3}, Lorg/codeaurora/ims/ImsRadioUtils;->voltePrefFromHal(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 3565
+    .line 3711
     .local v1, "ret":Ljava/lang/Object;
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3566
+    .line 3712
     return-void
 .end method
 
@@ -889,33 +939,33 @@
     .param p2, "errorCode"    # I
     .param p3, "vopsInfo"    # Lvendor/qti/hardware/radio/ims/V1_0/VopsInfo;
 
-    .line 3572
+    .line 3718
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3573
+    .line 3719
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3574
+    .line 3720
     return-void
 
-    .line 3576
+    .line 3722
     :cond_0
     invoke-static {p3}, Lorg/codeaurora/ims/ImsRadioUtils;->vopsInfoFromHal(Lvendor/qti/hardware/radio/ims/V1_0/VopsInfo;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 3578
+    .line 3724
     .local v1, "ret":Ljava/lang/Object;
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3579
+    .line 3725
     return-void
 .end method
 
@@ -924,12 +974,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3519
+    .line 3634
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3520
+    .line 3635
     return-void
 .end method
 
@@ -938,12 +988,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3296
+    .line 3411
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3297
+    .line 3412
     return-void
 .end method
 
@@ -953,10 +1003,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3268
+    .line 3383
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3269
+    .line 3384
     return-void
 .end method
 
@@ -965,12 +1015,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3403
+    .line 3518
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3404
+    .line 3519
     return-void
 .end method
 
@@ -979,12 +1029,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3482
+    .line 3597
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3483
+    .line 3598
     return-void
 .end method
 
@@ -993,34 +1043,34 @@
     .param p1, "token"    # I
     .param p2, "response"    # Lorg/codeaurora/ims/sms/SmsResponse;
 
-    .line 3191
+    .line 3306
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3192
+    .line 3307
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3193
+    .line 3308
     const-string v1, "onSendImsSmsResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3194
+    .line 3309
     return-void
 
-    .line 3196
+    .line 3311
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v0, v2, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, v2, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3197
+    .line 3312
     return-void
 .end method
 
@@ -1029,12 +1079,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3524
+    .line 3639
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3525
+    .line 3640
     return-void
 .end method
 
@@ -1043,34 +1093,34 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3504
+    .line 3619
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3505
+    .line 3620
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3506
+    .line 3621
     const-string v1, "onSendSipDtmfResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3507
+    .line 3622
     return-void
 
-    .line 3509
+    .line 3624
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3510
+    .line 3625
     return-void
 .end method
 
@@ -1080,10 +1130,10 @@
     .param p2, "errorCode"    # I
     .param p3, "errorInfo"    # Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 3499
+    .line 3614
     invoke-direct {p0, p1, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->sendImsReasonInfo(IILandroid/telephony/ims/ImsReasonInfo;)V
 
-    .line 3500
+    .line 3615
     return-void
 .end method
 
@@ -1093,26 +1143,26 @@
     .param p2, "errorCode"    # I
     .param p3, "callForwardStatusInfo"    # Lorg/codeaurora/ims/CallForwardStatusInfo;
 
-    .line 3541
+    .line 3656
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3542
+    .line 3657
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3543
+    .line 3658
     const-string v1, "onSetCallForwardStatusResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3544
+    .line 3659
     return-void
 
-    .line 3547
+    .line 3662
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1122,7 +1172,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1130,12 +1184,12 @@
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3548
+    .line 3663
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3549
+    .line 3664
     return-void
 .end method
 
@@ -1144,12 +1198,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3382
+    .line 3497
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3383
+    .line 3498
     return-void
 .end method
 
@@ -1159,32 +1213,32 @@
     .param p2, "errorCode"    # I
     .param p3, "ret"    # Ljava/lang/Object;
 
-    .line 3212
+    .line 3327
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3213
+    .line 3328
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3214
+    .line 3329
     const-string v1, "onSetConfigResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3215
+    .line 3330
     return-void
 
-    .line 3218
+    .line 3333
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3219
+    .line 3334
     return-void
 .end method
 
@@ -1193,34 +1247,34 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3597
+    .line 3668
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3598
+    .line 3669
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3599
+    .line 3670
     const-string v1, "onSetMediaConfigurationResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3600
+    .line 3671
     return-void
 
-    .line 3602
+    .line 3673
     :cond_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, v2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3603
+    .line 3674
     return-void
 .end method
 
@@ -1229,26 +1283,26 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3235
+    .line 3350
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3236
+    .line 3351
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3237
+    .line 3352
     const-string v1, "onSetServiceStatusResponse  rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3238
+    .line 3353
     return-void
 
-    .line 3242
+    .line 3357
     :cond_0
     :try_start_0
     iget-object v1, v0, Lorg/codeaurora/ims/IFRequest;->mResult:Landroid/os/Message;
@@ -1257,37 +1311,37 @@
 
     check-cast v1, Lorg/codeaurora/telephony/utils/SomeArgs;
 
-    .line 3243
+    .line 3358
     .local v1, "setCapArgs":Lorg/codeaurora/telephony/utils/SomeArgs;
     iget-object v2, v1, Lorg/codeaurora/telephony/utils/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v2, Landroid/os/Message;
 
-    .line 3248
+    .line 3363
     .local v2, "orgMsg":Landroid/os/Message;
     invoke-virtual {v0, v2}, Lorg/codeaurora/ims/IFRequest;->setResult(Landroid/os/Message;)V
 
-    .line 3249
+    .line 3364
     iget-object v3, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget-object v4, v1, Lorg/codeaurora/telephony/utils/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v4, Ljava/util/ArrayList;
 
-    invoke-static {v3, v0, p2, v4}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v3, v0, p2, v4}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3252
+    .line 3367
     .end local v1    # "setCapArgs":Lorg/codeaurora/telephony/utils/SomeArgs;
     .end local v2    # "orgMsg":Landroid/os/Message;
     goto :goto_0
 
-    .line 3250
+    .line 3365
     :catch_0
     move-exception v1
 
-    .line 3251
+    .line 3366
     .local v1, "ex":Ljava/lang/ClassCastException;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1297,7 +1351,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1305,7 +1363,7 @@
 
     invoke-static {p0, v2}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3253
+    .line 3368
     .end local v1    # "ex":Ljava/lang/ClassCastException;
     :goto_0
     return-void
@@ -1317,12 +1375,12 @@
     .param p2, "errorCode"    # I
     .param p3, "serviceStatusClass"    # I
 
-    .line 3445
+    .line 3560
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3446
+    .line 3561
     return-void
 .end method
 
@@ -1331,12 +1389,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3418
+    .line 3533
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3419
+    .line 3534
     return-void
 .end method
 
@@ -1345,12 +1403,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3408
+    .line 3523
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3409
+    .line 3524
     return-void
 .end method
 
@@ -1359,12 +1417,12 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3413
+    .line 3528
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3414
+    .line 3529
     return-void
 .end method
 
@@ -1374,26 +1432,26 @@
     .param p2, "errorCode"    # I
     .param p3, "suppSvcResponse"    # Lorg/codeaurora/ims/SuppSvcResponse;
 
-    .line 3314
+    .line 3429
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3400(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mfindAndRemoveRequestFromList(Lorg/codeaurora/ims/ImsSenderRxr;I)Lorg/codeaurora/ims/IFRequest;
 
     move-result-object v0
 
-    .line 3315
+    .line 3430
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     if-nez v0, :cond_0
 
-    .line 3316
+    .line 3431
     const-string v1, "onSuppServiceStatusResponse rr is NULL"
 
     invoke-static {p0, v1}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3317
+    .line 3432
     return-void
 
-    .line 3320
+    .line 3435
     :cond_0
     iget v1, v0, Lorg/codeaurora/ims/IFRequest;->mRequest:I
 
@@ -1401,10 +1459,10 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 3321
+    .line 3436
     new-instance v1, Lorg/codeaurora/ims/CallForwardStatusInfo;
 
-    .line 3322
+    .line 3437
     invoke-virtual {p3}, Lorg/codeaurora/ims/SuppSvcResponse;->getErrorDetails()Landroid/telephony/ims/ImsReasonInfo;
 
     move-result-object v2
@@ -1413,23 +1471,23 @@
 
     invoke-direct {v1, v2, v3}, Lorg/codeaurora/ims/CallForwardStatusInfo;-><init>(Landroid/telephony/ims/ImsReasonInfo;[Lorg/codeaurora/ims/CallForwardStatus;)V
 
-    .line 3323
+    .line 3438
     .local v1, "cfStatusInfo":Lorg/codeaurora/ims/CallForwardStatusInfo;
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v2, v0, p2, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3324
+    .line 3439
     .end local v1    # "cfStatusInfo":Lorg/codeaurora/ims/CallForwardStatusInfo;
     goto :goto_0
 
-    .line 3325
+    .line 3440
     :cond_1
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3500(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p2, p3}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$msendResponse(Lorg/codeaurora/ims/ImsSenderRxr;Lorg/codeaurora/ims/IFRequest;ILjava/lang/Object;)V
 
-    .line 3327
+    .line 3442
     :goto_0
     return-void
 .end method
@@ -1439,16 +1497,16 @@
     .param p1, "token"    # I
     .param p2, "errorCode"    # I
 
-    .line 3554
+    .line 3700
     const-string v0, "Received update VoltePref response from ImsRadio."
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 3555
+    .line 3701
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioResponse;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->access$3300(Lorg/codeaurora/ims/ImsSenderRxr;II)V
+    invoke-static {v0, p1, p2}, Lorg/codeaurora/ims/ImsSenderRxr;->-$$Nest$mremoveFromQueueAndSendResponse(Lorg/codeaurora/ims/ImsSenderRxr;II)V
 
-    .line 3556
+    .line 3702
     return-void
 .end method

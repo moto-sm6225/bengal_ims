@@ -37,6 +37,8 @@
 
 .field private mIndication:Lorg/codeaurora/ims/IImsRadioIndication;
 
+.field private mIsDisposed:Z
+
 .field private final mLock:Ljava/lang/Object;
 
 .field private final mLogSuffix:Ljava/lang/String;
@@ -49,10 +51,34 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$minitImsRadio(Lorg/codeaurora/ims/ImsRadioAidl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->initImsRadio()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mloge(Lorg/codeaurora/ims/ImsRadioAidl;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mresetService(Lorg/codeaurora/ims/ImsRadioAidl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->resetService()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 79
+    .line 81
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +94,7 @@
     .param p2, "indication"    # Lorg/codeaurora/ims/IImsRadioIndication;
     .param p3, "phoneId"    # I
 
-    .line 82
+    .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -78,16 +104,21 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLock:Ljava/lang/Object;
 
-    .line 83
-    iput p3, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mPhoneId:I
+    .line 79
+    const/4 v0, 0x0
 
-    .line 84
-    iput-object p1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mResponse:Lorg/codeaurora/ims/IImsRadioResponse;
+    iput-boolean v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIsDisposed:Z
 
     .line 85
-    iput-object p2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIndication:Lorg/codeaurora/ims/IImsRadioIndication;
+    iput p3, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mPhoneId:I
 
     .line 86
+    iput-object p1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mResponse:Lorg/codeaurora/ims/IImsRadioResponse;
+
+    .line 87
+    iput-object p2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIndication:Lorg/codeaurora/ims/IImsRadioIndication;
+
+    .line 88
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -96,9 +127,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mPhoneId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -106,7 +141,7 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mServiceInstance:Ljava/lang/String;
 
-    .line 87
+    .line 89
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -115,13 +150,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mPhoneId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -129,76 +170,45 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLogSuffix:Ljava/lang/String;
 
-    .line 88
+    .line 90
     new-instance v0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;
 
     invoke-direct {v0, p0}, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;-><init>(Lorg/codeaurora/ims/ImsRadioAidl;)V
 
     iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mDeathRecipient:Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;
 
-    .line 89
+    .line 91
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->initImsRadio()V
 
-    .line 90
-    return-void
-.end method
-
-.method static synthetic access$000(Lorg/codeaurora/ims/ImsRadioAidl;Ljava/lang/String;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsRadioAidl;
-    .param p1, "x1"    # Ljava/lang/String;
-
-    .line 48
-    invoke-direct {p0, p1}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lorg/codeaurora/ims/ImsRadioAidl;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsRadioAidl;
-
-    .line 48
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->resetService()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lorg/codeaurora/ims/ImsRadioAidl;)V
-    .locals 0
-    .param p0, "x0"    # Lorg/codeaurora/ims/ImsRadioAidl;
-
-    .line 48
-    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->initImsRadio()V
-
+    .line 92
     return-void
 .end method
 
 .method private imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
     .locals 3
 
-    .line 141
+    .line 143
     const/4 v0, 0x0
 
-    .line 142
+    .line 144
     .local v0, "imsRadio":Lvendor/qti/hardware/radio/ims/IImsRadio;
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 143
+    .line 145
     :try_start_0
     iget-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadio:Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-object v0, v2
 
-    .line 144
+    .line 146
     monitor-exit v1
 
-    .line 145
+    .line 147
     return-object v0
 
-    .line 144
+    .line 146
     :catchall_0
     move-exception v2
 
@@ -212,59 +222,59 @@
 .method private initImsRadio()V
     .locals 7
 
-    .line 155
+    .line 157
     :try_start_0
     const-string v0, "initImsRadio: connect to IImsRadio Stable AIDL"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->log(Ljava/lang/String;)V
 
-    .line 156
+    .line 158
     iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mServiceInstance:Ljava/lang/String;
 
-    .line 157
+    .line 159
     invoke-static {v0}, Landroid/os/ServiceManager;->waitForDeclaredService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 156
+    .line 158
     invoke-static {v0}, Landroid/os/Binder;->allowBlocking(Landroid/os/IBinder;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 158
+    .line 160
     .local v0, "binder":Landroid/os/IBinder;
     if-nez v0, :cond_0
 
-    .line 159
+    .line 161
     const-string v1, "initImsRadio: Stable AIDL is NOT used."
 
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 160
+    .line 162
     return-void
 
-    .line 162
+    .line 164
     :cond_0
     nop
 
-    .line 163
+    .line 165
     invoke-static {v0}, Lvendor/qti/hardware/radio/ims/IImsRadio$Stub;->asInterface(Landroid/os/IBinder;)Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v1
 
-    .line 164
+    .line 166
     .local v1, "imsRadio":Lvendor/qti/hardware/radio/ims/IImsRadio;
     if-nez v1, :cond_1
 
-    .line 165
+    .line 167
     const-string v2, "initImsRadio: mAidlInstance is null"
 
     invoke-direct {p0, v2}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 166
+    .line 168
     return-void
 
-    .line 168
+    .line 170
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -273,6 +283,8 @@
     const-string v3, "initImsRadio: imsRadio availability: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     const/4 v3, 0x0
 
@@ -285,7 +297,7 @@
     :cond_2
     move v4, v3
 
-    .line 169
+    .line 171
     :goto_0
     invoke-virtual {p0, v4}, Lorg/codeaurora/ims/ImsRadioAidl;->toAvailability(Z)Ljava/lang/String;
 
@@ -293,14 +305,16 @@
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 168
+    .line 170
     invoke-direct {p0, v2}, Lorg/codeaurora/ims/ImsRadioAidl;->log(Ljava/lang/String;)V
 
-    .line 171
+    .line 173
     new-instance v2, Lorg/codeaurora/ims/ImsRadioResponseAidl;
 
     iget-object v4, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mResponse:Lorg/codeaurora/ims/IImsRadioResponse;
@@ -309,7 +323,7 @@
 
     invoke-direct {v2, v4, v5}, Lorg/codeaurora/ims/ImsRadioResponseAidl;-><init>(Lorg/codeaurora/ims/IImsRadioResponse;I)V
 
-    .line 172
+    .line 174
     .local v2, "imsRadioResponse":Lorg/codeaurora/ims/ImsRadioResponseAidl;
     new-instance v4, Lorg/codeaurora/ims/ImsRadioIndicationAidl;
 
@@ -319,7 +333,7 @@
 
     invoke-direct {v4, v5, v6}, Lorg/codeaurora/ims/ImsRadioIndicationAidl;-><init>(Lorg/codeaurora/ims/IImsRadioIndication;I)V
 
-    .line 175
+    .line 177
     .local v4, "imsRadioIndication":Lorg/codeaurora/ims/ImsRadioIndicationAidl;
     iget-object v5, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLock:Ljava/lang/Object;
 
@@ -327,48 +341,64 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 176
-    :try_start_1
-    iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mBinder:Landroid/os/IBinder;
-
-    .line 177
-    iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioResponse:Lvendor/qti/hardware/radio/ims/IImsRadioResponse;
-
     .line 178
-    iput-object v4, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioIndication:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
+    :try_start_1
+    iget-boolean v6, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIsDisposed:Z
+
+    if-eqz v6, :cond_3
 
     .line 179
-    invoke-interface {v1, v2, v4}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setCallback(Lvendor/qti/hardware/radio/ims/IImsRadioResponse;Lvendor/qti/hardware/radio/ims/IImsRadioIndication;)V
+    const-string v3, "initImsRadio: already disposed. exiting."
+
+    invoke-direct {p0, v3}, Lorg/codeaurora/ims/ImsRadioAidl;->log(Ljava/lang/String;)V
 
     .line 180
+    monitor-exit v5
+
+    return-void
+
+    .line 182
+    :cond_3
+    iput-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mBinder:Landroid/os/IBinder;
+
+    .line 183
+    iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioResponse:Lvendor/qti/hardware/radio/ims/IImsRadioResponse;
+
+    .line 184
+    iput-object v4, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioIndication:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
+
+    .line 185
+    invoke-interface {v1, v2, v4}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setCallback(Lvendor/qti/hardware/radio/ims/IImsRadioResponse;Lvendor/qti/hardware/radio/ims/IImsRadioIndication;)V
+
+    .line 186
     iput-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadio:Lvendor/qti/hardware/radio/ims/IImsRadio;
 
-    .line 181
+    .line 187
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 182
+    .line 188
     :try_start_2
     iget-object v5, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mDeathRecipient:Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;
 
     invoke-interface {v0, v5, v3}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    .line 183
+    .line 189
     iget-object v3, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIndication:Lorg/codeaurora/ims/IImsRadioIndication;
 
     invoke-interface {v3}, Lorg/codeaurora/ims/IImsRadioIndication;->onServiceUp()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 188
+    .line 194
     .end local v0    # "binder":Landroid/os/IBinder;
     .end local v1    # "imsRadio":Lvendor/qti/hardware/radio/ims/IImsRadio;
     .end local v2    # "imsRadioResponse":Lorg/codeaurora/ims/ImsRadioResponseAidl;
     .end local v4    # "imsRadioIndication":Lorg/codeaurora/ims/ImsRadioIndicationAidl;
     goto :goto_1
 
-    .line 181
+    .line 187
     .restart local v0    # "binder":Landroid/os/IBinder;
     .restart local v1    # "imsRadio":Lvendor/qti/hardware/radio/ims/IImsRadio;
     .restart local v2    # "imsRadioResponse":Lorg/codeaurora/ims/ImsRadioResponseAidl;
@@ -387,7 +417,7 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 185
+    .line 191
     .end local v0    # "binder":Landroid/os/IBinder;
     .end local v1    # "imsRadio":Lvendor/qti/hardware/radio/ims/IImsRadio;
     .end local v2    # "imsRadioResponse":Lorg/codeaurora/ims/ImsRadioResponseAidl;
@@ -396,7 +426,7 @@
     :catch_0
     move-exception v0
 
-    .line 186
+    .line 192
     .local v0, "ex":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -406,7 +436,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -414,10 +448,10 @@
 
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 187
+    .line 193
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->resetService()V
 
-    .line 189
+    .line 195
     .end local v0    # "ex":Ljava/lang/Exception;
     :goto_1
     return-void
@@ -427,7 +461,7 @@
     .locals 3
     .param p0, "phoneId"    # I
 
-    .line 193
+    .line 199
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -437,7 +471,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -451,11 +489,11 @@
 
     return v0
 
-    .line 194
+    .line 200
     :catch_0
     move-exception v0
 
-    .line 196
+    .line 202
     .local v0, "e":Ljava/lang/SecurityException;
     const-string v1, "ImsRadioAidl"
 
@@ -463,7 +501,7 @@
 
     invoke-static {v1, v2}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 198
+    .line 204
     .end local v0    # "e":Ljava/lang/SecurityException;
     const/4 v0, 0x0
 
@@ -474,16 +512,20 @@
     .locals 2
     .param p1, "msg"    # Ljava/lang/String;
 
-    .line 93
+    .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLogSuffix:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -491,7 +533,7 @@
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 94
+    .line 96
     return-void
 .end method
 
@@ -499,16 +541,20 @@
     .locals 2
     .param p1, "msg"    # Ljava/lang/String;
 
-    .line 101
+    .line 103
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLogSuffix:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -516,7 +562,7 @@
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 102
+    .line 104
     return-void
 .end method
 
@@ -524,16 +570,20 @@
     .locals 2
     .param p1, "msg"    # Ljava/lang/String;
 
-    .line 97
+    .line 99
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLogSuffix:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -541,61 +591,61 @@
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 98
+    .line 100
     return-void
 .end method
 
 .method private resetService()V
     .locals 4
 
-    .line 121
+    .line 123
     const-string v0, "IImsRadio service down: Resetting HAL interfaces."
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->log(Ljava/lang/String;)V
 
-    .line 122
+    .line 124
     iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIndication:Lorg/codeaurora/ims/IImsRadioIndication;
 
     invoke-interface {v0}, Lorg/codeaurora/ims/IImsRadioIndication;->onServiceDown()V
 
-    .line 123
+    .line 125
     const/4 v0, 0x0
 
-    .line 124
+    .line 126
     .local v0, "binder":Landroid/os/IBinder;
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 125
+    .line 127
     const/4 v2, 0x0
 
     :try_start_0
     iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadio:Lvendor/qti/hardware/radio/ims/IImsRadio;
 
-    .line 126
+    .line 128
     iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioResponse:Lvendor/qti/hardware/radio/ims/IImsRadioResponse;
 
-    .line 127
+    .line 129
     iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mImsRadioIndication:Lvendor/qti/hardware/radio/ims/IImsRadioIndication;
 
-    .line 128
+    .line 130
     iget-object v3, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mBinder:Landroid/os/IBinder;
 
     move-object v0, v3
 
-    .line 129
+    .line 131
     iput-object v2, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mBinder:Landroid/os/IBinder;
 
-    .line 130
+    .line 132
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 131
+    .line 133
     if-eqz v0, :cond_0
 
-    .line 133
+    .line 135
     :try_start_1
     iget-object v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mDeathRecipient:Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;
 
@@ -605,14 +655,14 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 136
+    .line 138
     goto :goto_0
 
-    .line 134
+    .line 136
     :catch_0
     move-exception v1
 
-    .line 135
+    .line 137
     .local v1, "ex":Ljava/lang/Exception;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -622,7 +672,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -630,13 +684,13 @@
 
     invoke-direct {p0, v2}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 138
+    .line 140
     .end local v1    # "ex":Ljava/lang/Exception;
     :cond_0
     :goto_0
     return-void
 
-    .line 130
+    .line 132
     :catchall_0
     move-exception v2
 
@@ -661,12 +715,12 @@
         }
     .end annotation
 
-    .line 306
+    .line 329
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromAcknowledgeSms(II)Lvendor/qti/hardware/radio/ims/AcknowledgeSmsInfo;
 
     move-result-object v0
 
-    .line 307
+    .line 330
     .local v0, "smsInfo":Lvendor/qti/hardware/radio/ims/AcknowledgeSmsInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -674,7 +728,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->acknowledgeSms(ILvendor/qti/hardware/radio/ims/AcknowledgeSmsInfo;)V
 
-    .line 308
+    .line 331
     return-void
 .end method
 
@@ -689,12 +743,12 @@
         }
     .end annotation
 
-    .line 313
+    .line 336
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromAcknowledgeSmsReport(II)Lvendor/qti/hardware/radio/ims/AcknowledgeSmsReportInfo;
 
     move-result-object v0
 
-    .line 315
+    .line 338
     .local v0, "smsReportInfo":Lvendor/qti/hardware/radio/ims/AcknowledgeSmsReportInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -702,7 +756,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->acknowledgeSmsReport(ILvendor/qti/hardware/radio/ims/AcknowledgeSmsReportInfo;)V
 
-    .line 316
+    .line 339
     return-void
 .end method
 
@@ -718,7 +772,7 @@
         }
     .end annotation
 
-    .line 232
+    .line 255
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -727,7 +781,7 @@
 
     move-result-object v0
 
-    .line 234
+    .line 257
     .local v0, "dialRequest":Lvendor/qti/hardware/radio/ims/DialRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -735,7 +789,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->addParticipant(ILvendor/qti/hardware/radio/ims/DialRequest;)V
 
-    .line 235
+    .line 258
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -744,19 +798,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " address = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " callType = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -764,9 +828,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " callDomain = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -774,29 +842,43 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " isConferenceUri = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "isCallPull ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " isEncrypted = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -804,7 +886,7 @@
 
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->logv(Ljava/lang/String;)V
 
-    .line 240
+    .line 263
     return-void
 .end method
 
@@ -820,12 +902,12 @@
         }
     .end annotation
 
-    .line 283
+    .line 306
     invoke-static {p2, p3, p4}, Lorg/codeaurora/ims/StableAidl;->fromAnswerRequest(III)Lvendor/qti/hardware/radio/ims/AnswerRequest;
 
     move-result-object v0
 
-    .line 285
+    .line 308
     .local v0, "answerRequest":Lvendor/qti/hardware/radio/ims/AnswerRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -833,7 +915,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->answer(ILvendor/qti/hardware/radio/ims/AnswerRequest;)V
 
-    .line 286
+    .line 309
     return-void
 .end method
 
@@ -847,14 +929,14 @@
         }
     .end annotation
 
-    .line 370
+    .line 393
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->cancelModifyCall(II)V
 
-    .line 371
+    .line 394
     return-void
 .end method
 
@@ -867,14 +949,14 @@
         }
     .end annotation
 
-    .line 277
+    .line 300
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->cancelPendingUssd(I)V
 
-    .line 278
+    .line 301
     return-void
 .end method
 
@@ -887,14 +969,14 @@
         }
     .end annotation
 
-    .line 391
+    .line 414
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->conference(I)V
 
-    .line 392
+    .line 415
     return-void
 .end method
 
@@ -909,12 +991,12 @@
         }
     .end annotation
 
-    .line 291
+    .line 314
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromDeflectCall(ILjava/lang/String;)Lvendor/qti/hardware/radio/ims/DeflectRequestInfo;
 
     move-result-object v0
 
-    .line 292
+    .line 315
     .local v0, "deflectRequestInfo":Lvendor/qti/hardware/radio/ims/DeflectRequestInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -922,7 +1004,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->deflectCall(ILvendor/qti/hardware/radio/ims/DeflectRequestInfo;)V
 
-    .line 293
+    .line 316
     return-void
 .end method
 
@@ -942,16 +1024,16 @@
         }
     .end annotation
 
-    .line 248
+    .line 271
     invoke-static {p2, p4, p5, p6, p8}, Lorg/codeaurora/ims/StableAidl;->fromDialRequest(Ljava/lang/String;ILorg/codeaurora/ims/CallDetails;ZLorg/codeaurora/ims/RedialInfo;)Lvendor/qti/hardware/radio/ims/DialRequest;
 
     move-result-object v0
 
-    .line 250
+    .line 273
     .local v0, "dialRequest":Lvendor/qti/hardware/radio/ims/DialRequest;
     if-eqz p3, :cond_0
 
-    .line 251
+    .line 274
     move-object v1, p3
 
     move-object v2, p2
@@ -968,7 +1050,7 @@
 
     move-result-object v1
 
-    .line 253
+    .line 276
     .local v1, "emergencyDialRequest":Lvendor/qti/hardware/radio/ims/EmergencyDialRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -976,17 +1058,17 @@
 
     invoke-interface {v2, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->emergencyDial(ILvendor/qti/hardware/radio/ims/EmergencyDialRequest;)V
 
-    .line 254
+    .line 277
     .end local v1    # "emergencyDialRequest":Lvendor/qti/hardware/radio/ims/EmergencyDialRequest;
     goto :goto_0
 
     :cond_0
     if-eqz p7, :cond_1
 
-    .line 255
+    .line 278
     nop
 
-    .line 256
+    .line 279
     move-object v1, p7
 
     move-object v2, p2
@@ -1003,7 +1085,7 @@
 
     move-result-object v1
 
-    .line 258
+    .line 281
     .local v1, "composerDialRequest":Lvendor/qti/hardware/radio/ims/CallComposerDialRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1011,11 +1093,11 @@
 
     invoke-interface {v2, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->callComposerDial(ILvendor/qti/hardware/radio/ims/CallComposerDialRequest;)V
 
-    .line 259
+    .line 282
     .end local v1    # "composerDialRequest":Lvendor/qti/hardware/radio/ims/CallComposerDialRequest;
     goto :goto_0
 
-    .line 260
+    .line 283
     :cond_1
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1023,7 +1105,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->dial(ILvendor/qti/hardware/radio/ims/DialRequest;)V
 
-    .line 262
+    .line 285
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1033,13 +1115,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "callType ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -1047,9 +1135,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "callDomain ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -1057,33 +1149,49 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "isConferenceUri ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "isCallPull ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "isEncrypted ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "rttMode ="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, v0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -1091,14 +1199,53 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->logv(Ljava/lang/String;)V
 
-    .line 268
+    .line 291
     return-void
+.end method
+
+.method public dispose()V
+    .locals 2
+
+    .line 246
+    iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    .line 247
+    const/4 v1, 0x1
+
+    :try_start_0
+    iput-boolean v1, p0, Lorg/codeaurora/ims/ImsRadioAidl;->mIsDisposed:Z
+
+    .line 248
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 249
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->resetService()V
+
+    .line 250
+    return-void
+
+    .line 248
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
 .method public exitEmergencyCallbackMode(I)V
@@ -1110,14 +1257,34 @@
         }
     .end annotation
 
-    .line 497
+    .line 520
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->exitEmergencyCallbackMode(I)V
 
-    .line 498
+    .line 521
+    return-void
+.end method
+
+.method public exitSmsCallBackMode(I)V
+    .locals 1
+    .param p1, "token"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 598
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->exitSmsCallBackMode(I)V
+
+    .line 599
     return-void
 .end method
 
@@ -1134,12 +1301,12 @@
         }
     .end annotation
 
-    .line 397
+    .line 420
     invoke-static {p2, p3, p4, p5}, Lorg/codeaurora/ims/StableAidl;->fromEctInfo(IILjava/lang/String;I)Lvendor/qti/hardware/radio/ims/ExplicitCallTransferInfo;
 
     move-result-object v0
 
-    .line 399
+    .line 422
     .local v0, "ectInfo":Lvendor/qti/hardware/radio/ims/ExplicitCallTransferInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1147,7 +1314,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->explicitCallTransfer(ILvendor/qti/hardware/radio/ims/ExplicitCallTransferInfo;)V
 
-    .line 400
+    .line 423
     return-void
 .end method
 
@@ -1161,14 +1328,14 @@
         }
     .end annotation
 
-    .line 456
+    .line 479
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getCallWaiting(II)V
 
-    .line 457
+    .line 480
     return-void
 .end method
 
@@ -1181,14 +1348,14 @@
         }
     .end annotation
 
-    .line 486
+    .line 509
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getClip(I)V
 
-    .line 487
+    .line 510
     return-void
 .end method
 
@@ -1201,14 +1368,14 @@
         }
     .end annotation
 
-    .line 445
+    .line 468
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getClir(I)V
 
-    .line 446
+    .line 469
     return-void
 .end method
 
@@ -1221,14 +1388,14 @@
         }
     .end annotation
 
-    .line 511
+    .line 534
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getColr(I)V
 
-    .line 512
+    .line 535
     return-void
 .end method
 
@@ -1246,12 +1413,12 @@
         }
     .end annotation
 
-    .line 414
+    .line 437
     invoke-static {p2, p3, p4, p5, p6}, Lorg/codeaurora/ims/StableAidl;->fromImsConfig(IZILjava/lang/String;I)Lvendor/qti/hardware/radio/ims/ConfigInfo;
 
     move-result-object v0
 
-    .line 416
+    .line 439
     .local v0, "config":Lvendor/qti/hardware/radio/ims/ConfigInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1259,7 +1426,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getConfig(ILvendor/qti/hardware/radio/ims/ConfigInfo;)V
 
-    .line 417
+    .line 440
     return-void
 .end method
 
@@ -1272,14 +1439,14 @@
         }
     .end annotation
 
-    .line 353
+    .line 376
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getImsRegistrationState(I)V
 
-    .line 354
+    .line 377
     return-void
 .end method
 
@@ -1292,14 +1459,14 @@
         }
     .end annotation
 
-    .line 532
+    .line 555
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getImsSubConfig(I)V
 
-    .line 533
+    .line 556
     return-void
 .end method
 
@@ -1312,14 +1479,14 @@
         }
     .end annotation
 
-    .line 527
+    .line 550
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getRtpErrorStatistics(I)V
 
-    .line 528
+    .line 551
     return-void
 .end method
 
@@ -1332,14 +1499,14 @@
         }
     .end annotation
 
-    .line 522
+    .line 545
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->getRtpStatistics(I)V
 
-    .line 523
+    .line 546
     return-void
 .end method
 
@@ -1351,7 +1518,7 @@
         }
     .end annotation
 
-    .line 320
+    .line 343
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1378,12 +1545,12 @@
         }
     .end annotation
 
-    .line 333
+    .line 356
     invoke-static/range {p2 .. p7}, Lorg/codeaurora/ims/StableAidl;->fromHangup(ILjava/lang/String;Ljava/lang/String;ZILjava/lang/String;)Lvendor/qti/hardware/radio/ims/HangupRequestInfo;
 
     move-result-object v0
 
-    .line 335
+    .line 358
     .local v0, "hangup":Lvendor/qti/hardware/radio/ims/HangupRequestInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1391,7 +1558,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->hangup(ILvendor/qti/hardware/radio/ims/HangupRequestInfo;)V
 
-    .line 336
+    .line 359
     return-void
 .end method
 
@@ -1405,21 +1572,21 @@
         }
     .end annotation
 
-    .line 381
+    .line 404
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->hold(II)V
 
-    .line 382
+    .line 405
     return-void
 .end method
 
 .method public isAlive()Z
     .locals 1
 
-    .line 226
+    .line 241
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1441,16 +1608,58 @@
     .locals 2
     .param p1, "feature"    # I
 
-    .line 204
+    .line 210
     const/4 v0, 0x0
 
     packed-switch p1, :pswitch_data_0
 
-    .line 221
+    .line 236
     return v0
 
-    .line 219
+    .line 234
     :pswitch_0
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/StableAidl;->isVersionSupported(Lvendor/qti/hardware/radio/ims/IImsRadio;I)Z
+
+    move-result v0
+
+    return v0
+
+    .line 231
+    :pswitch_1
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
+
+    move-result-object v0
+
+    const/4 v1, 0x7
+
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/StableAidl;->isVersionSupported(Lvendor/qti/hardware/radio/ims/IImsRadio;I)Z
+
+    move-result v0
+
+    return v0
+
+    .line 228
+    :pswitch_2
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
+
+    move-result-object v0
+
+    const/4 v1, 0x4
+
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/StableAidl;->isVersionSupported(Lvendor/qti/hardware/radio/ims/IImsRadio;I)Z
+
+    move-result v0
+
+    return v0
+
+    .line 225
+    :pswitch_3
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1463,8 +1672,8 @@
 
     return v0
 
-    .line 216
-    :pswitch_1
+    .line 222
+    :pswitch_4
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1477,8 +1686,8 @@
 
     return v0
 
-    .line 213
-    :pswitch_2
+    .line 219
+    :pswitch_5
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v1
@@ -1490,17 +1699,18 @@
     :cond_0
     return v0
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
@@ -1517,7 +1727,7 @@
         }
     .end annotation
 
-    .line 376
+    .line 399
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1528,7 +1738,7 @@
 
     invoke-interface {v0, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->modifyCallConfirm(ILvendor/qti/hardware/radio/ims/CallModifyInfo;)V
 
-    .line 377
+    .line 400
     return-void
 .end method
 
@@ -1542,7 +1752,7 @@
         }
     .end annotation
 
-    .line 365
+    .line 388
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1553,7 +1763,7 @@
 
     invoke-interface {v0, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->modifyCallInitiate(ILvendor/qti/hardware/radio/ims/CallModifyInfo;)V
 
-    .line 366
+    .line 389
     return-void
 .end method
 
@@ -1570,7 +1780,7 @@
         }
     .end annotation
 
-    .line 479
+    .line 502
     const/4 v3, 0x2
 
     const/4 v4, 0x0
@@ -1587,7 +1797,7 @@
 
     move-result-object v0
 
-    .line 481
+    .line 504
     .local v0, "cfInfo":Lvendor/qti/hardware/radio/ims/CallForwardInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1595,7 +1805,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->queryCallForwardStatus(ILvendor/qti/hardware/radio/ims/CallForwardInfo;)V
 
-    .line 482
+    .line 505
     return-void
 .end method
 
@@ -1608,14 +1818,14 @@
         }
     .end annotation
 
-    .line 602
+    .line 593
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->queryMultiSimVoiceCapability(I)V
 
-    .line 603
+    .line 594
     return-void
 .end method
 
@@ -1628,14 +1838,14 @@
         }
     .end annotation
 
-    .line 340
+    .line 363
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->queryServiceStatus(I)V
 
-    .line 341
+    .line 364
     return-void
 .end method
 
@@ -1648,12 +1858,12 @@
         }
     .end annotation
 
-    .line 569
+    .line 612
     const-string v0, "querySsacStatus not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 570
+    .line 613
     new-instance v0, Landroid/os/RemoteException;
 
     const-string v1, "querySsacStatus is not supported"
@@ -1673,14 +1883,14 @@
         }
     .end annotation
 
-    .line 542
+    .line 565
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->queryVirtualLineInfo(ILjava/lang/String;)V
 
-    .line 543
+    .line 566
     return-void
 .end method
 
@@ -1693,12 +1903,12 @@
         }
     .end annotation
 
-    .line 585
+    .line 628
     const-string v0, "queryVoltePref not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 586
+    .line 629
     new-instance v0, Landroid/os/RemoteException;
 
     const-string v1, "queryVoltePref is not supported"
@@ -1717,12 +1927,12 @@
         }
     .end annotation
 
-    .line 562
+    .line 605
     const-string v0, "queryVopsStatus not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 563
+    .line 606
     new-instance v0, Landroid/os/RemoteException;
 
     const-string v1, "queryVopsStatus is not supported"
@@ -1750,16 +1960,16 @@
         }
     .end annotation
 
-    .line 548
+    .line 571
     .local p2, "linesInfo":Ljava/util/Collection;, "Ljava/util/Collection<Lorg/codeaurora/ims/MultiIdentityLineInfo;>;"
     nop
 
-    .line 549
+    .line 572
     invoke-static {p2}, Lorg/codeaurora/ims/StableAidl;->fromMultiIdentityLineInfoList(Ljava/util/Collection;)[Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
 
     move-result-object v0
 
-    .line 550
+    .line 573
     .local v0, "halLinesInfo":[Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1767,7 +1977,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->registerMultiIdentityLines(I[Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;)V
 
-    .line 551
+    .line 574
     return-void
 .end method
 
@@ -1781,7 +1991,7 @@
         }
     .end annotation
 
-    .line 359
+    .line 382
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
@@ -1792,7 +2002,7 @@
 
     invoke-interface {v0, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->requestRegistrationChange(II)V
 
-    .line 360
+    .line 383
     return-void
 .end method
 
@@ -1806,14 +2016,14 @@
         }
     .end annotation
 
-    .line 386
+    .line 409
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->resume(II)V
 
-    .line 387
+    .line 410
     return-void
 .end method
 
@@ -1828,12 +2038,12 @@
         }
     .end annotation
 
-    .line 421
+    .line 444
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromDtmf(IC)Lvendor/qti/hardware/radio/ims/DtmfInfo;
 
     move-result-object v0
 
-    .line 422
+    .line 445
     .local v0, "dtmfValue":Lvendor/qti/hardware/radio/ims/DtmfInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1841,7 +2051,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendDtmf(ILvendor/qti/hardware/radio/ims/DtmfInfo;)V
 
-    .line 423
+    .line 446
     return-void
 .end method
 
@@ -1857,12 +2067,12 @@
         }
     .end annotation
 
-    .line 326
+    .line 349
     invoke-static {p2, p3, p4, p5, p6}, Lorg/codeaurora/ims/StableAidl;->fromGeoLocation(DDLandroid/location/Address;)Lvendor/qti/hardware/radio/ims/GeoLocationInfo;
 
     move-result-object v0
 
-    .line 327
+    .line 350
     .local v0, "geoLocationInfo":Lvendor/qti/hardware/radio/ims/GeoLocationInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1870,7 +2080,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendGeolocationInfo(ILvendor/qti/hardware/radio/ims/GeoLocationInfo;)V
 
-    .line 328
+    .line 351
     return-void
 .end method
 
@@ -1884,14 +2094,14 @@
         }
     .end annotation
 
-    .line 537
+    .line 560
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendRttMessage(ILjava/lang/String;)V
 
-    .line 538
+    .line 561
     return-void
 .end method
 
@@ -1905,14 +2115,14 @@
         }
     .end annotation
 
-    .line 555
+    .line 578
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendSipDtmf(ILjava/lang/String;)V
 
-    .line 556
+    .line 579
     return-void
 .end method
 
@@ -1930,12 +2140,12 @@
         }
     .end annotation
 
-    .line 298
+    .line 321
     invoke-static {p2, p3, p4, p5, p6}, Lorg/codeaurora/ims/StableAidl;->fromSmsRequest(ILjava/lang/String;Ljava/lang/String;Z[B)Lvendor/qti/hardware/radio/ims/SmsSendRequest;
 
     move-result-object v0
 
-    .line 300
+    .line 323
     .local v0, "smsRequest":Lvendor/qti/hardware/radio/ims/SmsSendRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -1943,7 +2153,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendSms(ILvendor/qti/hardware/radio/ims/SmsSendRequest;)V
 
-    .line 301
+    .line 324
     return-void
 .end method
 
@@ -1957,14 +2167,14 @@
         }
     .end annotation
 
-    .line 272
+    .line 295
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lvendor/qti/hardware/radio/ims/IImsRadio;->sendUssd(ILjava/lang/String;)V
 
-    .line 273
+    .line 296
     return-void
 .end method
 
@@ -1986,7 +2196,7 @@
         }
     .end annotation
 
-    .line 471
+    .line 494
     move/from16 v0, p7
 
     move/from16 v1, p8
@@ -2009,7 +2219,7 @@
 
     move-result-object v0
 
-    .line 473
+    .line 496
     .local v0, "cfInfo":Lvendor/qti/hardware/radio/ims/CallForwardInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2019,7 +2229,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setCallForwardStatus(ILvendor/qti/hardware/radio/ims/CallForwardInfo;)V
 
-    .line 474
+    .line 497
     return-void
 .end method
 
@@ -2034,12 +2244,12 @@
         }
     .end annotation
 
-    .line 462
+    .line 485
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromCallWaiting(ZI)Lvendor/qti/hardware/radio/ims/CallWaitingInfo;
 
     move-result-object v0
 
-    .line 463
+    .line 486
     .local v0, "callWaitingInfo":Lvendor/qti/hardware/radio/ims/CallWaitingInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2047,7 +2257,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setCallWaiting(ILvendor/qti/hardware/radio/ims/CallWaitingInfo;)V
 
-    .line 464
+    .line 487
     return-void
 .end method
 
@@ -2061,12 +2271,12 @@
         }
     .end annotation
 
-    .line 450
+    .line 473
     invoke-static {p2}, Lorg/codeaurora/ims/StableAidl;->fromClir(I)Lvendor/qti/hardware/radio/ims/ClirInfo;
 
     move-result-object v0
 
-    .line 451
+    .line 474
     .local v0, "clirValue":Lvendor/qti/hardware/radio/ims/ClirInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2074,7 +2284,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setClir(ILvendor/qti/hardware/radio/ims/ClirInfo;)V
 
-    .line 452
+    .line 475
     return-void
 .end method
 
@@ -2088,12 +2298,12 @@
         }
     .end annotation
 
-    .line 516
+    .line 539
     invoke-static {p2}, Lorg/codeaurora/ims/StableAidl;->fromColrValue(I)Lvendor/qti/hardware/radio/ims/ColrInfo;
 
     move-result-object v0
 
-    .line 517
+    .line 540
     .local v0, "colrValue":Lvendor/qti/hardware/radio/ims/ColrInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2101,7 +2311,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setColr(ILvendor/qti/hardware/radio/ims/ColrInfo;)V
 
-    .line 518
+    .line 541
     return-void
 .end method
 
@@ -2120,12 +2330,12 @@
         }
     .end annotation
 
-    .line 406
+    .line 429
     invoke-static {p2, p3, p4, p5, p6}, Lorg/codeaurora/ims/StableAidl;->fromImsConfig(IZILjava/lang/String;I)Lvendor/qti/hardware/radio/ims/ConfigInfo;
 
     move-result-object v0
 
-    .line 408
+    .line 431
     .local v0, "config":Lvendor/qti/hardware/radio/ims/ConfigInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2133,7 +2343,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setConfig(ILvendor/qti/hardware/radio/ims/ConfigInfo;)V
 
-    .line 409
+    .line 432
     return-void
 .end method
 
@@ -2149,7 +2359,7 @@
         }
     .end annotation
 
-    .line 593
+    .line 584
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->isFeatureSupported(I)Z
@@ -2158,12 +2368,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 596
+    .line 587
     invoke-static {p2, p3, p4}, Lorg/codeaurora/ims/StableAidl;->fromImsMediaConfig(Landroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)Lvendor/qti/hardware/radio/ims/MediaConfig;
 
     move-result-object v0
 
-    .line 597
+    .line 588
     .local v0, "mediaConfig":Lvendor/qti/hardware/radio/ims/MediaConfig;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2171,10 +2381,10 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setMediaConfiguration(ILvendor/qti/hardware/radio/ims/MediaConfig;)V
 
-    .line 598
+    .line 589
     return-void
 
-    .line 594
+    .line 585
     .end local v0    # "mediaConfig":Lvendor/qti/hardware/radio/ims/MediaConfig;
     :cond_0
     new-instance v0, Landroid/os/RemoteException;
@@ -2205,13 +2415,13 @@
         }
     .end annotation
 
-    .line 346
+    .line 369
     .local p2, "capabilityStatusList":Ljava/util/List;, "Ljava/util/List<Lorg/codeaurora/ims/CapabilityStatus;>;"
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromServiceStatusInfoList(Ljava/util/List;I)[Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;
 
     move-result-object v0
 
-    .line 348
+    .line 371
     .local v0, "svcstatusInfo":[Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2219,7 +2429,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setServiceStatus(I[Lvendor/qti/hardware/radio/ims/ServiceStatusInfo;)V
 
-    .line 349
+    .line 372
     return-void
 .end method
 
@@ -2233,12 +2443,12 @@
         }
     .end annotation
 
-    .line 439
+    .line 462
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
-    .line 440
+    .line 463
     if-eqz p2, :cond_0
 
     const/4 v1, 0x2
@@ -2248,11 +2458,11 @@
     :cond_0
     const/4 v1, 0x1
 
-    .line 439
+    .line 462
     :goto_0
     invoke-interface {v0, p1, v1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setSuppServiceNotification(II)V
 
-    .line 441
+    .line 464
     return-void
 .end method
 
@@ -2266,12 +2476,12 @@
         }
     .end annotation
 
-    .line 491
+    .line 514
     invoke-static {p2}, Lorg/codeaurora/ims/StableAidl;->fromTty(I)Lvendor/qti/hardware/radio/ims/TtyInfo;
 
     move-result-object v0
 
-    .line 492
+    .line 515
     .local v0, "info":Lvendor/qti/hardware/radio/ims/TtyInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2279,7 +2489,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->setUiTtyMode(ILvendor/qti/hardware/radio/ims/TtyInfo;)V
 
-    .line 493
+    .line 516
     return-void
 .end method
 
@@ -2294,12 +2504,12 @@
         }
     .end annotation
 
-    .line 427
+    .line 450
     invoke-static {p2, p3}, Lorg/codeaurora/ims/StableAidl;->fromDtmf(IC)Lvendor/qti/hardware/radio/ims/DtmfInfo;
 
     move-result-object v0
 
-    .line 428
+    .line 451
     .local v0, "dtmfValue":Lvendor/qti/hardware/radio/ims/DtmfInfo;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2307,7 +2517,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->startDtmf(ILvendor/qti/hardware/radio/ims/DtmfInfo;)V
 
-    .line 429
+    .line 452
     return-void
 .end method
 
@@ -2321,14 +2531,14 @@
         }
     .end annotation
 
-    .line 433
+    .line 456
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lvendor/qti/hardware/radio/ims/IImsRadio;->stopDtmf(I)V
 
-    .line 434
+    .line 457
     return-void
 .end method
 
@@ -2347,12 +2557,12 @@
         }
     .end annotation
 
-    .line 504
+    .line 527
     invoke-static/range {p2 .. p7}, Lorg/codeaurora/ims/StableAidl;->fromSuppServiceStatus(II[Ljava/lang/String;Ljava/lang/String;IZ)Lvendor/qti/hardware/radio/ims/SuppServiceStatusRequest;
 
     move-result-object v0
 
-    .line 506
+    .line 529
     .local v0, "suppServiceStatusRequest":Lvendor/qti/hardware/radio/ims/SuppServiceStatusRequest;
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioAidl;->imsRadio()Lvendor/qti/hardware/radio/ims/IImsRadio;
 
@@ -2360,7 +2570,7 @@
 
     invoke-interface {v1, p1, v0}, Lvendor/qti/hardware/radio/ims/IImsRadio;->suppServiceStatus(ILvendor/qti/hardware/radio/ims/SuppServiceStatusRequest;)V
 
-    .line 507
+    .line 530
     return-void
 .end method
 
@@ -2374,12 +2584,12 @@
         }
     .end annotation
 
-    .line 578
+    .line 621
     const-string v0, "updateVoltePref not supproted by aidl"
 
     invoke-direct {p0, v0}, Lorg/codeaurora/ims/ImsRadioAidl;->loge(Ljava/lang/String;)V
 
-    .line 579
+    .line 622
     new-instance v0, Landroid/os/RemoteException;
 
     const-string v1, "updateVoltePref is not supported"

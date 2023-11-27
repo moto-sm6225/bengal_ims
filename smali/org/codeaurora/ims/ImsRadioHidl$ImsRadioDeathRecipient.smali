@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsRadioHidl;
 
-    .line 114
+    .line 116
     iput-object p1, p0, Lorg/codeaurora/ims/ImsRadioHidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioHidl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,16 +40,16 @@
     .locals 1
     .param p1, "cookie"    # J
 
-    .line 120
+    .line 122
     const-string v0, " IImsRadio Died"
 
     invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 121
+    .line 123
     iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioHidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioHidl;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioHidl;->access$000(Lorg/codeaurora/ims/ImsRadioHidl;)V
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioHidl;->-$$Nest$mresetServiceAndRequestList(Lorg/codeaurora/ims/ImsRadioHidl;)V
 
-    .line 122
+    .line 124
     return-void
 .end method

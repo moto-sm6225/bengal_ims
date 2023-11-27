@@ -33,23 +33,23 @@
     .param p2, "lat"    # D
     .param p4, "lon"    # D
 
-    .line 1907
+    .line 1985
     iput-object p1, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1905
+    .line 1983
     const/4 p1, 0x1
 
     iput p1, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->MAX_RESULTS:I
 
-    .line 1908
+    .line 1986
     iput-wide p2, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->latitude:D
 
-    .line 1909
+    .line 1987
     iput-wide p4, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->longitude:D
 
-    .line 1910
+    .line 1988
     return-void
 .end method
 
@@ -58,7 +58,7 @@
 .method public run()V
     .locals 12
 
-    .line 1919
+    .line 1997
     const-string v0, " :: Error getting Addresses from GeoCoder!"
 
     iget-object v1, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
@@ -71,22 +71,26 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lorg/codeaurora/ims/ImsServiceSub;->access$500(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$mlogi(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
 
-    .line 1920
+    .line 1998
     const/4 v1, 0x0
 
-    .line 1921
+    .line 1999
     .local v1, "address":Landroid/location/Address;
     const/4 v2, 0x0
 
-    .line 1922
+    .line 2000
     .local v2, "addresses":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     invoke-static {}, Landroid/location/Geocoder;->isPresent()Z
 
@@ -94,28 +98,28 @@
 
     if-nez v3, :cond_0
 
-    .line 1923
+    .line 2001
     iget-object v0, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
     const-string v3, "handleGeolocationRequest :: Geocoder not present!"
 
-    invoke-static {v0, v3}, Lorg/codeaurora/ims/ImsServiceSub;->access$300(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+    invoke-static {v0, v3}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$mloge(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
 
     goto :goto_2
 
-    .line 1925
+    .line 2003
     :cond_0
     new-instance v4, Landroid/location/Geocoder;
 
     iget-object v3, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
-    invoke-static {v3}, Lorg/codeaurora/ims/ImsServiceSub;->access$3900(Lorg/codeaurora/ims/ImsServiceSub;)Landroid/content/Context;
+    invoke-static {v3}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$fgetmContext(Lorg/codeaurora/ims/ImsServiceSub;)Landroid/content/Context;
 
     move-result-object v3
 
     invoke-direct {v4, v3}, Landroid/location/Geocoder;-><init>(Landroid/content/Context;)V
 
-    .line 1927
+    .line 2005
     .local v4, "gc":Landroid/location/Geocoder;
     :try_start_0
     iget-wide v5, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->latitude:D
@@ -133,15 +137,15 @@
 
     move-object v2, v3
 
-    .line 1932
+    .line 2010
     :goto_0
     goto :goto_1
 
-    .line 1930
+    .line 2008
     :catch_0
     move-exception v3
 
-    .line 1931
+    .line 2009
     .local v3, "iox":Ljava/io/IOException;
     iget-object v5, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
@@ -151,22 +155,26 @@
 
     invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v6
+
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lorg/codeaurora/ims/ImsServiceSub;->access$300(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$mloge(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 1928
+    .line 2006
     .end local v3    # "iox":Ljava/io/IOException;
     :catch_1
     move-exception v3
 
-    .line 1929
+    .line 2007
     .local v3, "iex":Ljava/lang/IllegalArgumentException;
     iget-object v5, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
@@ -176,20 +184,24 @@
 
     invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v6
+
     const-string v7, " :: Invalid latitude or longitude value!"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lorg/codeaurora/ims/ImsServiceSub;->access$300(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$mloge(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
 
     .end local v3    # "iex":Ljava/lang/IllegalArgumentException;
     goto :goto_0
 
-    .line 1933
+    .line 2011
     :goto_1
     if-eqz v2, :cond_1
 
@@ -199,7 +211,7 @@
 
     if-nez v3, :cond_1
 
-    .line 1939
+    .line 2017
     const/4 v0, 0x0
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -212,7 +224,7 @@
 
     goto :goto_2
 
-    .line 1941
+    .line 2019
     :cond_1
     iget-object v3, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
@@ -222,15 +234,19 @@
 
     invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Lorg/codeaurora/ims/ImsServiceSub;->access$300(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 1944
+    move-result-object v0
+
+    invoke-static {v3, v0}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$mloge(Lorg/codeaurora/ims/ImsServiceSub;Ljava/lang/String;)V
+
+    .line 2022
     .end local v4    # "gc":Landroid/location/Geocoder;
     :goto_2
     iget-object v0, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
@@ -243,30 +259,30 @@
 
     iget-object v0, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->this$0:Lorg/codeaurora/ims/ImsServiceSub;
 
-    .line 1945
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsServiceSub;->access$4000(Lorg/codeaurora/ims/ImsServiceSub;)Landroid/os/Handler;
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsServiceSub;->-$$Nest$fgetmHandler(Lorg/codeaurora/ims/ImsServiceSub;)Landroid/os/Handler;
 
     move-result-object v0
 
     const/16 v3, 0x16
 
+    .line 2023
     invoke-virtual {v0, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v11
 
-    .line 1944
+    .line 2022
     move-object v10, v1
 
     invoke-virtual/range {v5 .. v11}, Lorg/codeaurora/ims/ImsSenderRxr;->sendGeolocationInfo(DDLandroid/location/Address;Landroid/os/Message;)V
 
-    .line 1946
+    .line 2024
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 1914
+    .line 1992
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -275,21 +291,31 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-wide v1, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->latitude:D
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, " | long="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-wide v1, p0, Lorg/codeaurora/ims/ImsServiceSub$GeocoderTask;->longitude:D
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

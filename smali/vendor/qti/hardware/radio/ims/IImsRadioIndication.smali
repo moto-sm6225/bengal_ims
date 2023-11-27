@@ -18,16 +18,16 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "bcb53de4a9dfae8a0daf84e64a311c91ba4866ff"
+.field public static final HASH:Ljava/lang/String; = "1c9870a51c575f38c440c1938fe44e84c19ccf4d"
 
-.field public static final VERSION:I = 0x3
+.field public static final VERSION:I = 0x9
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 1761
+    .line 1337
     const-string v0, "vendor$qti$hardware$radio$ims$IImsRadioIndication"
 
     const/16 v1, 0x24
@@ -77,6 +77,14 @@
     .end annotation
 .end method
 
+.method public abstract onCiWlanNotification(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onConferenceCallStateCompleted()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,6 +126,14 @@
 .end method
 
 .method public abstract onIncomingCallAutoRejected(Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onIncomingCallAutoRejected2(Lvendor/qti/hardware/radio/ims/AutoCallRejectionInfo2;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -206,6 +222,14 @@
 .end method
 
 .method public abstract onParticipantStatusInfo(Lvendor/qti/hardware/radio/ims/ParticipantStatusInfo;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onPreAlertingCallInfoAvailable(Lvendor/qti/hardware/radio/ims/PreAlertingCallInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsRadioAidl;
 
-    .line 108
+    .line 110
     iput-object p1, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,23 +39,23 @@
 .method public binderDied()V
     .locals 2
 
-    .line 114
+    .line 116
     iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
 
     const-string v1, " IImsRadio Died"
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->access$000(Lorg/codeaurora/ims/ImsRadioAidl;Ljava/lang/String;)V
-
-    .line 115
-    iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
-
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioAidl;->access$100(Lorg/codeaurora/ims/ImsRadioAidl;)V
-
-    .line 116
-    iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
-
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioAidl;->access$200(Lorg/codeaurora/ims/ImsRadioAidl;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsRadioAidl;->-$$Nest$mloge(Lorg/codeaurora/ims/ImsRadioAidl;Ljava/lang/String;)V
 
     .line 117
+    iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
+
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioAidl;->-$$Nest$mresetService(Lorg/codeaurora/ims/ImsRadioAidl;)V
+
+    .line 118
+    iget-object v0, p0, Lorg/codeaurora/ims/ImsRadioAidl$ImsRadioDeathRecipient;->this$0:Lorg/codeaurora/ims/ImsRadioAidl;
+
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsRadioAidl;->-$$Nest$minitImsRadio(Lorg/codeaurora/ims/ImsRadioAidl;)V
+
+    .line 119
     return-void
 .end method

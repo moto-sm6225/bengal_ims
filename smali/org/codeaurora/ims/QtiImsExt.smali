@@ -68,6 +68,35 @@
 
 
 # virtual methods
+.method protected onExitScbm(ILorg/codeaurora/ims/internal/IQtiImsExtListener;)V
+    .locals 3
+    .param p1, "phoneId"    # I
+    .param p2, "listener"    # Lorg/codeaurora/ims/internal/IQtiImsExtListener;
+
+    .line 244
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mContext:Landroid/content/Context;
+
+    const-string v1, "android.permission.READ_PHONE_STATE"
+
+    const-string v2, "onExitScbm"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 245
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mServiceSub:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/codeaurora/ims/ImsServiceSub;
+
+    invoke-virtual {v0, p2}, Lorg/codeaurora/ims/ImsServiceSub;->exitScbm(Lorg/codeaurora/ims/internal/IQtiImsExtListener;)V
+
+    .line 246
+    return-void
+.end method
+
 .method protected onGetCallForwardUncondTimer(IIILorg/codeaurora/ims/internal/IQtiImsExtListener;)V
     .locals 3
     .param p1, "phoneId"    # I
@@ -346,11 +375,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -461,11 +494,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -503,6 +540,64 @@
     check-cast v0, Lorg/codeaurora/ims/ImsServiceSub;
 
     invoke-virtual {v0}, Lorg/codeaurora/ims/ImsServiceSub;->isCallComposerSupported()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected onIsDataChannelEnabled(I)Z
+    .locals 3
+    .param p1, "phoneId"    # I
+
+    .line 264
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mContext:Landroid/content/Context;
+
+    const-string v1, "android.permission.READ_PHONE_STATE"
+
+    const-string v2, "onIsDataChannelEnabled"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 265
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mServiceSub:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/codeaurora/ims/ImsServiceSub;
+
+    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsServiceSub;->isDataChannelSupported()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected onIsExitScbmFeatureSupported(I)Z
+    .locals 3
+    .param p1, "phoneId"    # I
+
+    .line 250
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mContext:Landroid/content/Context;
+
+    const-string v1, "android.permission.READ_PHONE_STATE"
+
+    const-string v2, "onIsExitScbmFeatureSupported"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 251
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mServiceSub:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/codeaurora/ims/ImsServiceSub;
+
+    invoke-virtual {v0}, Lorg/codeaurora/ims/ImsServiceSub;->isExitScbmFeatureSupported()Z
 
     move-result v0
 
@@ -870,6 +965,35 @@
     return-void
 .end method
 
+.method protected onSetDataChannelCapabilityListener(ILorg/codeaurora/ims/internal/IQtiImsExtListener;)V
+    .locals 3
+    .param p1, "phoneId"    # I
+    .param p2, "listener"    # Lorg/codeaurora/ims/internal/IQtiImsExtListener;
+
+    .line 257
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mContext:Landroid/content/Context;
+
+    const-string v1, "android.permission.MODIFY_PHONE_STATE"
+
+    const-string v2, "setDataChannelCapabilityListener"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 259
+    iget-object v0, p0, Lorg/codeaurora/ims/QtiImsExt;->mServiceSub:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/codeaurora/ims/ImsServiceSub;
+
+    invoke-virtual {v0, p2}, Lorg/codeaurora/ims/ImsServiceSub;->setDataChannelCapabilityListener(Lorg/codeaurora/ims/internal/IQtiImsExtListener;)V
+
+    .line 260
+    return-void
+.end method
+
 .method protected onSetHandoverConfig(IILorg/codeaurora/ims/internal/IQtiImsExtListener;)V
     .locals 3
     .param p1, "phoneId"    # I
@@ -952,11 +1076,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1052,11 +1180,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

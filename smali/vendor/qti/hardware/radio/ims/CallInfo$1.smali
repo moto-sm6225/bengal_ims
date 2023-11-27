@@ -30,7 +30,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 35
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +41,7 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 0
 
-    .line 35
+    .line 37
     invoke-virtual {p0, p1}, Lvendor/qti/hardware/radio/ims/CallInfo$1;->createFromParcel(Landroid/os/Parcel;)Lvendor/qti/hardware/radio/ims/CallInfo;
 
     move-result-object p1
@@ -53,23 +53,23 @@
     .locals 1
     .param p1, "_aidl_source"    # Landroid/os/Parcel;
 
-    .line 38
+    .line 40
     new-instance v0, Lvendor/qti/hardware/radio/ims/CallInfo;
 
     invoke-direct {v0}, Lvendor/qti/hardware/radio/ims/CallInfo;-><init>()V
 
-    .line 39
+    .line 41
     .local v0, "_aidl_out":Lvendor/qti/hardware/radio/ims/CallInfo;
     invoke-virtual {v0, p1}, Lvendor/qti/hardware/radio/ims/CallInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 40
+    .line 42
     return-object v0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
 
-    .line 35
+    .line 37
     invoke-virtual {p0, p1}, Lvendor/qti/hardware/radio/ims/CallInfo$1;->newArray(I)[Lvendor/qti/hardware/radio/ims/CallInfo;
 
     move-result-object p1
@@ -81,7 +81,7 @@
     .locals 1
     .param p1, "_aidl_size"    # I
 
-    .line 44
+    .line 46
     new-array v0, p1, [Lvendor/qti/hardware/radio/ims/CallInfo;
 
     return-object v0

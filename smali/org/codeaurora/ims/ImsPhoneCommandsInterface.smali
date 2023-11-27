@@ -37,7 +37,7 @@
 .method public abstract conference(Landroid/os/Message;)V
 .end method
 
-.method public abstract deregisterForCallComposerInfo(Landroid/os/Handler;)V
+.method public abstract deregisterForPreAlertingCallInfo(Landroid/os/Handler;)V
 .end method
 
 .method public abstract deregisterForRttMessage(Landroid/os/Handler;)V
@@ -109,9 +109,6 @@
 .method public abstract registerForAvailable(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
-.method public abstract registerForCallComposerInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
 .method public abstract registerForCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
@@ -140,6 +137,9 @@
 .end method
 
 .method public abstract registerForOn(Landroid/os/Handler;ILjava/lang/Object;)V
+.end method
+
+.method public abstract registerForPreAlertingCallInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
 .method public abstract registerForRadioStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V

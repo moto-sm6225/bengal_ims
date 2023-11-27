@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,11 +11,11 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$2:[Landroid/telephony/ims/ImsSsInfo;
+.field public final synthetic f$2:[Landroid/telephony/ims/ImsCallForwardInfo;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lorg/codeaurora/ims/ImsUtListenerImpl;I[Landroid/telephony/ims/ImsSsInfo;)V
+.method public synthetic constructor <init>(Lorg/codeaurora/ims/ImsUtListenerImpl;I[Landroid/telephony/ims/ImsCallForwardInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +24,7 @@
 
     iput p2, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$1:I
 
-    iput-object p3, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$2:[Landroid/telephony/ims/ImsSsInfo;
+    iput-object p3, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$2:[Landroid/telephony/ims/ImsCallForwardInfo;
 
     return-void
 .end method
@@ -37,9 +38,9 @@
 
     iget v1, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$1:I
 
-    iget-object v2, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$2:[Landroid/telephony/ims/ImsSsInfo;
+    iget-object v2, p0, Lorg/codeaurora/ims/ImsUtListenerImpl$$ExternalSyntheticLambda5;->f$2:[Landroid/telephony/ims/ImsCallForwardInfo;
 
-    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsUtListenerImpl;->lambda$utConfigurationCallBarringQueried$4$ImsUtListenerImpl(I[Landroid/telephony/ims/ImsSsInfo;)V
+    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsUtListenerImpl;->lambda$utConfigurationCallForwardQueried$5$org-codeaurora-ims-ImsUtListenerImpl(I[Landroid/telephony/ims/ImsCallForwardInfo;)V
 
     return-void
 .end method

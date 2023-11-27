@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
     iget-object v2, p0, Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda0;->f$2:Lorg/codeaurora/ims/QtiVideoCallDataUsage;
 
-    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$onCallDataUsageChanged$3$ImsServiceClassTracker(Lorg/codeaurora/ims/ImsCallSessionImpl;Lorg/codeaurora/ims/QtiVideoCallDataUsage;)V
+    invoke-virtual {v0, v1, v2}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$onCallDataUsageChanged$3$org-codeaurora-ims-ImsServiceClassTracker(Lorg/codeaurora/ims/ImsCallSessionImpl;Lorg/codeaurora/ims/QtiVideoCallDataUsage;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsServiceClassTracker$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Lorg/codeaurora/ims/ICallListListener;
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$notifyUssdRemoved$1(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/ims/ICallListListener;)V
+    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsServiceClassTracker;->lambda$notifyUssdAdded$0(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/ims/ICallListListener;)V
 
     return-void
 .end method

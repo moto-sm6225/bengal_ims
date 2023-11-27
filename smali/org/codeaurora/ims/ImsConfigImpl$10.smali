@@ -1,11 +1,14 @@
 .class Lorg/codeaurora/ims/ImsConfigImpl$10;
-.super Landroid/telephony/PhoneStateListener;
+.super Ljava/lang/Object;
 .source "ImsConfigImpl.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/codeaurora/ims/ImsConfigImpl;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lorg/codeaurora/ims/ImsConfigImpl;->adjustAndSyncVoWiFiMode(Landroid/telephony/ServiceState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,57 +20,173 @@
 # instance fields
 .field final synthetic this$0:Lorg/codeaurora/ims/ImsConfigImpl;
 
+.field final synthetic val$serviceState:Landroid/telephony/ServiceState;
+
 
 # direct methods
-.method constructor <init>(Lorg/codeaurora/ims/ImsConfigImpl;Landroid/os/Looper;)V
+.method constructor <init>(Lorg/codeaurora/ims/ImsConfigImpl;Landroid/telephony/ServiceState;)V
     .locals 0
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsConfigImpl;
-    .param p2, "arg0"    # Landroid/os/Looper;
 
-    .line 1033
+    .line 1058
     iput-object p1, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
 
-    invoke-direct {p0, p2}, Landroid/telephony/PhoneStateListener;-><init>(Landroid/os/Looper;)V
+    iput-object p2, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->val$serviceState:Landroid/telephony/ServiceState;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .locals 3
-    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
+.method public run()V
+    .locals 6
 
-    .line 1036
-    iget-object v0, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+    .line 1060
+    iget-object v0, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->val$serviceState:Landroid/telephony/ServiceState;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Landroid/telephony/ServiceState;->getRoaming()Z
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v0
 
-    const-string v2, "SubID "
+    .line 1064
+    .local v0, "isRoaming":Z
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1065
+    :try_start_0
+    iget-object v1, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
 
-    iget-object v2, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->mSubId:Ljava/lang/Integer;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, ": onServiceStateChanged"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1}, Lorg/codeaurora/ims/ImsConfigImpl;->-$$Nest$fgetmImsMmTelManager(Lorg/codeaurora/ims/ImsConfigImpl;)Landroid/telephony/ims/ImsMmTelManager;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/qualcomm/ims/utils/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v1}, Landroid/telephony/ims/ImsMmTelManager;->getVoWiFiRoamingModeSetting()I
 
-    .line 1037
-    iget-object v0, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+    move-result v1
 
-    invoke-static {v0, p1}, Lorg/codeaurora/ims/ImsConfigImpl;->access$100(Lorg/codeaurora/ims/ImsConfigImpl;Landroid/telephony/ServiceState;)V
+    .local v1, "mode":I
+    goto :goto_0
 
-    .line 1038
+    .line 1067
+    .end local v1    # "mode":I
+    :cond_0
+    iget-object v1, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-static {v1}, Lorg/codeaurora/ims/ImsConfigImpl;->-$$Nest$fgetmImsMmTelManager(Lorg/codeaurora/ims/ImsConfigImpl;)Landroid/telephony/ims/ImsMmTelManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/telephony/ims/ImsMmTelManager;->getVoWiFiModeSetting()I
+
+    move-result v1
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1072
+    .restart local v1    # "mode":I
+    :goto_0
+    nop
+
+    .line 1074
+    iget-object v2, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-static {v2, v1}, Lorg/codeaurora/ims/ImsConfigImpl;->-$$Nest$madjustVoWiFiMode(Lorg/codeaurora/ims/ImsConfigImpl;I)I
+
+    move-result v2
+
+    .line 1076
+    .local v2, "adjMode":I
+    if-eqz v0, :cond_1
+
+    iget-object v3, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-static {v3}, Lorg/codeaurora/ims/ImsConfigImpl;->-$$Nest$fgetmServiceSub(Lorg/codeaurora/ims/ImsConfigImpl;)Lorg/codeaurora/ims/ImsServiceSub;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lorg/codeaurora/ims/ImsServiceSub;->IsWfcRoamingConfigurationSupportedByModem()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 1077
+    const/16 v3, 0x3eb
+
+    .local v3, "item":I
+    goto :goto_1
+
+    .line 1079
+    .end local v3    # "item":I
+    :cond_1
+    const/16 v3, 0x1b
+
+    .line 1081
+    .restart local v3    # "item":I
+    :goto_1
+    iget-object v4, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-virtual {v4, v3}, Lorg/codeaurora/ims/ImsConfigImpl;->getConfigInt(I)I
+
+    move-result v4
+
+    .line 1082
+    .local v4, "bpMode":I
+    if-eq v2, v4, :cond_2
+
+    const/4 v5, -0x1
+
+    if-eq v2, v5, :cond_2
+
+    .line 1083
+    iget-object v5, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-virtual {v5, v3, v2}, Lorg/codeaurora/ims/ImsConfigImpl;->sendSetConfigRequestAsync(II)V
+
+    .line 1085
+    :cond_2
+    return-void
+
+    .line 1069
+    .end local v1    # "mode":I
+    .end local v2    # "adjMode":I
+    .end local v3    # "item":I
+    .end local v4    # "bpMode":I
+    :catch_0
+    move-exception v1
+
+    .line 1070
+    .local v1, "e":Ljava/lang/Exception;
+    iget-object v2, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Could not update WFCMode: invalid sub = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lorg/codeaurora/ims/ImsConfigImpl$10;->this$0:Lorg/codeaurora/ims/ImsConfigImpl;
+
+    invoke-static {v4}, Lorg/codeaurora/ims/ImsConfigImpl;->-$$Nest$fgetmSubId(Lorg/codeaurora/ims/ImsConfigImpl;)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/qualcomm/ims/utils/Log;->w(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 1071
     return-void
 .end method

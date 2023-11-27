@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Created-By: soong_zip
 
 Name: AndroidManifest.xml
-SHA-256-Digest: rjm7q9XbkU3thLTp0yd9RAGznnrzCp72tkHIRFmLZyg=
+SHA-256-Digest: ZwtSFkbEksBUv3oRqGoPHisljWALl5Bow8Jyz3Sg5UE=
 
 Name: classes.dex
-SHA-256-Digest: TKCVlwf0HRo9te878Ad+pbwDOyl+17+nRYZ9ReMUMCg=
+SHA-256-Digest: Syy3VS2clJerH6luscEQ+NMFF8b0YTq4dVIMG3zHWqQ=
 
 Name: res/drawable-xhdpi-v4/img_no_image.png
 SHA-256-Digest: O729uX6bgIy/ltKyAIZFfD5eTkogPQ0xfQ9PlZppJIU=

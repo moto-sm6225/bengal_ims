@@ -13,6 +13,8 @@
 
 .field public static final CS_VS_TX:I = 0x6
 
+.field public static final DC:I = 0xe
+
 .field public static final PS_VS_RX:I = 0x9
 
 .field public static final PS_VS_TX:I = 0x8

@@ -20,39 +20,40 @@
     .line 75
     const/4 v0, -0x1
 
-    .line 76
-    .local v0, "regTech":I
     sparse-switch p1, :sswitch_data_0
 
-    .line 85
-    const/4 v0, -0x1
-
-    goto :goto_0
-
-    .line 81
-    :sswitch_0
-    const/4 v0, 0x1
-
-    .line 82
-    goto :goto_0
-
-    .line 78
-    :sswitch_1
-    const/4 v0, 0x0
-
-    .line 79
-    nop
-
-    .line 87
-    :goto_0
+    .line 86
     return v0
 
-    nop
+    .line 82
+    :sswitch_0
+    const/4 v0, 0x2
+
+    return v0
+
+    .line 80
+    :sswitch_1
+    const/4 v0, 0x1
+
+    return v0
+
+    .line 77
+    :sswitch_2
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 84
+    :sswitch_3
+    return v0
 
     :sswitch_data_0
     .sparse-switch
-        0xd -> :sswitch_1
-        0x12 -> :sswitch_0
+        0x0 -> :sswitch_3
+        0xe -> :sswitch_2
+        0x12 -> :sswitch_1
+        0x13 -> :sswitch_1
+        0x15 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -71,7 +72,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -103,7 +108,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -147,7 +156,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -176,13 +189,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, " info="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -214,7 +235,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -25,12 +25,12 @@
     .locals 1
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsCallSessionImpl;
 
-    .line 3158
+    .line 3368
     iput-object p1, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->this$0:Lorg/codeaurora/ims/ImsCallSessionImpl;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 3159
+    .line 3369
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->numberOfAlerts:I
@@ -44,23 +44,23 @@
     .locals 3
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 3161
+    .line 3371
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
     goto :goto_0
 
-    .line 3173
+    .line 3383
     :pswitch_0
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->numberOfAlerts:I
 
-    .line 3174
+    .line 3384
     goto :goto_0
 
-    .line 3163
+    .line 3373
     :pswitch_1
     iget v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->numberOfAlerts:I
 
@@ -68,36 +68,36 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 3164
+    .line 3374
     return-void
 
-    .line 3166
+    .line 3376
     :cond_0
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->removeMessages(I)V
 
-    .line 3167
+    .line 3377
     const-wide/32 v1, 0x1b7740
 
     invoke-virtual {p0, v0, v1, v2}, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 3168
+    .line 3378
     iget-object v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->this$0:Lorg/codeaurora/ims/ImsCallSessionImpl;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsCallSessionImpl;->access$1000(Lorg/codeaurora/ims/ImsCallSessionImpl;)V
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsCallSessionImpl;->-$$Nest$mstartBeepForAlert(Lorg/codeaurora/ims/ImsCallSessionImpl;)V
 
-    .line 3169
+    .line 3379
     iget v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->numberOfAlerts:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lorg/codeaurora/ims/ImsCallSessionImpl$1;->numberOfAlerts:I
 
-    .line 3170
+    .line 3380
     nop
 
-    .line 3179
+    .line 3389
     :goto_0
     return-void
 

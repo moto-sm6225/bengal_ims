@@ -64,15 +64,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget v2, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->access$100(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->-$$Nest$mlogi(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
 
     .line 441
     iget v0, p1, Landroid/os/Message;->what:I
@@ -90,15 +94,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget v2, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->access$100(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsConferenceController;->-$$Nest$mlogi(Lorg/codeaurora/ims/ImsConferenceController;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -106,7 +114,7 @@
     :pswitch_0
     iget-object v0, p0, Lorg/codeaurora/ims/ImsConferenceController$ImsConferenceControllerHandler;->this$0:Lorg/codeaurora/ims/ImsConferenceController;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsConferenceController;->access$300(Lorg/codeaurora/ims/ImsConferenceController;)V
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsConferenceController;->-$$Nest$mhandleConferenceCompleted(Lorg/codeaurora/ims/ImsConferenceController;)V
 
     .line 452
     goto :goto_0
@@ -137,7 +145,7 @@
     .restart local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     iget-object v1, p0, Lorg/codeaurora/ims/ImsConferenceController$ImsConferenceControllerHandler;->this$0:Lorg/codeaurora/ims/ImsConferenceController;
 
-    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsConferenceController;->access$200(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v1, v0}, Lorg/codeaurora/ims/ImsConferenceController;->-$$Nest$mhandleConferenceResponse(Lorg/codeaurora/ims/ImsConferenceController;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 445
     nop

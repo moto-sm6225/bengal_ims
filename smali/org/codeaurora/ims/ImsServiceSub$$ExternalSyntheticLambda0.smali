@@ -1,5 +1,6 @@
 .class public final synthetic Lorg/codeaurora/ims/ImsServiceSub$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget v1, p0, Lorg/codeaurora/ims/ImsServiceSub$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsServiceSub;->lambda$onRegistered$0$ImsServiceSub(I)V
+    invoke-virtual {v0, v1}, Lorg/codeaurora/ims/ImsServiceSub;->lambda$onRegistering$1$org-codeaurora-ims-ImsServiceSub(I)V
 
     return-void
 .end method

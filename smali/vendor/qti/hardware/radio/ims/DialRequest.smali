@@ -77,20 +77,20 @@
     .locals 2
     .param p1, "_v"    # Ljava/lang/Object;
 
-    .line 117
+    .line 84
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     return v0
 
-    .line 118
+    .line 85
     :cond_0
     instance-of v1, p1, Landroid/os/Parcelable;
 
     if-eqz v1, :cond_1
 
-    .line 119
+    .line 86
     move-object v0, p1
 
     check-cast v0, Landroid/os/Parcelable;
@@ -101,7 +101,7 @@
 
     return v0
 
-    .line 121
+    .line 88
     :cond_1
     return v0
 .end method
@@ -111,10 +111,10 @@
 .method public describeContents()I
     .locals 2
 
-    .line 110
+    .line 77
     const/4 v0, 0x0
 
-    .line 111
+    .line 78
     .local v0, "_mask":I
     iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
@@ -124,7 +124,7 @@
 
     or-int/2addr v0, v1
 
-    .line 112
+    .line 79
     iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
 
     invoke-direct {p0, v1}, Lvendor/qti/hardware/radio/ims/DialRequest;->describeContents(Ljava/lang/Object;)I
@@ -133,7 +133,7 @@
 
     or-int/2addr v0, v1
 
-    .line 113
+    .line 80
     iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
 
     invoke-direct {p0, v1}, Lvendor/qti/hardware/radio/ims/DialRequest;->describeContents(Ljava/lang/Object;)I
@@ -142,7 +142,7 @@
 
     or-int/2addr v0, v1
 
-    .line 114
+    .line 81
     return v0
 .end method
 
@@ -156,520 +156,449 @@
 .end method
 
 .method public final readFromParcel(Landroid/os/Parcel;)V
-    .locals 8
+    .locals 6
     .param p1, "_aidl_parcel"    # Landroid/os/Parcel;
 
-    .line 66
+    .line 48
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v0
 
-    .line 67
+    .line 49
     .local v0, "_aidl_start_pos":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 69
+    .line 51
     .local v1, "_aidl_parcelable_size":I
-    const-string v2, "Overflow in the size of parcelable"
+    const/4 v2, 0x4
 
-    const v3, 0x7fffffff
+    const-string v3, "Overflow in the size of parcelable"
 
-    if-gez v1, :cond_1
+    const v4, 0x7fffffff
 
-    .line 102
-    sub-int/2addr v3, v1
+    if-lt v1, v2, :cond_11
 
-    if-gt v0, v3, :cond_0
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 69
-    return-void
-
-    .line 103
-    :cond_0
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 70
-    :cond_1
+    .line 52
     :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_3
+    if-lt v2, v1, :cond_1
 
-    .line 102
-    sub-int/2addr v3, v1
+    .line 69
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_2
+    if-gt v0, v4, :cond_0
 
-    .line 105
+    .line 72
     add-int v2, v0, v1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    .line 70
+    .line 52
     return-void
 
-    .line 103
-    :cond_2
-    new-instance v3, Landroid/os/BadParcelableException;
+    .line 70
+    :cond_0
+    new-instance v2, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
-    .line 71
-    :cond_3
+    .line 53
+    :cond_1
     :try_start_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    iput-object v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
+    iput-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
 
-    .line 72
+    .line 54
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_5
+    if-lt v2, v1, :cond_3
 
-    .line 102
-    sub-int/2addr v3, v1
+    .line 69
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_4
+    if-gt v0, v4, :cond_2
 
-    .line 105
+    .line 72
     add-int v2, v0, v1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    .line 72
+    .line 54
     return-void
 
-    .line 103
-    :cond_4
-    new-instance v3, Landroid/os/BadParcelableException;
+    .line 70
+    :cond_2
+    new-instance v2, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
-    .line 73
-    :cond_5
+    .line 55
+    :cond_3
     :try_start_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v2
 
-    iput v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->clirMode:I
+    iput v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->clirMode:I
 
-    .line 74
+    .line 56
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_7
+    if-lt v2, v1, :cond_5
 
-    .line 102
-    sub-int/2addr v3, v1
+    .line 69
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_6
+    if-gt v0, v4, :cond_4
 
-    .line 105
+    .line 72
     add-int v2, v0, v1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 56
+    return-void
+
+    .line 70
+    :cond_4
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 57
+    :cond_5
+    :try_start_3
+    sget-object v2, Lvendor/qti/hardware/radio/ims/CallDetails;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lvendor/qti/hardware/radio/ims/CallDetails;
+
+    iput-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
+
+    .line 58
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_7
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_6
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 58
+    return-void
+
+    .line 70
+    :cond_6
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 59
+    :cond_7
+    :try_start_4
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
+
+    .line 60
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_9
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_8
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 60
+    return-void
+
+    .line 70
+    :cond_8
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 61
+    :cond_9
+    :try_start_5
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
+
+    .line 62
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_b
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_a
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 62
+    return-void
+
+    .line 70
+    :cond_a
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 63
+    :cond_b
+    :try_start_6
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
+
+    .line 64
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_d
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_c
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 64
+    return-void
+
+    .line 70
+    :cond_c
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 65
+    :cond_d
+    :try_start_7
+    sget-object v2, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
+
+    iput-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
+
+    .line 66
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_f
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_e
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 66
+    return-void
+
+    .line 70
+    :cond_e
+    new-instance v2, Landroid/os/BadParcelableException;
+
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 67
+    :cond_f
+    :try_start_8
+    sget-object v2, Lvendor/qti/hardware/radio/ims/RedialInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lvendor/qti/hardware/radio/ims/RedialInfo;
+
+    iput-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
+    .line 69
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_10
+
+    .line 72
+    add-int v2, v0, v1
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    .line 73
+    nop
 
     .line 74
     return-void
 
-    .line 103
-    :cond_6
-    new-instance v3, Landroid/os/BadParcelableException;
+    .line 70
+    :cond_10
+    new-instance v2, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
-    .line 75
-    :cond_7
-    :try_start_3
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    if-eqz v4, :cond_8
-
-    .line 76
-    sget-object v4, Lvendor/qti/hardware/radio/ims/CallDetails;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lvendor/qti/hardware/radio/ims/CallDetails;
-
-    iput-object v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
+    .line 69
+    :catchall_0
+    move-exception v2
 
     goto :goto_0
 
-    .line 79
-    :cond_8
-    iput-object v5, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
-
-    .line 81
-    :goto_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_a
-
-    .line 102
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_9
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 81
-    return-void
-
-    .line 103
-    :cond_9
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 82
-    :cond_a
-    :try_start_4
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    if-eqz v4, :cond_b
-
-    move v4, v6
-
-    goto :goto_1
-
-    :cond_b
-    move v4, v7
-
-    :goto_1
-    iput-boolean v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
-
-    .line 83
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_d
-
-    .line 102
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_c
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 83
-    return-void
-
-    .line 103
-    :cond_c
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 84
-    :cond_d
-    :try_start_5
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_e
-
-    move v4, v6
-
-    goto :goto_2
-
-    :cond_e
-    move v4, v7
-
-    :goto_2
-    iput-boolean v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
-
-    .line 85
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_10
-
-    .line 102
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_f
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 85
-    return-void
-
-    .line 103
-    :cond_f
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 86
-    :cond_10
-    :try_start_6
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_11
-
-    goto :goto_3
-
+    .line 51
     :cond_11
-    move v6, v7
+    :try_start_9
+    new-instance v2, Landroid/os/BadParcelableException;
 
-    :goto_3
-    iput-boolean v6, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
+    const-string v5, "Parcelable too small"
 
-    .line 87
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+    invoke-direct {v2, v5}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    move-result v4
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    .end local v0    # "_aidl_start_pos":I
+    .end local v1    # "_aidl_parcelable_size":I
+    .end local p0    # "this":Lvendor/qti/hardware/radio/ims/DialRequest;
+    .end local p1    # "_aidl_parcel":Landroid/os/Parcel;
+    throw v2
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    sub-int/2addr v4, v0
+    .line 69
+    .restart local v0    # "_aidl_start_pos":I
+    .restart local v1    # "_aidl_parcelable_size":I
+    .restart local p0    # "this":Lvendor/qti/hardware/radio/ims/DialRequest;
+    .restart local p1    # "_aidl_parcel":Landroid/os/Parcel;
+    :goto_0
+    sub-int/2addr v4, v1
 
-    if-lt v4, v1, :cond_13
+    if-le v0, v4, :cond_12
 
-    .line 102
-    sub-int/2addr v3, v1
+    .line 70
+    new-instance v2, Landroid/os/BadParcelableException;
 
-    if-gt v0, v3, :cond_12
+    invoke-direct {v2, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    .line 105
-    add-int v2, v0, v1
+    throw v2
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 87
-    return-void
-
-    .line 103
+    .line 72
     :cond_12
-    new-instance v3, Landroid/os/BadParcelableException;
+    add-int v3, v0, v1
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    throw v3
-
-    .line 88
-    :cond_13
-    :try_start_7
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_14
-
-    .line 89
-    sget-object v4, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-
-    iput-object v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-
-    goto :goto_4
-
-    .line 92
-    :cond_14
-    iput-object v5, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-
-    .line 94
-    :goto_4
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_16
-
-    .line 102
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_15
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 94
-    return-void
-
-    .line 103
-    :cond_15
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 95
-    :cond_16
-    :try_start_8
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_17
-
-    .line 96
-    sget-object v4, Lvendor/qti/hardware/radio/ims/RedialInfo;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lvendor/qti/hardware/radio/ims/RedialInfo;
-
-    iput-object v4, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
-
-    goto :goto_5
-
-    .line 99
-    :cond_17
-    iput-object v5, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    .line 102
-    :goto_5
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_18
-
-    .line 105
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 106
-    nop
-
-    .line 107
-    return-void
-
-    .line 103
-    :cond_18
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 102
-    :catchall_0
-    move-exception v4
-
-    sub-int/2addr v3, v1
-
-    if-le v0, v3, :cond_19
-
-    .line 103
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 105
-    :cond_19
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 106
-    throw v4
+    .line 73
+    throw v2
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    .locals 3
     .param p1, "_aidl_parcel"    # Landroid/os/Parcel;
     .param p2, "_aidl_flag"    # I
 
@@ -685,109 +614,62 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 33
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
+    iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->address:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 34
-    iget v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->clirMode:I
+    iget v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->clirMode:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 35
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
+    iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
 
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_0
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
     .line 36
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    iget-boolean v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
     .line 37
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->callDetails:Lvendor/qti/hardware/radio/ims/CallDetails;
+    iget-boolean v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
 
-    invoke-virtual {v2, p1, v1}, Lvendor/qti/hardware/radio/ims/CallDetails;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    goto :goto_0
+    .line 38
+    iget-boolean v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
+
+    .line 39
+    iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
+
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
     .line 40
-    :cond_0
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
 
-    .line 42
-    :goto_0
-    iget-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isConferenceUri:Z
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 43
-    iget-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isCallPull:Z
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 44
-    iget-boolean v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->isEncrypted:Z
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 45
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-
-    if-eqz v2, :cond_1
-
-    .line 46
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 47
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->multiLineInfo:Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;
-
-    invoke-virtual {v2, p1, v1}, Lvendor/qti/hardware/radio/ims/MultiIdentityLineInfo;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_1
-
-    .line 50
-    :cond_1
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 52
-    :goto_1
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
-
-    if-eqz v2, :cond_2
-
-    .line 53
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 54
-    iget-object v2, p0, Lvendor/qti/hardware/radio/ims/DialRequest;->redialInfo:Lvendor/qti/hardware/radio/ims/RedialInfo;
-
-    invoke-virtual {v2, p1, v1}, Lvendor/qti/hardware/radio/ims/RedialInfo;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_2
-
-    .line 57
-    :cond_2
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 59
-    :goto_2
+    .line 41
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v1
 
-    .line 60
+    .line 42
     .local v1, "_aidl_end_pos":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    .line 61
+    .line 43
     sub-int v2, v1, v0
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 62
+    .line 44
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    .line 63
+    .line 45
     return-void
 .end method

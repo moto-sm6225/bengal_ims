@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/qualcomm/ims/vt/CameraActionSoundHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object v0, p0, Lcom/qualcomm/ims/vt/CameraActionSoundHelper$$ExternalSyntheticLambda0;->f$0:Lcom/qualcomm/ims/vt/CameraActionSoundHelper;
 
-    invoke-virtual {v0}, Lcom/qualcomm/ims/vt/CameraActionSoundHelper;->lambda$open$0$CameraActionSoundHelper()V
+    invoke-virtual {v0}, Lcom/qualcomm/ims/vt/CameraActionSoundHelper;->lambda$open$0$com-qualcomm-ims-vt-CameraActionSoundHelper()V
 
     return-void
 .end method

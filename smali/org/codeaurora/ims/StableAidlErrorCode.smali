@@ -17,45 +17,45 @@
     .locals 1
     .param p0, "errorCause"    # I
 
-    .line 401
+    .line 403
     packed-switch p0, :pswitch_data_0
 
-    .line 415
+    .line 417
     const/4 v0, 0x0
 
     return v0
 
-    .line 413
+    .line 415
     :pswitch_0
     const/4 v0, 0x6
 
     return v0
 
-    .line 411
+    .line 413
     :pswitch_1
     const/4 v0, 0x5
 
     return v0
 
-    .line 409
+    .line 411
     :pswitch_2
     const/4 v0, 0x4
 
     return v0
 
-    .line 407
+    .line 409
     :pswitch_3
     const/4 v0, 0x3
 
     return v0
 
-    .line 405
+    .line 407
     :pswitch_4
     const/4 v0, 0x2
 
     return v0
 
-    .line 403
+    .line 405
     :pswitch_5
     const/4 v0, 0x1
 
@@ -89,7 +89,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -102,185 +106,194 @@
 
     packed-switch p0, :pswitch_data_0
 
-    .line 397
+    .line 399
     :pswitch_0
     return v0
 
-    .line 393
+    .line 395
     :pswitch_1
+    const/16 v0, 0x31
+
+    return v0
+
+    .line 393
+    :pswitch_2
     const/16 v0, 0x2f
 
     return v0
 
     .line 391
-    :pswitch_2
+    :pswitch_3
     const/16 v0, 0x2e
 
     return v0
 
     .line 389
-    :pswitch_3
+    :pswitch_4
     const/16 v0, 0x2d
 
     return v0
 
     .line 387
-    :pswitch_4
+    :pswitch_5
     const/16 v0, 0x2c
 
     return v0
 
     .line 385
-    :pswitch_5
+    :pswitch_6
     const/16 v0, 0x2b
 
     return v0
 
     .line 383
-    :pswitch_6
+    :pswitch_7
     const/16 v0, 0x2a
 
     return v0
 
     .line 381
-    :pswitch_7
+    :pswitch_8
     const/16 v0, 0x29
 
     return v0
 
     .line 379
-    :pswitch_8
+    :pswitch_9
     const/16 v0, 0x28
 
     return v0
 
     .line 377
-    :pswitch_9
+    :pswitch_a
     const/16 v0, 0x27
 
     return v0
 
     .line 375
-    :pswitch_a
+    :pswitch_b
     const/16 v0, 0x26
 
     return v0
 
     .line 373
-    :pswitch_b
+    :pswitch_c
     const/16 v0, 0x25
 
     return v0
 
     .line 371
-    :pswitch_c
+    :pswitch_d
     const/16 v0, 0x24
 
     return v0
 
     .line 369
-    :pswitch_d
+    :pswitch_e
     const/16 v0, 0x23
 
     return v0
 
     .line 367
-    :pswitch_e
+    :pswitch_f
     const/16 v0, 0x22
 
     return v0
 
     .line 365
-    :pswitch_f
+    :pswitch_10
     const/16 v0, 0x21
 
     return v0
 
     .line 363
-    :pswitch_10
+    :pswitch_11
     const/16 v0, 0x20
 
     return v0
 
     .line 361
-    :pswitch_11
+    :pswitch_12
     const/16 v0, 0x1f
 
     return v0
 
     .line 359
-    :pswitch_12
+    :pswitch_13
     const/16 v0, 0x1e
 
     return v0
 
     .line 357
-    :pswitch_13
+    :pswitch_14
     const/16 v0, 0x1d
 
     return v0
 
     .line 355
-    :pswitch_14
+    :pswitch_15
     const/16 v0, 0x1c
 
     return v0
 
     .line 353
-    :pswitch_15
+    :pswitch_16
     const/16 v0, 0x1b
 
     return v0
 
     .line 351
-    :pswitch_16
+    :pswitch_17
     const/16 v0, 0x10
 
     return v0
 
     .line 349
-    :pswitch_17
+    :pswitch_18
     const/4 v0, 0x7
 
     return v0
 
     .line 347
-    :pswitch_18
+    :pswitch_19
     const/4 v0, 0x6
 
     return v0
 
     .line 345
-    :pswitch_19
+    :pswitch_1a
     const/4 v0, 0x3
 
     return v0
 
     .line 343
-    :pswitch_1a
+    :pswitch_1b
     return v0
 
     .line 341
-    :pswitch_1b
+    :pswitch_1c
     const/4 v0, 0x1
 
     return v0
 
     .line 339
-    :pswitch_1c
+    :pswitch_1d
     const/4 v0, 0x0
 
     return v0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_1d
         :pswitch_1c
         :pswitch_1b
         :pswitch_1a
         :pswitch_19
         :pswitch_18
-        :pswitch_17
         :pswitch_0
+        :pswitch_17
         :pswitch_16
         :pswitch_15
         :pswitch_14
@@ -310,39 +323,39 @@
     .locals 1
     .param p0, "errorCause"    # I
 
-    .line 420
+    .line 422
     packed-switch p0, :pswitch_data_0
 
-    .line 433
+    .line 435
     const/4 v0, 0x5
 
     return v0
 
-    .line 430
+    .line 432
     :pswitch_0
     const/4 v0, 0x4
 
     return v0
 
-    .line 428
+    .line 430
     :pswitch_1
     const/4 v0, 0x3
 
     return v0
 
-    .line 426
+    .line 428
     :pswitch_2
     const/4 v0, 0x2
 
     return v0
 
-    .line 424
+    .line 426
     :pswitch_3
     const/4 v0, 0x1
 
     return v0
 
-    .line 422
+    .line 424
     :pswitch_4
     const/4 v0, 0x0
 
@@ -375,7 +388,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1196,15 +1213,15 @@
     .locals 1
     .param p0, "callInfoCode"    # I
 
-    .line 438
+    .line 440
     packed-switch p0, :pswitch_data_0
 
-    .line 444
+    .line 446
     const/4 v0, -0x1
 
     return v0
 
-    .line 441
+    .line 443
     :pswitch_0
     const/16 v0, 0xbba
 

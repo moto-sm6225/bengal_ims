@@ -41,7 +41,7 @@
     .line 780
     iget-object v0, p0, Lorg/codeaurora/ims/ImsSubController$2;->this$0:Lorg/codeaurora/ims/ImsSubController;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsSubController;->access$000(Lorg/codeaurora/ims/ImsSubController;)Z
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsSubController;->-$$Nest$misDisposed(Lorg/codeaurora/ims/ImsSubController;)Z
 
     move-result v0
 
@@ -84,7 +84,7 @@
     .local v1, "activeModemCount":I
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSubController$2;->this$0:Lorg/codeaurora/ims/ImsSubController;
 
-    invoke-static {v2, v1}, Lorg/codeaurora/ims/ImsSubController;->access$800(Lorg/codeaurora/ims/ImsSubController;I)V
+    invoke-static {v2, v1}, Lorg/codeaurora/ims/ImsSubController;->-$$Nest$mhandleOnMultiSimConfigChanged(Lorg/codeaurora/ims/ImsSubController;I)V
 
     .line 790
     .end local v1    # "activeModemCount":I

@@ -47,10 +47,10 @@
         }
     .end annotation
 
-    .line 84
+    .line 88
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 85
+    .line 89
     return-void
 .end method
 
@@ -65,10 +65,10 @@
         }
     .end annotation
 
-    .line 90
+    .line 94
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 91
+    .line 95
     return-void
 .end method
 
@@ -84,10 +84,10 @@
         }
     .end annotation
 
-    .line 42
+    .line 46
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 43
+    .line 47
     return-void
 .end method
 
@@ -103,10 +103,10 @@
         }
     .end annotation
 
-    .line 66
+    .line 70
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 67
+    .line 71
     return-void
 .end method
 
@@ -120,10 +120,10 @@
         }
     .end annotation
 
-    .line 140
+    .line 144
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 141
+    .line 145
     return-void
 .end method
 
@@ -136,10 +136,10 @@
         }
     .end annotation
 
-    .line 60
+    .line 64
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 61
+    .line 65
     return-void
 .end method
 
@@ -152,10 +152,10 @@
         }
     .end annotation
 
-    .line 161
+    .line 165
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 162
+    .line 166
     return-void
 .end method
 
@@ -170,10 +170,10 @@
         }
     .end annotation
 
-    .line 72
+    .line 76
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 73
+    .line 77
     return-void
 .end method
 
@@ -193,10 +193,17 @@
         }
     .end annotation
 
-    .line 50
+    .line 54
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 51
+    .line 55
+    return-void
+.end method
+
+.method public dispose()V
+    .locals 0
+
+    .line 41
     return-void
 .end method
 
@@ -209,10 +216,26 @@
         }
     .end annotation
 
-    .line 251
+    .line 255
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 252
+    .line 256
+    return-void
+.end method
+
+.method public exitSmsCallBackMode(I)V
+    .locals 0
+    .param p1, "token"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 324
+    invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
+
+    .line 325
     return-void
 .end method
 
@@ -229,10 +252,10 @@
         }
     .end annotation
 
-    .line 167
+    .line 171
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 168
+    .line 172
     return-void
 .end method
 
@@ -246,10 +269,10 @@
         }
     .end annotation
 
-    .line 216
+    .line 220
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 217
+    .line 221
     return-void
 .end method
 
@@ -262,10 +285,10 @@
         }
     .end annotation
 
-    .line 241
+    .line 245
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 242
+    .line 246
     return-void
 .end method
 
@@ -278,10 +301,10 @@
         }
     .end annotation
 
-    .line 206
+    .line 210
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 207
+    .line 211
     return-void
 .end method
 
@@ -294,10 +317,10 @@
         }
     .end annotation
 
-    .line 263
+    .line 267
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 264
+    .line 268
     return-void
 .end method
 
@@ -315,10 +338,10 @@
         }
     .end annotation
 
-    .line 180
+    .line 184
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 181
+    .line 185
     return-void
 .end method
 
@@ -331,10 +354,10 @@
         }
     .end annotation
 
-    .line 123
+    .line 127
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 124
+    .line 128
     return-void
 .end method
 
@@ -347,10 +370,10 @@
         }
     .end annotation
 
-    .line 283
+    .line 287
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 284
+    .line 288
     return-void
 .end method
 
@@ -363,10 +386,10 @@
         }
     .end annotation
 
-    .line 278
+    .line 282
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 279
+    .line 283
     return-void
 .end method
 
@@ -379,10 +402,10 @@
         }
     .end annotation
 
-    .line 273
+    .line 277
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 274
+    .line 278
     return-void
 .end method
 
@@ -394,7 +417,7 @@
         }
     .end annotation
 
-    .line 95
+    .line 99
     const/4 v0, 0x0
 
     return-object v0
@@ -415,10 +438,10 @@
         }
     .end annotation
 
-    .line 107
+    .line 111
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 108
+    .line 112
     return-void
 .end method
 
@@ -432,10 +455,10 @@
         }
     .end annotation
 
-    .line 151
+    .line 155
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 152
+    .line 156
     return-void
 .end method
 
@@ -468,10 +491,10 @@
         }
     .end annotation
 
-    .line 146
+    .line 150
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 147
+    .line 151
     return-void
 .end method
 
@@ -485,10 +508,10 @@
         }
     .end annotation
 
-    .line 135
+    .line 139
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 136
+    .line 140
     return-void
 .end method
 
@@ -505,10 +528,10 @@
         }
     .end annotation
 
-    .line 236
+    .line 240
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 237
+    .line 241
     return-void
 .end method
 
@@ -521,10 +544,10 @@
         }
     .end annotation
 
-    .line 315
+    .line 319
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 316
+    .line 320
     return-void
 .end method
 
@@ -537,10 +560,10 @@
         }
     .end annotation
 
-    .line 112
+    .line 116
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 113
+    .line 117
     return-void
 .end method
 
@@ -553,10 +576,10 @@
         }
     .end annotation
 
-    .line 330
+    .line 339
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 331
+    .line 340
     return-void
 .end method
 
@@ -570,10 +593,10 @@
         }
     .end annotation
 
-    .line 293
+    .line 297
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 294
+    .line 298
     return-void
 .end method
 
@@ -586,10 +609,10 @@
         }
     .end annotation
 
-    .line 341
+    .line 350
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 342
+    .line 351
     return-void
 .end method
 
@@ -602,10 +625,10 @@
         }
     .end annotation
 
-    .line 325
+    .line 334
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 326
+    .line 335
     return-void
 .end method
 
@@ -627,11 +650,11 @@
         }
     .end annotation
 
-    .line 299
+    .line 303
     .local p2, "linesInfo":Ljava/util/Collection;, "Ljava/util/Collection<Lorg/codeaurora/ims/MultiIdentityLineInfo;>;"
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 300
+    .line 304
     return-void
 .end method
 
@@ -645,10 +668,10 @@
         }
     .end annotation
 
-    .line 129
+    .line 133
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 130
+    .line 134
     return-void
 .end method
 
@@ -662,10 +685,10 @@
         }
     .end annotation
 
-    .line 156
+    .line 160
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 157
+    .line 161
     return-void
 .end method
 
@@ -680,10 +703,10 @@
         }
     .end annotation
 
-    .line 185
+    .line 189
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 186
+    .line 190
     return-void
 .end method
 
@@ -699,10 +722,10 @@
         }
     .end annotation
 
-    .line 101
+    .line 105
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 102
+    .line 106
     return-void
 .end method
 
@@ -716,10 +739,10 @@
         }
     .end annotation
 
-    .line 288
+    .line 292
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 289
+    .line 293
     return-void
 .end method
 
@@ -733,10 +756,10 @@
         }
     .end annotation
 
-    .line 304
+    .line 308
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 305
+    .line 309
     return-void
 .end method
 
@@ -754,10 +777,10 @@
         }
     .end annotation
 
-    .line 78
+    .line 82
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 79
+    .line 83
     return-void
 .end method
 
@@ -771,10 +794,10 @@
         }
     .end annotation
 
-    .line 55
+    .line 59
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 56
+    .line 60
     return-void
 .end method
 
@@ -796,10 +819,10 @@
         }
     .end annotation
 
-    .line 230
+    .line 234
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 231
+    .line 235
     return-void
 .end method
 
@@ -814,10 +837,10 @@
         }
     .end annotation
 
-    .line 222
+    .line 226
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 223
+    .line 227
     return-void
 .end method
 
@@ -831,10 +854,10 @@
         }
     .end annotation
 
-    .line 211
+    .line 215
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 212
+    .line 216
     return-void
 .end method
 
@@ -848,10 +871,10 @@
         }
     .end annotation
 
-    .line 268
+    .line 272
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 269
+    .line 273
     return-void
 .end method
 
@@ -870,10 +893,10 @@
         }
     .end annotation
 
-    .line 174
+    .line 178
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 175
+    .line 179
     return-void
 .end method
 
@@ -889,10 +912,10 @@
         }
     .end annotation
 
-    .line 310
+    .line 314
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 311
+    .line 315
     return-void
 .end method
 
@@ -915,11 +938,11 @@
         }
     .end annotation
 
-    .line 118
+    .line 122
     .local p2, "capabilityStatusList":Ljava/util/List;, "Ljava/util/List<Lorg/codeaurora/ims/CapabilityStatus;>;"
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 119
+    .line 123
     return-void
 .end method
 
@@ -933,10 +956,10 @@
         }
     .end annotation
 
-    .line 201
+    .line 205
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 202
+    .line 206
     return-void
 .end method
 
@@ -950,10 +973,10 @@
         }
     .end annotation
 
-    .line 246
+    .line 250
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 247
+    .line 251
     return-void
 .end method
 
@@ -968,10 +991,10 @@
         }
     .end annotation
 
-    .line 190
+    .line 194
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 191
+    .line 195
     return-void
 .end method
 
@@ -985,10 +1008,10 @@
         }
     .end annotation
 
-    .line 195
+    .line 199
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 196
+    .line 200
     return-void
 .end method
 
@@ -1007,10 +1030,10 @@
         }
     .end annotation
 
-    .line 258
+    .line 262
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 259
+    .line 263
     return-void
 .end method
 
@@ -1018,7 +1041,7 @@
     .locals 1
     .param p1, "v"    # Z
 
-    .line 320
+    .line 329
     const/4 v0, 0x0
 
     return-object v0
@@ -1034,9 +1057,9 @@
         }
     .end annotation
 
-    .line 336
+    .line 345
     invoke-direct {p0}, Lorg/codeaurora/ims/ImsRadioNotSupportedHal;->fail()V
 
-    .line 337
+    .line 346
     return-void
 .end method

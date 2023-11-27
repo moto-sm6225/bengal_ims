@@ -51,9 +51,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -72,7 +76,7 @@
     :pswitch_0
     iget-object v0, p0, Lorg/codeaurora/ims/ImsUssdSessionImpl$ImsSessionHandler;->this$0:Lorg/codeaurora/ims/ImsUssdSessionImpl;
 
-    invoke-static {v0}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->access$000(Lorg/codeaurora/ims/ImsUssdSessionImpl;)V
+    invoke-static {v0}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->-$$Nest$mdoClose(Lorg/codeaurora/ims/ImsUssdSessionImpl;)V
 
     .line 151
     goto :goto_0
@@ -85,7 +89,7 @@
 
     check-cast v1, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->access$300(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->-$$Nest$monUssdMessageReceived(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     goto :goto_0
 
@@ -97,7 +101,7 @@
 
     check-cast v1, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->access$200(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->-$$Nest$monCancelUssd(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 157
     goto :goto_0
@@ -110,7 +114,7 @@
 
     check-cast v1, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->access$100(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsUssdSessionImpl;->-$$Nest$mOnUssdSentResponse(Lorg/codeaurora/ims/ImsUssdSessionImpl;Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     .line 154
     nop

@@ -32,6 +32,8 @@
 
 .field static final LOG_TAG:Ljava/lang/String; = "DRIVERCALL-IMS"
 
+.field public static final UPDATE_AUDIO_QUALITY:I = 0x2000
+
 .field public static final UPDATE_CALL_DETAILS:I = 0x20
 
 .field public static final UPDATE_CALL_PROGRESS_INFO:I = 0x800
@@ -52,6 +54,8 @@
 
 .field public static final UPDATE_IS_MT:I = 0x8
 
+.field public static final UPDATE_MODEM_CALL_ID:I = 0x4000
+
 .field public static final UPDATE_NONE:I = 0x0
 
 .field public static final UPDATE_NUMBER:I = 0x4
@@ -66,6 +70,8 @@
 
 .field public als:I
 
+.field public audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
 .field public callDetails:Lorg/codeaurora/ims/CallDetails;
 
 .field public callFailCause:Landroid/telephony/ims/ImsReasonInfo;
@@ -79,6 +85,8 @@
 .field public historyInfo:Ljava/lang/String;
 
 .field public index:I
+
+.field public isDcCall:Z
 
 .field public isEncrypted:Z
 
@@ -100,9 +108,13 @@
 
 .field public mConfSupported:I
 
+.field private mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
 .field public mMtMultiLineInfo:Lorg/codeaurora/ims/MultiIdentityLineInfo;
 
 .field private final mVerstatInfo:Lorg/codeaurora/ims/VerstatInfo;
+
+.field public modemCallId:I
 
 .field public name:Ljava/lang/String;
 
@@ -119,53 +131,60 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 152
+    .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 99
+    .line 101
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
-    .line 112
+    .line 114
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
-    .line 153
+    .line 167
     new-instance v0, Lorg/codeaurora/ims/CallDetails;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CallDetails;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callDetails:Lorg/codeaurora/ims/CallDetails;
 
-    .line 154
+    .line 168
     new-instance v0, Lorg/codeaurora/ims/VerstatInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/VerstatInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mVerstatInfo:Lorg/codeaurora/ims/VerstatInfo;
 
-    .line 155
+    .line 169
     new-instance v0, Lorg/codeaurora/ims/CrsData;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CrsData;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
-    .line 156
+    .line 170
     new-instance v0, Lorg/codeaurora/ims/CallProgressInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CallProgressInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
-    .line 157
+    .line 171
     new-instance v0, Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/MsimAdditionalCallInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
-    .line 158
+    .line 172
+    new-instance v0, Lorg/codeaurora/ims/AudioQuality;
+
+    invoke-direct {v0}, Lorg/codeaurora/ims/AudioQuality;-><init>()V
+
+    iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    .line 173
     return-void
 .end method
 
@@ -174,34 +193,50 @@
     .param p1, "callComposerInfo"    # Lorg/codeaurora/ims/CallComposerInfo;
     .param p2, "verstatInfo"    # Lorg/codeaurora/ims/VerstatInfo;
 
-    .line 169
+    .line 185
     invoke-direct {p0, p2}, Lorg/codeaurora/ims/DriverCallIms;-><init>(Lorg/codeaurora/ims/VerstatInfo;)V
 
-    .line 170
+    .line 186
     new-instance v0, Lorg/codeaurora/ims/CrsData;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CrsData;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
-    .line 171
+    .line 187
     iput-object p1, p0, Lorg/codeaurora/ims/DriverCallIms;->mCallComposerInfo:Lorg/codeaurora/ims/CallComposerInfo;
 
-    .line 172
+    .line 188
     new-instance v0, Lorg/codeaurora/ims/CallProgressInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CallProgressInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
-    .line 173
+    .line 189
     new-instance v0, Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/MsimAdditionalCallInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
-    .line 174
+    .line 190
+    return-void
+.end method
+
+.method public constructor <init>(Lorg/codeaurora/ims/CallComposerInfo;Lorg/codeaurora/ims/VerstatInfo;Lorg/codeaurora/ims/EcnamInfo;)V
+    .locals 0
+    .param p1, "callComposerInfo"    # Lorg/codeaurora/ims/CallComposerInfo;
+    .param p2, "verstatInfo"    # Lorg/codeaurora/ims/VerstatInfo;
+    .param p3, "ecnamInfo"    # Lorg/codeaurora/ims/EcnamInfo;
+
+    .line 194
+    invoke-direct {p0, p1, p2}, Lorg/codeaurora/ims/DriverCallIms;-><init>(Lorg/codeaurora/ims/CallComposerInfo;Lorg/codeaurora/ims/VerstatInfo;)V
+
+    .line 195
+    iput-object p3, p0, Lorg/codeaurora/ims/DriverCallIms;->mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
+    .line 196
     return-void
 .end method
 
@@ -209,18 +244,18 @@
     .locals 4
     .param p1, "dc"    # Lorg/codeaurora/ims/DriverCallIms;
 
-    .line 121
+    .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 99
+    .line 101
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
-    .line 112
+    .line 114
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
-    .line 122
+    .line 132
     new-instance v0, Lorg/codeaurora/ims/CallDetails;
 
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callDetails:Lorg/codeaurora/ims/CallDetails;
@@ -229,7 +264,7 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callDetails:Lorg/codeaurora/ims/CallDetails;
 
-    .line 123
+    .line 133
     new-instance v0, Landroid/telephony/ims/ImsReasonInfo;
 
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
@@ -240,14 +275,14 @@
 
     iget-object v2, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 124
+    .line 134
     invoke-virtual {v2}, Landroid/telephony/ims/ImsReasonInfo;->getExtraCode()I
 
     move-result v2
 
     iget-object v3, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 125
+    .line 135
     invoke-virtual {v3}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v3
@@ -256,7 +291,7 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 126
+    .line 136
     new-instance v0, Lorg/codeaurora/ims/CrsData;
 
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
@@ -265,111 +300,111 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
-    .line 127
+    .line 137
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
 
-    .line 128
+    .line 138
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
-    .line 129
+    .line 139
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->number:Ljava/lang/String;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->number:Ljava/lang/String;
 
-    .line 130
+    .line 140
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isMT:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isMT:Z
 
-    .line 131
+    .line 141
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->TOA:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->TOA:I
 
-    .line 132
+    .line 142
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isMpty:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isMpty:Z
 
-    .line 133
+    .line 143
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->als:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->als:I
 
-    .line 134
+    .line 144
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isVoice:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isVoice:Z
 
-    .line 135
+    .line 145
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isVoicePrivacy:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isVoicePrivacy:Z
 
-    .line 136
+    .line 146
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->numberPresentation:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->numberPresentation:I
 
-    .line 137
+    .line 147
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->name:Ljava/lang/String;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->name:Ljava/lang/String;
 
-    .line 138
+    .line 148
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->namePresentation:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->namePresentation:I
 
-    .line 139
+    .line 149
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isEncrypted:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isEncrypted:Z
 
-    .line 140
+    .line 150
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
-    .line 141
+    .line 151
     iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
-    .line 142
+    .line 152
     invoke-virtual {p1}, Lorg/codeaurora/ims/DriverCallIms;->getVerstatInfo()Lorg/codeaurora/ims/VerstatInfo;
 
     move-result-object v0
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mVerstatInfo:Lorg/codeaurora/ims/VerstatInfo;
 
-    .line 143
+    .line 153
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->mMtMultiLineInfo:Lorg/codeaurora/ims/MultiIdentityLineInfo;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mMtMultiLineInfo:Lorg/codeaurora/ims/MultiIdentityLineInfo;
 
-    .line 144
+    .line 154
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isTirOverwriteAllowed:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isTirOverwriteAllowed:Z
 
-    .line 145
+    .line 155
     invoke-virtual {p1}, Lorg/codeaurora/ims/DriverCallIms;->getCallComposerInfo()Lorg/codeaurora/ims/CallComposerInfo;
 
     move-result-object v0
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mCallComposerInfo:Lorg/codeaurora/ims/CallComposerInfo;
 
-    .line 146
+    .line 156
     iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
-    .line 147
+    .line 157
     new-instance v0, Lorg/codeaurora/ims/CallProgressInfo;
 
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
@@ -378,12 +413,12 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
-    .line 148
+    .line 158
     iget-object v0, p1, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
-    .line 149
+    .line 159
     new-instance v0, Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
@@ -392,7 +427,33 @@
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
-    .line 150
+    .line 160
+    new-instance v0, Lorg/codeaurora/ims/AudioQuality;
+
+    iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    invoke-direct {v0, v1}, Lorg/codeaurora/ims/AudioQuality;-><init>(Lorg/codeaurora/ims/AudioQuality;)V
+
+    iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    .line 161
+    invoke-virtual {p1}, Lorg/codeaurora/ims/DriverCallIms;->getEcnamInfo()Lorg/codeaurora/ims/EcnamInfo;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
+    .line 162
+    iget v0, p1, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    .line 163
+    iget-boolean v0, p1, Lorg/codeaurora/ims/DriverCallIms;->isDcCall:Z
+
+    iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isDcCall:Z
+
+    .line 164
     return-void
 .end method
 
@@ -400,49 +461,56 @@
     .locals 1
     .param p1, "verstatInfo"    # Lorg/codeaurora/ims/VerstatInfo;
 
-    .line 160
+    .line 175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 99
+    .line 101
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
-    .line 112
+    .line 114
     iput-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
-    .line 161
+    .line 176
     new-instance v0, Lorg/codeaurora/ims/CallDetails;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CallDetails;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callDetails:Lorg/codeaurora/ims/CallDetails;
 
-    .line 162
+    .line 177
     new-instance v0, Lorg/codeaurora/ims/CrsData;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CrsData;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
-    .line 163
+    .line 178
     iput-object p1, p0, Lorg/codeaurora/ims/DriverCallIms;->mVerstatInfo:Lorg/codeaurora/ims/VerstatInfo;
 
-    .line 164
+    .line 179
     new-instance v0, Lorg/codeaurora/ims/CallProgressInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/CallProgressInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
-    .line 165
+    .line 180
     new-instance v0, Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
     invoke-direct {v0}, Lorg/codeaurora/ims/MsimAdditionalCallInfo;-><init>()V
 
     iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
-    .line 166
+    .line 181
+    new-instance v0, Lorg/codeaurora/ims/AudioQuality;
+
+    invoke-direct {v0}, Lorg/codeaurora/ims/AudioQuality;-><init>()V
+
+    iput-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    .line 182
     return-void
 .end method
 
@@ -455,10 +523,10 @@
         }
     .end annotation
 
-    .line 282
+    .line 324
     packed-switch p0, :pswitch_data_0
 
-    .line 288
+    .line 330
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -469,7 +537,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -479,25 +551,25 @@
 
     throw v0
 
-    .line 286
+    .line 328
     :pswitch_0
     const/4 v0, 0x4
 
     return v0
 
-    .line 285
+    .line 327
     :pswitch_1
     const/4 v0, 0x3
 
     return v0
 
-    .line 284
+    .line 326
     :pswitch_2
     const/4 v0, 0x2
 
     return v0
 
-    .line 283
+    .line 325
     :pswitch_3
     const/4 v0, 0x1
 
@@ -531,28 +603,28 @@
     .locals 2
     .param p1, "dc"    # Lorg/codeaurora/ims/DriverCallIms;
 
-    .line 297
+    .line 350
     iget v0, p0, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
     iget v1, p1, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
     if-ge v0, v1, :cond_0
 
-    .line 298
+    .line 351
     const/4 v0, -0x1
 
     return v0
 
-    .line 299
+    .line 352
     :cond_0
     if-ne v0, v1, :cond_1
 
-    .line 300
+    .line 353
     const/4 v0, 0x0
 
     return v0
 
-    .line 302
+    .line 355
     :cond_1
     const/4 v0, 0x1
 
@@ -562,16 +634,43 @@
 .method public getCallComposerInfo()Lorg/codeaurora/ims/CallComposerInfo;
     .locals 1
 
-    .line 268
+    .line 298
     iget-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mCallComposerInfo:Lorg/codeaurora/ims/CallComposerInfo;
 
     return-object v0
 .end method
 
+.method public getEcnamInfo()Lorg/codeaurora/ims/EcnamInfo;
+    .locals 1
+
+    .line 302
+    iget-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
+    return-object v0
+.end method
+
+.method public getIsDcCall()Z
+    .locals 1
+
+    .line 310
+    iget-boolean v0, p0, Lorg/codeaurora/ims/DriverCallIms;->isDcCall:Z
+
+    return v0
+.end method
+
+.method public getModemCallId()I
+    .locals 1
+
+    .line 306
+    iget v0, p0, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    return v0
+.end method
+
 .method public getVerstatInfo()Lorg/codeaurora/ims/VerstatInfo;
     .locals 1
 
-    .line 264
+    .line 294
     iget-object v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mVerstatInfo:Lorg/codeaurora/ims/VerstatInfo;
 
     return-object v0
@@ -580,7 +679,7 @@
 .method public isConfSupportIndicated()Z
     .locals 2
 
-    .line 272
+    .line 314
     iget v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
     const/4 v1, 0x1
@@ -601,7 +700,7 @@
 .method public isVideoConfSupported()Z
     .locals 2
 
-    .line 276
+    .line 318
     iget v0, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
     const/4 v1, 0x2
@@ -621,10 +720,32 @@
     return v0
 .end method
 
+.method public setmCallComposerInfo(Lorg/codeaurora/ims/CallComposerInfo;)V
+    .locals 0
+    .param p1, "ccInfo"    # Lorg/codeaurora/ims/CallComposerInfo;
+
+    .line 335
+    iput-object p1, p0, Lorg/codeaurora/ims/DriverCallIms;->mCallComposerInfo:Lorg/codeaurora/ims/CallComposerInfo;
+
+    .line 336
+    return-void
+.end method
+
+.method public setmEcnamInfo(Lorg/codeaurora/ims/EcnamInfo;)V
+    .locals 0
+    .param p1, "ecInfo"    # Lorg/codeaurora/ims/EcnamInfo;
+
+    .line 341
+    iput-object p1, p0, Lorg/codeaurora/ims/DriverCallIms;->mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
+    .line 342
+    return-void
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 307
+    .line 360
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -633,29 +754,43 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v2, p0, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v2, ",toa="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v2, p0, Lorg/codeaurora/ims/DriverCallIms;->TOA:I
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 308
+    move-result-object v0
+
+    .line 361
     iget-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isMpty:Z
 
     if-eqz v2, :cond_0
@@ -670,7 +805,11 @@
     :goto_0
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isMT:Z
 
@@ -686,15 +825,23 @@
     :goto_1
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v2, p0, Lorg/codeaurora/ims/DriverCallIms;->als:I
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 309
+    move-result-object v0
+
+    .line 362
     iget-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isVoice:Z
 
     if-eqz v2, :cond_2
@@ -709,9 +856,13 @@
     :goto_2
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 310
+    move-result-object v0
+
+    .line 363
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isVoicePrivacy:Z
 
     if-eqz v1, :cond_3
@@ -726,146 +877,268 @@
     :goto_3
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ",,cli="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->numberPresentation:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ",,"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->namePresentation:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "Call Details ="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callDetails:Lorg/codeaurora/ims/CallDetails;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ",CallFailCause Code= "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 314
+    .line 367
     invoke-virtual {v1}, Landroid/telephony/ims/ImsReasonInfo;->getCode()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ",CallFailCause String= "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 315
+    .line 368
     invoke-virtual {v1}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", isEncrypted="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isEncrypted:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", historyInfo="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
-    .line 317
+    .line 370
     invoke-static {v1}, Lcom/qualcomm/ims/utils/Log;->pii(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", Conf. Support="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->mMtMultiLineInfo:Lorg/codeaurora/ims/MultiIdentityLineInfo;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", isTirOverwriteAllowed="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isTirOverwriteAllowed:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", isPreparatory="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", CRS data="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", Call progress Info = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", diversionInfo ="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", additional call info ="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->additionalCallInfo:Lorg/codeaurora/ims/MsimAdditionalCallInfo;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
+    const-string v1, ", audio quality ="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", modemCallId = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", isDcCall = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isDcCall:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", callComposerInfo"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->mCallComposerInfo:Lorg/codeaurora/ims/CallComposerInfo;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", EcnamInfo"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->mEcnamInfo:Lorg/codeaurora/ims/EcnamInfo;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 307
+    .line 360
     return-object v0
 .end method
 
@@ -873,19 +1146,19 @@
     .locals 6
     .param p1, "update"    # Lorg/codeaurora/ims/DriverCallIms;
 
-    .line 184
+    .line 206
     if-nez p1, :cond_0
 
-    .line 185
+    .line 207
     const/4 v0, 0x0
 
     return v0
 
-    .line 187
+    .line 209
     :cond_0
     const/4 v0, 0x0
 
-    .line 188
+    .line 210
     .local v0, "changed":I
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
 
@@ -893,13 +1166,13 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 189
+    .line 211
     iput-object v2, p0, Lorg/codeaurora/ims/DriverCallIms;->state:Lorg/codeaurora/ims/DriverCallIms$State;
 
-    .line 190
+    .line 212
     or-int/lit8 v0, v0, 0x1
 
-    .line 192
+    .line 214
     :cond_1
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
@@ -907,13 +1180,13 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 193
+    .line 215
     iput v2, p0, Lorg/codeaurora/ims/DriverCallIms;->index:I
 
-    .line 194
+    .line 216
     or-int/lit8 v0, v0, 0x2
 
-    .line 196
+    .line 218
     :cond_2
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->number:Ljava/lang/String;
 
@@ -921,13 +1194,13 @@
 
     if-eq v1, v2, :cond_3
 
-    .line 197
+    .line 219
     iput-object v2, p0, Lorg/codeaurora/ims/DriverCallIms;->number:Ljava/lang/String;
 
-    .line 198
+    .line 220
     or-int/lit8 v0, v0, 0x4
 
-    .line 200
+    .line 222
     :cond_3
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isMT:Z
 
@@ -935,13 +1208,13 @@
 
     if-eq v1, v2, :cond_4
 
-    .line 201
+    .line 223
     iput-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isMT:Z
 
-    .line 202
+    .line 224
     or-int/lit8 v0, v0, 0x8
 
-    .line 204
+    .line 226
     :cond_4
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isMpty:Z
 
@@ -949,24 +1222,24 @@
 
     if-eq v1, v2, :cond_5
 
-    .line 205
+    .line 227
     iput-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isMpty:Z
 
-    .line 206
+    .line 228
     or-int/lit8 v0, v0, 0x10
 
-    .line 208
+    .line 230
     :cond_5
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
     if-eqz v1, :cond_a
 
-    .line 209
+    .line 231
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
     if-nez v1, :cond_6
 
-    .line 210
+    .line 232
     new-instance v1, Landroid/telephony/ims/ImsReasonInfo;
 
     iget-object v2, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
@@ -977,14 +1250,14 @@
 
     iget-object v3, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 211
+    .line 233
     invoke-virtual {v3}, Landroid/telephony/ims/ImsReasonInfo;->getExtraCode()I
 
     move-result v3
 
     iget-object v4, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 212
+    .line 234
     invoke-virtual {v4}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v4
@@ -995,13 +1268,13 @@
 
     goto :goto_0
 
-    .line 214
+    .line 236
     :cond_6
     invoke-virtual {v1}, Landroid/telephony/ims/ImsReasonInfo;->getCode()I
 
     move-result v1
 
-    .line 215
+    .line 237
     .local v1, "imsReasonCode":I
     iget-object v2, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1009,7 +1282,7 @@
 
     move-result v2
 
-    .line 216
+    .line 238
     .local v2, "imsReasonExtraCode":I
     iget-object v3, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1017,7 +1290,7 @@
 
     move-result-object v3
 
-    .line 217
+    .line 239
     .local v3, "imsReasonExtraMessage":Ljava/lang/String;
     iget-object v4, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1033,14 +1306,14 @@
 
     if-eq v4, v5, :cond_7
 
-    .line 218
+    .line 240
     iget-object v4, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
     invoke-virtual {v4}, Landroid/telephony/ims/ImsReasonInfo;->getCode()I
 
     move-result v1
 
-    .line 220
+    .line 242
     :cond_7
     iget-object v4, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1056,14 +1329,14 @@
 
     if-eq v4, v5, :cond_8
 
-    .line 221
+    .line 243
     iget-object v4, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
     invoke-virtual {v4}, Landroid/telephony/ims/ImsReasonInfo;->getExtraCode()I
 
     move-result v2
 
-    .line 223
+    .line 245
     :cond_8
     iget-object v4, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1079,14 +1352,14 @@
 
     if-eq v4, v5, :cond_9
 
-    .line 224
+    .line 246
     iget-object v4, p1, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
     invoke-virtual {v4}, Landroid/telephony/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 226
+    .line 248
     :cond_9
     new-instance v4, Landroid/telephony/ims/ImsReasonInfo;
 
@@ -1094,7 +1367,7 @@
 
     iput-object v4, p0, Lorg/codeaurora/ims/DriverCallIms;->callFailCause:Landroid/telephony/ims/ImsReasonInfo;
 
-    .line 230
+    .line 252
     .end local v1    # "imsReasonCode":I
     .end local v2    # "imsReasonExtraCode":I
     .end local v3    # "imsReasonExtraMessage":Ljava/lang/String;
@@ -1110,10 +1383,10 @@
 
     if-eqz v1, :cond_b
 
-    .line 231
+    .line 253
     or-int/lit8 v0, v0, 0x20
 
-    .line 233
+    .line 255
     :cond_b
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isEncrypted:Z
 
@@ -1121,13 +1394,13 @@
 
     if-eq v1, v2, :cond_c
 
-    .line 234
+    .line 256
     iput-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isEncrypted:Z
 
-    .line 235
+    .line 257
     or-int/lit16 v0, v0, 0x80
 
-    .line 237
+    .line 259
     :cond_c
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
@@ -1139,15 +1412,15 @@
 
     if-nez v1, :cond_d
 
-    .line 238
+    .line 260
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
     iput-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->historyInfo:Ljava/lang/String;
 
-    .line 239
+    .line 261
     or-int/lit16 v0, v0, 0x100
 
-    .line 241
+    .line 263
     :cond_d
     iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
@@ -1155,13 +1428,13 @@
 
     if-eq v1, v2, :cond_e
 
-    .line 242
+    .line 264
     iput v2, p0, Lorg/codeaurora/ims/DriverCallIms;->mConfSupported:I
 
-    .line 243
+    .line 265
     or-int/lit16 v0, v0, 0x200
 
-    .line 245
+    .line 267
     :cond_e
     iget-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->crsData:Lorg/codeaurora/ims/CrsData;
 
@@ -1173,10 +1446,10 @@
 
     if-eqz v1, :cond_f
 
-    .line 246
+    .line 268
     or-int/lit16 v0, v0, 0x400
 
-    .line 248
+    .line 270
     :cond_f
     iget-boolean v1, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
@@ -1184,13 +1457,13 @@
 
     if-eq v1, v2, :cond_10
 
-    .line 249
+    .line 271
     iput-boolean v2, p0, Lorg/codeaurora/ims/DriverCallIms;->isPreparatory:Z
 
-    .line 250
+    .line 272
     or-int/lit16 v0, v0, 0x400
 
-    .line 252
+    .line 274
     :cond_10
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
@@ -1202,15 +1475,15 @@
 
     if-nez v1, :cond_11
 
-    .line 253
+    .line 275
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
     iput-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->callProgressInfo:Lorg/codeaurora/ims/CallProgressInfo;
 
-    .line 254
+    .line 276
     or-int/lit16 v0, v0, 0x800
 
-    .line 256
+    .line 278
     :cond_11
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
@@ -1222,15 +1495,49 @@
 
     if-nez v1, :cond_12
 
-    .line 257
+    .line 279
     iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
     iput-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->diversionInfo:Ljava/lang/String;
 
-    .line 258
+    .line 280
     or-int/lit16 v0, v0, 0x1000
 
-    .line 260
+    .line 282
     :cond_12
+    iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    iget-object v2, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_13
+
+    .line 283
+    iget-object v1, p1, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    iput-object v1, p0, Lorg/codeaurora/ims/DriverCallIms;->audioQuality:Lorg/codeaurora/ims/AudioQuality;
+
+    .line 284
+    or-int/lit16 v0, v0, 0x2000
+
+    .line 286
+    :cond_13
+    iget v1, p0, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    iget v2, p1, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    if-eq v1, v2, :cond_14
+
+    .line 287
+    iput v2, p0, Lorg/codeaurora/ims/DriverCallIms;->modemCallId:I
+
+    .line 288
+    or-int/lit16 v0, v0, 0x4000
+
+    .line 290
+    :cond_14
     return v0
 .end method

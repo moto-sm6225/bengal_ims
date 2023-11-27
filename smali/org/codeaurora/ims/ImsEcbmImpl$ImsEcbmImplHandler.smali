@@ -62,9 +62,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -86,9 +90,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -109,7 +117,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsEcbmImpl;->access$000(Lorg/codeaurora/ims/ImsEcbmImpl;Z)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsEcbmImpl;->-$$Nest$mcreateEcbmCallBackThread(Lorg/codeaurora/ims/ImsEcbmImpl;Z)V
 
     .line 85
     goto :goto_0
@@ -125,7 +133,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsEcbmImpl;->access$000(Lorg/codeaurora/ims/ImsEcbmImpl;Z)V
+    invoke-static {v0, v1}, Lorg/codeaurora/ims/ImsEcbmImpl;->-$$Nest$mcreateEcbmCallBackThread(Lorg/codeaurora/ims/ImsEcbmImpl;Z)V
 
     .line 81
     nop

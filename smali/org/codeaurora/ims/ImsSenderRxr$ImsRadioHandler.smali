@@ -23,14 +23,14 @@
     .locals 1
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsSenderRxr;
 
-    .line 635
+    .line 700
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
     invoke-direct {p0, p1, v0}, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;-><init>(Lorg/codeaurora/ims/ImsSenderRxr;Landroid/os/Looper;)V
 
-    .line 636
+    .line 701
     return-void
 .end method
 
@@ -39,13 +39,13 @@
     .param p1, "this$0"    # Lorg/codeaurora/ims/ImsSenderRxr;
     .param p2, "looper"    # Landroid/os/Looper;
 
-    .line 638
+    .line 703
     iput-object p1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
-    .line 639
+    .line 704
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 640
+    .line 705
     return-void
 .end method
 
@@ -55,12 +55,12 @@
     .locals 7
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 645
+    .line 710
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lorg/codeaurora/ims/IFRequest;
 
-    .line 647
+    .line 712
     .local v0, "rr":Lorg/codeaurora/ims/IFRequest;
     iget v1, p1, Landroid/os/Message;->what:I
 
@@ -68,7 +68,7 @@
 
     goto/16 :goto_2
 
-    .line 660
+    .line 725
     :pswitch_0
     iget-object v1, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -76,7 +76,7 @@
 
     monitor-enter v1
 
-    .line 661
+    .line 726
     :try_start_0
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -88,14 +88,14 @@
 
     if-eqz v2, :cond_2
 
-    .line 663
+    .line 728
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget v2, v2, Lorg/codeaurora/ims/ImsSenderRxr;->mRequestMessagesWaiting:I
 
     if-eqz v2, :cond_1
 
-    .line 664
+    .line 729
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -104,15 +104,21 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     iget-object v3, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget v3, v3, Lorg/codeaurora/ims/ImsSenderRxr;->mRequestMessagesWaiting:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     const-string v3, " at TIMEOUT. Reset to 0"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -120,14 +126,14 @@
 
     invoke-static {p0, v2}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 667
+    .line 732
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     const/4 v3, 0x0
 
     iput v3, v2, Lorg/codeaurora/ims/ImsSenderRxr;->mRequestMessagesWaiting:I
 
-    .line 669
+    .line 734
     iget-object v2, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget-object v2, v2, Lorg/codeaurora/ims/ImsSenderRxr;->mRequestsList:Ljava/util/ArrayList;
@@ -136,7 +142,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 670
+    .line 735
     :try_start_1
     iget-object v3, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
@@ -146,7 +152,7 @@
 
     move-result v3
 
-    .line 671
+    .line 736
     .local v3, "count":I
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -156,7 +162,11 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -164,14 +174,14 @@
 
     invoke-static {p0, v4}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 674
+    .line 739
     const/4 v4, 0x0
 
     .local v4, "i":I
     :goto_0
     if-ge v4, v3, :cond_0
 
-    .line 675
+    .line 740
     iget-object v5, p0, Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;->this$0:Lorg/codeaurora/ims/ImsSenderRxr;
 
     iget-object v5, v5, Lorg/codeaurora/ims/ImsSenderRxr;->mRequestsList:Ljava/util/ArrayList;
@@ -184,47 +194,57 @@
 
     move-object v0, v5
 
-    .line 676
+    .line 741
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v5
+
     const-string v6, ": ["
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     iget v6, v0, Lorg/codeaurora/ims/IFRequest;->mSerial:I
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v5
+
     const-string v6, "] "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v5
+
     iget v6, v0, Lorg/codeaurora/ims/IFRequest;->mRequest:I
 
-    .line 677
+    .line 742
     invoke-static {v6}, Lorg/codeaurora/ims/ImsSenderRxr;->msgIdToString(I)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v5
+
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 676
+    .line 741
     invoke-static {p0, v5}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 674
+    .line 739
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 679
+    .line 744
     .end local v3    # "count":I
     .end local v4    # "i":I
     :cond_0
@@ -245,7 +265,7 @@
     :try_start_2
     throw v3
 
-    .line 681
+    .line 746
     .restart local v0    # "rr":Lorg/codeaurora/ims/IFRequest;
     .restart local p0    # "this":Lorg/codeaurora/ims/ImsSenderRxr$ImsRadioHandler;
     .restart local p1    # "msg":Landroid/os/Message;
@@ -257,7 +277,7 @@
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 683
+    .line 748
     :cond_2
     monitor-exit v1
 
@@ -272,7 +292,7 @@
 
     throw v2
 
-    .line 686
+    .line 751
     :goto_2
     return-void
 
